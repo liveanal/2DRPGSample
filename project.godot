@@ -1,0 +1,72 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "RefCounted",
+"class": &"AStarUtil",
+"language": &"GDScript",
+"path": "res://project/00_utility/AStarUtil.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"Fade",
+"language": &"GDScript",
+"path": "res://project/01_static/Fade.gd"
+}, {
+"base": "Node",
+"class": &"Main",
+"language": &"GDScript",
+"path": "res://project/Main.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"Modal",
+"language": &"GDScript",
+"path": "res://project/01_static/Modal.gd"
+}, {
+"base": "Modal",
+"class": &"OptionModal",
+"language": &"GDScript",
+"path": "res://project/01_static/modal/OptionModal.gd"
+}, {
+"base": "Modal",
+"class": &"QuitModal",
+"language": &"GDScript",
+"path": "res://project/01_static/modal/QuitModal.gd"
+}, {
+"base": "RichTextEffect",
+"class": &"RichTextVAlign",
+"language": &"GDScript",
+"path": "res://project/00_utility/bbcode/RichTextVAlign.gd"
+}, {
+"base": "RefCounted",
+"class": &"Utility",
+"language": &"GDScript",
+"path": "res://project/00_utility/Utility.gd"
+}]
+_global_script_class_icons={
+"AStarUtil": "",
+"Fade": "",
+"Main": "",
+"Modal": "",
+"OptionModal": "",
+"QuitModal": "",
+"RichTextVAlign": "",
+"Utility": ""
+}
+
+[application]
+
+config/name="2DRPGSample"
+run/main_scene="res://project/Main.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://resource/icon.svg"
+
+[autoload]
+
+System="*res://project/System.tscn"

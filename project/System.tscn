@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxogngplam28"]
+
+[ext_resource type="Script" path="res://project/System.gd" id="1_xshg1"]
+
+[node name="System" type="Node"]
+script = ExtResource("1_xshg1")

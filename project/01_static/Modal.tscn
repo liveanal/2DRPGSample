@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://mq0emswosmd6"]
+
+[ext_resource type="Script" path="res://project/01_static/Modal.gd" id="1_ubfh5"]
+
+[node name="Modal" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_ubfh5")
+
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0, 0, 0.392157)
+
+[node name="panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(420, 260)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -130.0
+offset_right = 210.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="margin" type="MarginContainer" parent="panel"]
+offset_right = 420.0
+offset_bottom = 260.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="contents" type="VBoxContainer" parent="panel/margin"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 415.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="panel/margin/contents"]
+offset_right = 410.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="separate" type="HSeparator" parent="panel/margin/contents"]
+offset_top = 177.0
+offset_right = 410.0
+offset_bottom = 181.0
+
+[node name="buttons" type="HBoxContainer" parent="panel/margin/contents"]
+custom_minimum_size = Vector2(0, 65)
+offset_top = 185.0
+offset_right = 410.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="button1" type="Button" parent="panel/margin/contents/buttons"]
+custom_minimum_size = Vector2(120, 50)
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 127.0
+offset_bottom = 57.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="button2" type="Button" parent="panel/margin/contents/buttons"]
+custom_minimum_size = Vector2(120, 50)
+offset_left = 145.0
+offset_top = 7.0
+offset_right = 265.0
+offset_bottom = 57.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="button3" type="Button" parent="panel/margin/contents/buttons"]
+custom_minimum_size = Vector2(120, 50)
+offset_left = 283.0
+offset_top = 7.0
+offset_right = 403.0
+offset_bottom = 57.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_filter = 2
+text = "
+"

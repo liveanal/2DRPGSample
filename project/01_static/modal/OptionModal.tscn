@@ -1,0 +1,337 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdtwr4275htre"]
+
+[ext_resource type="PackedScene" uid="uid://mq0emswosmd6" path="res://project/01_static/Modal.tscn" id="1_wdwm5"]
+[ext_resource type="Script" path="res://project/01_static/modal/OptionModal.gd" id="2_npwev"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7c2gb"]
+content_margin_bottom = 10.0
+draw_center = false
+border_width_bottom = 1
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_a4w46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_in7bt"]
+content_margin_top = 15.0
+content_margin_bottom = 10.0
+draw_center = false
+border_width_bottom = 1
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_dlncn"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ruflh"]
+
+[node name="OptionModal" instance=ExtResource("1_wdwm5")]
+script = ExtResource("2_npwev")
+
+[node name="background" parent="." index="0"]
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 2.0
+offset_bottom = 8.0
+
+[node name="panel" parent="." index="1"]
+custom_minimum_size = Vector2(640, 420)
+
+[node name="margin" parent="panel" index="0"]
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 420.0
+
+[node name="contents" parent="panel/margin" index="0"]
+layout_mode = 2
+offset_right = 635.0
+offset_bottom = 415.0
+
+[node name="margin" parent="panel/margin/contents" index="0"]
+layout_mode = 2
+offset_right = 630.0
+offset_bottom = 333.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="scroller" type="ScrollContainer" parent="panel/margin/contents/margin" index="0"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 620.0
+offset_bottom = 328.0
+horizontal_scroll_mode = 0
+
+[node name="contents" type="VBoxContainer" parent="panel/margin/contents/margin/scroller" index="0"]
+layout_mode = 2
+offset_right = 610.0
+offset_bottom = 311.0
+size_flags_horizontal = 3
+
+[node name="section1" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="0"]
+layout_mode = 2
+offset_right = 610.0
+offset_bottom = 36.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7c2gb")
+text = "Window Mode"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="window_mode" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="1"]
+layout_mode = 2
+offset_top = 40.0
+offset_right = 610.0
+offset_bottom = 71.0
+
+[node name="small" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="0"]
+layout_mode = 2
+offset_left = 25.0
+offset_right = 123.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+button_pressed = true
+button_group = SubResource("ButtonGroup_a4w46")
+text = "960x600"
+
+[node name="midium" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="1"]
+layout_mode = 2
+offset_left = 174.0
+offset_right = 281.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+button_group = SubResource("ButtonGroup_a4w46")
+text = "1280x800"
+
+[node name="big" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="2"]
+layout_mode = 2
+offset_left = 328.0
+offset_right = 435.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+button_group = SubResource("ButtonGroup_a4w46")
+text = "1440x900"
+
+[node name="fullscreen" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="3"]
+layout_mode = 2
+offset_left = 478.0
+offset_right = 592.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+button_group = SubResource("ButtonGroup_a4w46")
+text = "FullScreen"
+
+[node name="section2" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="2"]
+layout_mode = 2
+offset_top = 75.0
+offset_right = 610.0
+offset_bottom = 126.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_in7bt")
+text = "Sound Volume"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="bgm_volume" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="3"]
+layout_mode = 2
+offset_top = 130.0
+offset_right = 610.0
+offset_bottom = 156.0
+
+[node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/bgm_volume" index="0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+offset_right = 150.0
+offset_bottom = 26.0
+text = "BGM"
+horizontal_alignment = 1
+
+[node name="slider" type="HSlider" parent="panel/margin/contents/margin/scroller/contents/bgm_volume" index="1"]
+layout_mode = 2
+offset_left = 154.0
+offset_top = 5.0
+offset_right = 610.0
+offset_bottom = 21.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+step = 10.0
+value = 100.0
+
+[node name="se_volume" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="4"]
+layout_mode = 2
+offset_top = 160.0
+offset_right = 610.0
+offset_bottom = 186.0
+
+[node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/se_volume" index="0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+offset_right = 150.0
+offset_bottom = 26.0
+text = "SE"
+horizontal_alignment = 1
+
+[node name="slider" type="HSlider" parent="panel/margin/contents/margin/scroller/contents/se_volume" index="1"]
+layout_mode = 2
+offset_left = 154.0
+offset_top = 5.0
+offset_right = 610.0
+offset_bottom = 21.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+step = 10.0
+value = 100.0
+
+[node name="section3" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="5"]
+layout_mode = 2
+offset_top = 190.0
+offset_right = 610.0
+offset_bottom = 241.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_in7bt")
+text = "Game Setting"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="text_speed" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="6"]
+layout_mode = 2
+offset_top = 245.0
+offset_right = 610.0
+offset_bottom = 276.0
+
+[node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/text_speed" index="0"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+offset_top = 2.0
+offset_right = 220.0
+offset_bottom = 28.0
+text = "Text Scroll Speed"
+
+[node name="contents" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents/text_speed" index="1"]
+layout_mode = 2
+offset_left = 224.0
+offset_right = 610.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="slow" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="0"]
+layout_mode = 2
+offset_left = 14.0
+offset_right = 79.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+button_group = SubResource("ButtonGroup_dlncn")
+text = "Slow"
+
+[node name="normal" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="1"]
+layout_mode = 2
+offset_left = 100.0
+offset_right = 187.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+button_pressed = true
+button_group = SubResource("ButtonGroup_dlncn")
+text = "Normal"
+
+[node name="high" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="2"]
+layout_mode = 2
+offset_left = 209.0
+offset_right = 273.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+button_group = SubResource("ButtonGroup_dlncn")
+text = "High"
+
+[node name="nowait" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="3"]
+layout_mode = 2
+offset_left = 294.0
+offset_right = 384.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+button_group = SubResource("ButtonGroup_dlncn")
+text = "No Wait"
+
+[node name="move_type" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="7"]
+layout_mode = 2
+offset_top = 280.0
+offset_right = 610.0
+offset_bottom = 311.0
+
+[node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/move_type" index="0"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+offset_top = 2.0
+offset_right = 220.0
+offset_bottom = 28.0
+text = "Move Type"
+
+[node name="contents" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents/move_type" index="1"]
+layout_mode = 2
+offset_left = 224.0
+offset_right = 610.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="default_walk" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/move_type/contents" index="0"]
+layout_mode = 2
+offset_left = 28.0
+offset_right = 162.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+button_pressed = true
+button_group = SubResource("ButtonGroup_ruflh")
+text = "Default Walk"
+
+[node name="default_run" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/move_type/contents" index="1"]
+layout_mode = 2
+offset_left = 227.0
+offset_right = 353.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+button_group = SubResource("ButtonGroup_ruflh")
+text = "Default Run"
+
+[node name="separate" parent="panel/margin/contents" index="1"]
+layout_mode = 2
+offset_top = 337.0
+offset_right = 630.0
+offset_bottom = 341.0
+
+[node name="buttons" parent="panel/margin/contents" index="2"]
+layout_mode = 2
+offset_top = 345.0
+offset_right = 630.0
+offset_bottom = 410.0
+
+[node name="button1" parent="panel/margin/contents/buttons" index="0"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+offset_left = 13.0
+offset_right = 193.0
+text = "DEFAULT"
+
+[node name="button2" parent="panel/margin/contents/buttons" index="1"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+offset_left = 224.0
+offset_right = 404.0
+text = "CANSEL"
+
+[node name="button3" parent="panel/margin/contents/buttons" index="2"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+offset_left = 436.0
+offset_right = 616.0
+text = "OK"
