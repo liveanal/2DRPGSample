@@ -84,7 +84,7 @@ func _process(delta):
 					scroll_timer.wait_time = scroll_time_default
 					scroll_char_nums = scroll_nums_default
 			DialogStatus.WAIT_PAGENATION:
-				if Input.is_action_pressed(input_next):
+				if Input.is_action_just_pressed(input_next):
 					emit_signal("pressed_next")
 					emit_signal("finished_message")
 
