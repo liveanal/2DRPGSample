@@ -1,0 +1,156 @@
+[gd_scene load_steps=22 format=3 uid="uid://bh6re7n4rxwdt"]
+
+[ext_resource type="Script" path="res://project/Test.gd" id="1_nuls8"]
+[ext_resource type="Texture2D" uid="uid://c83hgv6ksxss" path="res://resource/icon.svg" id="2_vc344"]
+[ext_resource type="Script" path="res://project/02_static/DialogSelect.gd" id="3_hm10v"]
+[ext_resource type="Script" path="res://project/02_static/DialogData.gd" id="3_pi880"]
+
+[sub_resource type="Resource" id="Resource_ycckn"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "kantaro"
+selectable = null
+call_func = null
+
+[sub_resource type="Resource" id="Resource_buyp0"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "super mariko RPG.
+super marimo RPG.
+super survivor RPG.
+unko
+chinko
+manko"
+selectable = null
+next = SubResource("Resource_ycckn")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_ylj02"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "dan dan kokoro hikareteku"
+selectable = null
+next = SubResource("Resource_buyp0")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_twytc"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "a
+i
+u
+e
+go"
+selectable = null
+next = SubResource("Resource_ylj02")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_ao8p2"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "hage hige fuge
+hoge moge hage
+taro jiro sabro"
+selectable = null
+next = SubResource("Resource_twytc")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_nr62e"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "moge moge chige"
+selectable = null
+next = SubResource("Resource_ao8p2")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_1bgtu"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "hoge hoge hage"
+selectable = null
+next = SubResource("Resource_nr62e")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_lpv5o"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "nuru nuru omanko"
+selectable = null
+next = SubResource("Resource_1bgtu")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_ejlnq"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "nuru nuru chin chin"
+selectable = null
+next = SubResource("Resource_lpv5o")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_vnryg"]
+script = ExtResource("3_pi880")
+name = "Name"
+face = ExtResource("2_vc344")
+dialog = "See you!"
+selectable = null
+next = SubResource("Resource_ejlnq")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_a7oa4"]
+script = ExtResource("3_pi880")
+name = null
+dialog = "I got an Item from Name!"
+selectable = null
+next = SubResource("Resource_vnryg")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_yvhah"]
+script = ExtResource("3_pi880")
+name = "Name"
+face = ExtResource("2_vc344")
+dialog = "I give you this."
+selectable = null
+next = SubResource("Resource_a7oa4")
+call_func = &"give_item"
+
+[sub_resource type="Resource" id="Resource_nia56"]
+script = ExtResource("3_pi880")
+name = "Name"
+face = ExtResource("2_vc344")
+dialog = "Nice to meet you."
+selectable = null
+call_func = null
+
+[sub_resource type="Resource" id="Resource_7scg0"]
+script = ExtResource("3_hm10v")
+text = "Hello! My name is Player!"
+next = SubResource("Resource_nia56")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_8naaw"]
+script = ExtResource("3_pi880")
+name = "Name"
+face = ExtResource("2_vc344")
+dialog = "..."
+selectable = null
+call_func = null
+
+[sub_resource type="Resource" id="Resource_r522e"]
+script = ExtResource("3_hm10v")
+text = "..."
+next = SubResource("Resource_8naaw")
+call_func = null
+
+[sub_resource type="Resource" id="Resource_bv61j"]
+script = ExtResource("3_pi880")
+name = "Name"
+face = ExtResource("2_vc344")
+dialog = "Hello!
+My name is Name."
+selectable = [SubResource("Resource_7scg0"), SubResource("Resource_r522e")]
+next = SubResource("Resource_yvhah")
+call_func = null
+
+[node name="Test" type="Node"]
+script = ExtResource("1_nuls8")
+dialog_data = SubResource("Resource_bv61j")

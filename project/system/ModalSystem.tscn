@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djfo7253l5fyi"]
+
+[ext_resource type="Script" path="res://project/system/ModalSystem.gd" id="1_m0lk2"]
+
+[node name="ModalSystem" type="Node"]
+script = ExtResource("1_m0lk2")

@@ -1,15 +1,15 @@
 class_name QuitModal extends Modal
 
-signal pressed_cansel
+signal pressed_cancel
 
 func _ready():
 	super._ready()
-	connect("pressed_button1",_on_pressed_cansel)
+	connect("pressed_button1",_on_pressed_cancel)
 	connect("pressed_button2",_on_pressed_ok)
 
-func _on_pressed_cansel():
+func _on_pressed_cancel():
+	emit_signal("pressed_cancel")
 	await close(anim_time)
-	emit_signal("pressed_cansel")
 
 func _on_pressed_ok():
 	disable()

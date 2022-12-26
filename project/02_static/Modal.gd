@@ -35,6 +35,7 @@ func open(time:=anim_time):
 		await tween.finished
 	else :
 		panel.scale = Vector2.ONE
+		await get_tree().process_frame
 	enable()
 	emit_signal("finished_open")
 
@@ -50,6 +51,7 @@ func close(time:=anim_time):
 		await tween.finished
 	else :
 		panel.scale = Vector2.ZERO
+		await get_tree().process_frame
 	emit_signal("finished_close")
 
 func disable():

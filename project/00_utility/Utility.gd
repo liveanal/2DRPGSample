@@ -145,3 +145,35 @@ static func get_radios_idx_checked(radios:Array) -> int:
 			result = i
 			break
 	return result
+
+# ラベル生成
+static func create_label(text,horizontal_alignment:=0,vertical_alignment:=1,size_horizontal:=0,expand_horizontal:=true,size_vertical:=0,expand_vertical:=false,label_settings=null)->Label:
+	var label := Label.new()
+	label.text = text
+	label.label_settings=label_settings
+	label.horizontal_alignment=horizontal_alignment
+	label.vertical_alignment=vertical_alignment
+	match(size_horizontal):
+		0: label.size_flags_horizontal=Control.SIZE_FILL if !expand_horizontal else Control.SIZE_EXPAND_FILL
+		1: label.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+		2: label.size_flags_horizontal=Control.SIZE_SHRINK_CENTER if !expand_horizontal else Control.SIZE_SHRINK_CENTER+Control.SIZE_EXPAND
+		3: label.size_flags_horizontal=Control.SIZE_SHRINK_END if !expand_horizontal else Control.SIZE_SHRINK_END+Control.SIZE_EXPAND
+	match(size_vertical):
+		0: label.size_flags_vertical=Control.SIZE_FILL if !expand_vertical else Control.SIZE_EXPAND_FILL
+		1: label.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
+		2: label.size_flags_vertical=Control.SIZE_SHRINK_CENTER if !expand_vertical else Control.SIZE_SHRINK_CENTER+Control.SIZE_EXPAND
+		3: label.size_flags_vertical=Control.SIZE_SHRINK_END if !expand_vertical else Control.SIZE_SHRINK_END+Control.SIZE_EXPAND
+	return label
+
+# nullまたは空か確認
+static func is_empty(value):
+	if value == null :
+		return true
+	elif typeof(value) == TYPE_STRING:
+		return value.is_empty()
+	elif typeof(value) == TYPE_STRING_NAME:
+		return value == null or value == ""
+	elif value.has_method("is_empty"):
+		return value.is_empty()
+	
+	return false

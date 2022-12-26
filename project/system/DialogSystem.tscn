@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6ug5a4we465p"]
+
+[ext_resource type="Script" path="res://project/system/DialogSystem.gd" id="1_mn4h4"]
+[ext_resource type="PackedScene" uid="uid://dd2kwxsvok0a5" path="res://project/02_static/Logging.tscn" id="2_hwpok"]
+
+[node name="DialogSystem" type="Node"]
+script = ExtResource("1_mn4h4")
+
+[node name="Logging" parent="." instance=ExtResource("2_hwpok")]

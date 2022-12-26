@@ -1,6 +1,6 @@
 class_name OptionModal extends Modal
 
-signal pressed_cansel
+signal pressed_cancel
 signal pressed_ok(values:Dictionary)
 
 @onready var window_mode := [
@@ -30,20 +30,20 @@ const default_values := {
 func _ready():
 	super._ready()
 	connect("pressed_button1",_on_pressed_default)
-	connect("pressed_button2",_on_pressed_cansel)
+	connect("pressed_button2",_on_pressed_cancel)
 	connect("pressed_button3",_on_pressed_ok)
 	set_values(default_values)
 
 func _on_pressed_default():
 	set_values(default_values)
 
-func _on_pressed_cansel():
+func _on_pressed_cancel():
+	emit_signal("pressed_cancel")
 	await close(anim_time)
-	emit_signal("pressed_cansel")
 
 func _on_pressed_ok():
-	await close(anim_time)
 	emit_signal("pressed_ok", get_values())
+	await close(anim_time)
 
 func get_values() -> Dictionary :
 	var result := {}

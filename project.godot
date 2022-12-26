@@ -14,10 +14,60 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://project/00_utility/AStarUtil.gd"
 }, {
+"base": "Node",
+"class": &"CameraManager",
+"language": &"GDScript",
+"path": "res://project/01_parts/CameraManager.gd"
+}, {
+"base": "Selectable",
+"class": &"CursorSelectable",
+"language": &"GDScript",
+"path": "res://project/01_parts/CursorSelectable.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"Dialog",
+"language": &"GDScript",
+"path": "res://project/02_static/Dialog.gd"
+}, {
+"base": "Resource",
+"class": &"DialogData",
+"language": &"GDScript",
+"path": "res://project/02_static/DialogData.gd"
+}, {
+"base": "Resource",
+"class": &"DialogSelect",
+"language": &"GDScript",
+"path": "res://project/02_static/DialogSelect.gd"
+}, {
 "base": "CanvasLayer",
 "class": &"Fade",
 "language": &"GDScript",
-"path": "res://project/01_static/Fade.gd"
+"path": "res://project/02_static/Fade.gd"
+}, {
+"base": "Dialog",
+"class": &"FullDialog",
+"language": &"GDScript",
+"path": "res://project/02_static/dialog/FullDialog.gd"
+}, {
+"base": "Dialog",
+"class": &"InfoDialog",
+"language": &"GDScript",
+"path": "res://project/02_static/dialog/InfoDialog.gd"
+}, {
+"base": "CursorSelectable",
+"class": &"LabelCSel",
+"language": &"GDScript",
+"path": "res://project/01_parts/selectable/LabelCSel.gd"
+}, {
+"base": "OverlapSelectable",
+"class": &"LabelOSel",
+"language": &"GDScript",
+"path": "res://project/01_parts/selectable/LabelOSel.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"Logging",
+"language": &"GDScript",
+"path": "res://project/02_static/Logging.gd"
 }, {
 "base": "Node",
 "class": &"Main",
@@ -27,22 +77,52 @@ _global_script_classes=[{
 "base": "CanvasLayer",
 "class": &"Modal",
 "language": &"GDScript",
-"path": "res://project/01_static/Modal.gd"
+"path": "res://project/02_static/Modal.gd"
+}, {
+"base": "Dialog",
+"class": &"NoFaceDialog",
+"language": &"GDScript",
+"path": "res://project/02_static/dialog/NoFaceDialog.gd"
 }, {
 "base": "Modal",
 "class": &"OptionModal",
 "language": &"GDScript",
-"path": "res://project/01_static/modal/OptionModal.gd"
+"path": "res://project/02_static/modal/OptionModal.gd"
+}, {
+"base": "Selectable",
+"class": &"OverlapSelectable",
+"language": &"GDScript",
+"path": "res://project/01_parts/OverlapSelectable.gd"
 }, {
 "base": "Modal",
 "class": &"QuitModal",
 "language": &"GDScript",
-"path": "res://project/01_static/modal/QuitModal.gd"
+"path": "res://project/02_static/modal/QuitModal.gd"
 }, {
 "base": "RichTextEffect",
 "class": &"RichTextVAlign",
 "language": &"GDScript",
 "path": "res://project/00_utility/bbcode/RichTextVAlign.gd"
+}, {
+"base": "Panel",
+"class": &"Scrollable",
+"language": &"GDScript",
+"path": "res://project/01_parts/Scrollable.gd"
+}, {
+"base": "Scrollable",
+"class": &"Selectable",
+"language": &"GDScript",
+"path": "res://project/01_parts/Selectable.gd"
+}, {
+"base": "Node",
+"class": &"Test",
+"language": &"GDScript",
+"path": "res://project/Test.gd"
+}, {
+"base": "Control",
+"class": &"Title",
+"language": &"GDScript",
+"path": "res://project/10_title/Title.gd"
 }, {
 "base": "RefCounted",
 "class": &"Utility",
@@ -51,12 +131,28 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "AStarUtil": "",
+"CameraManager": "",
+"CursorSelectable": "",
+"Dialog": "",
+"DialogData": "",
+"DialogSelect": "",
 "Fade": "",
+"FullDialog": "",
+"InfoDialog": "",
+"LabelCSel": "",
+"LabelOSel": "",
+"Logging": "",
 "Main": "",
 "Modal": "",
+"NoFaceDialog": "",
 "OptionModal": "",
+"OverlapSelectable": "",
 "QuitModal": "",
 "RichTextVAlign": "",
+"Scrollable": "",
+"Selectable": "",
+"Test": "",
+"Title": "",
 "Utility": ""
 }
 
@@ -67,6 +163,20 @@ run/main_scene="res://project/Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://resource/icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
-System="*res://project/System.tscn"
+ModalSystem="*res://project/system/ModalSystem.tscn"
+DialogSystem="*res://project/system/DialogSystem.tscn"
+System="*res://project/system/System.tscn"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=600
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"

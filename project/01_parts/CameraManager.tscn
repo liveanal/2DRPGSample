@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5fja4s6yu8g8"]
+
+[ext_resource type="Script" path="res://project/01_parts/CameraManager.gd" id="1_15flf"]
+
+[node name="CameraManager" type="Node"]
+script = ExtResource("1_15flf")
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="min" type="Marker2D" parent="."]
+
+[node name="max" type="Marker2D" parent="."]

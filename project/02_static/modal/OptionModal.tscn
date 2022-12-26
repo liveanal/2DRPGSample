@@ -1,33 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdtwr4275htre"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="PackedScene" uid="uid://mq0emswosmd6" path="res://project/01_static/Modal.tscn" id="1_wdwm5"]
-[ext_resource type="Script" path="res://project/01_static/modal/OptionModal.gd" id="2_npwev"]
+[ext_resource type="PackedScene" uid="uid://mq0emswosmd6" path="res://project/02_static/Modal.tscn" id="1_wdwm5"]
+[ext_resource type="Script" path="res://project/02_static/modal/OptionModal.gd" id="2_npwev"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7c2gb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crgck"]
 content_margin_bottom = 10.0
 draw_center = false
 border_width_bottom = 1
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_a4w46"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_dfbmj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_in7bt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6fbx"]
 content_margin_top = 15.0
 content_margin_bottom = 10.0
 draw_center = false
 border_width_bottom = 1
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_dlncn"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_d6jvm"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ruflh"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_68r0d"]
 
 [node name="OptionModal" instance=ExtResource("1_wdwm5")]
 script = ExtResource("2_npwev")
-
-[node name="background" parent="." index="0"]
-offset_left = 2.0
-offset_top = 8.0
-offset_right = 2.0
-offset_bottom = 8.0
 
 [node name="panel" parent="." index="1"]
 custom_minimum_size = Vector2(640, 420)
@@ -69,7 +63,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 offset_right = 610.0
 offset_bottom = 36.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_7c2gb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_crgck")
 text = "Window Mode"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -89,7 +83,7 @@ size_flags_horizontal = 6
 mouse_filter = 2
 theme_override_constants/h_separation = 10
 button_pressed = true
-button_group = SubResource("ButtonGroup_a4w46")
+button_group = SubResource("ButtonGroup_dfbmj")
 text = "960x600"
 
 [node name="midium" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="1"]
@@ -100,7 +94,7 @@ offset_bottom = 31.0
 size_flags_horizontal = 6
 mouse_filter = 2
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_a4w46")
+button_group = SubResource("ButtonGroup_dfbmj")
 text = "1280x800"
 
 [node name="big" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="2"]
@@ -111,7 +105,7 @@ offset_bottom = 31.0
 size_flags_horizontal = 6
 mouse_filter = 2
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_a4w46")
+button_group = SubResource("ButtonGroup_dfbmj")
 text = "1440x900"
 
 [node name="fullscreen" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="3"]
@@ -122,7 +116,7 @@ offset_bottom = 31.0
 size_flags_horizontal = 6
 mouse_filter = 2
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_a4w46")
+button_group = SubResource("ButtonGroup_dfbmj")
 text = "FullScreen"
 
 [node name="section2" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="2"]
@@ -130,7 +124,7 @@ layout_mode = 2
 offset_top = 75.0
 offset_right = 610.0
 offset_bottom = 126.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_in7bt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6fbx")
 text = "Sound Volume"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -192,7 +186,7 @@ layout_mode = 2
 offset_top = 190.0
 offset_right = 610.0
 offset_bottom = 241.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_in7bt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6fbx")
 text = "Game Setting"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -225,7 +219,7 @@ offset_right = 79.0
 offset_bottom = 31.0
 size_flags_horizontal = 6
 mouse_filter = 2
-button_group = SubResource("ButtonGroup_dlncn")
+button_group = SubResource("ButtonGroup_d6jvm")
 text = "Slow"
 
 [node name="normal" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="1"]
@@ -236,7 +230,7 @@ offset_bottom = 31.0
 size_flags_horizontal = 6
 mouse_filter = 2
 button_pressed = true
-button_group = SubResource("ButtonGroup_dlncn")
+button_group = SubResource("ButtonGroup_d6jvm")
 text = "Normal"
 
 [node name="high" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="2"]
@@ -246,7 +240,7 @@ offset_right = 273.0
 offset_bottom = 31.0
 size_flags_horizontal = 6
 mouse_filter = 2
-button_group = SubResource("ButtonGroup_dlncn")
+button_group = SubResource("ButtonGroup_d6jvm")
 text = "High"
 
 [node name="nowait" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="3"]
@@ -256,7 +250,7 @@ offset_right = 384.0
 offset_bottom = 31.0
 size_flags_horizontal = 6
 mouse_filter = 2
-button_group = SubResource("ButtonGroup_dlncn")
+button_group = SubResource("ButtonGroup_d6jvm")
 text = "No Wait"
 
 [node name="move_type" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="7"]
@@ -289,7 +283,7 @@ size_flags_horizontal = 6
 mouse_filter = 2
 theme_override_constants/h_separation = 10
 button_pressed = true
-button_group = SubResource("ButtonGroup_ruflh")
+button_group = SubResource("ButtonGroup_68r0d")
 text = "Default Walk"
 
 [node name="default_run" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/move_type/contents" index="1"]
@@ -300,7 +294,7 @@ offset_bottom = 31.0
 size_flags_horizontal = 6
 mouse_filter = 2
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_ruflh")
+button_group = SubResource("ButtonGroup_68r0d")
 text = "Default Run"
 
 [node name="separate" parent="panel/margin/contents" index="1"]
@@ -327,7 +321,7 @@ custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 offset_left = 224.0
 offset_right = 404.0
-text = "CANSEL"
+text = "CANCEL"
 
 [node name="button3" parent="panel/margin/contents/buttons" index="2"]
 custom_minimum_size = Vector2(180, 50)

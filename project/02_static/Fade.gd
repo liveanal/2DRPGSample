@@ -10,7 +10,7 @@ signal finished
 var fade_in := false
 var fade_out := false
 var start := false
-var seek
+var seek := 0.0
 
 func _process(delta):
 	if !start and (fade_in or fade_out):
@@ -46,11 +46,11 @@ func _process(delta):
 func start_in(time:=self.time,color:=self.color):
 	if !fade_in && !fade_out:
 		fade_in = true
-		time = time
-		color = Color(color.r,color.g,color.b,0.0)
+		self.time = time
+		self.color = Color(color.r,color.g,color.b,0.0)
 
 func start_out(time:=self.time,color:=self.color):
 	if !fade_in && !fade_out:
 		fade_out = true
-		time = time
-		color = Color(color.r,color.g,color.b,1.0)
+		self.time = time
+		self.color = Color(color.r,color.g,color.b,1.0)
