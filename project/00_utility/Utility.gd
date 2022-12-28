@@ -79,11 +79,28 @@ static func load_file(path:String):
 		return json.get_data()
 
 # 指定ノードの全階層分の子ノードを取得
-static func get_all_children(in_node,arr:=[]):
-	arr.push_back(in_node)
+static func get_all_children(in_node):
+	var arr:=[]
 	for child in in_node.get_children():
-		arr = get_all_children(child,arr)
+		each_all_children(child,func(x):arr.push_back(x))
 	return arr
+
+# 指定ノードの全階層分の子ノードを処理
+static func each_all_children(in_node,call:Callable):
+	call.call(in_node)
+	if 0<in_node.get_child_count():
+		for child in in_node.get_children():
+			each_all_children(child,call)
+
+# 指定ノードの親を遡りtestの条件に一致する親を取得
+static func get_parent(in_node,test:Callable=func(panret):return true):
+	var parent = in_node.get_parent()
+	if parent==null:
+		return null
+	elif test.call(parent):
+		return parent
+	else:
+		return get_parent(parent,test)
 
 # process及びinputメソッドの処理制御
 static func change_container(obj,process:bool,input:bool):
