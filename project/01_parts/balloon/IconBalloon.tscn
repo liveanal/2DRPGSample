@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmrjqbco7yabk"]
+
+[ext_resource type="PackedScene" uid="uid://c08cyxf0hnfud" path="res://project/01_parts/Balloon.tscn" id="1_qgxg1"]
+[ext_resource type="Script" path="res://project/01_parts/balloon/IconBalloon.gd" id="2_vn22a"]
+
+[node name="IconBalloon" instance=ExtResource("1_qgxg1")]
+script = ExtResource("2_vn22a")
+anim_name = null
+speed_scale = 1.0
+
+[node name="frame" type="NinePatchRect" parent="." index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="sprites" type="AnimatedSprite2D" parent="frame" index="0"]

@@ -1,8 +1,11 @@
 class_name Logging extends CanvasLayer
 
-@onready var scrollable := $Scrollable
+signal pressed_cancel
+
+@onready var scrollable:Scrollable = $Scrollable
 
 func _ready():
+	scrollable.connect("pressed_cancel",func():emit_signal("pressed_cancel"))
 	close()
 
 func append(name,msg):

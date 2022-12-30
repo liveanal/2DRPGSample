@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjjw4ndlk0qk6"]
+
+[ext_resource type="PackedScene" uid="uid://c08cyxf0hnfud" path="res://project/01_parts/Balloon.tscn" id="1_qgxg1"]
+[ext_resource type="Script" path="res://project/01_parts/balloon/ImageBalloon.gd" id="2_vn22a"]
+
+[node name="ImageBalloon" instance=ExtResource("1_qgxg1")]
+script = ExtResource("2_vn22a")
+anim_name = null
+speed_scale = 1.0
+
+[node name="sprites" type="AnimatedSprite2D" parent="." index="0"]

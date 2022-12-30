@@ -1,5 +1,7 @@
 class_name Scrollable extends Panel
 
+signal pressed_cancel
+
 @export_group("Layout Settings")
 @export var column_size:int=1:
 	set(val):
@@ -30,8 +32,10 @@ class_name Scrollable extends Panel
 		set_process_input(is_input)
 	get:
 		return is_input
+@export_subgroup("Mapping")
 @export var input_up:String = "ui_up"
 @export var input_down:String = "ui_down"
+@export var input_cancel:String = "ui_cancel"
 
 @export_group("Scroll Setting")
 @export var hide_scrollbar:bool=false:
@@ -56,6 +60,8 @@ func _input(event):
 			$margin/scroll.scroll_vertical -= scroll_speed
 		elif (event.is_pressed or event.is_echo()) and !event.is_action_released(input_down) and event.is_action(input_down):
 			$margin/scroll.scroll_vertical += scroll_speed
+		if event.is_action_pressed(input_cancel):
+			emit_signal("pressed_cancel")
 
 func _create_row(item)->HBoxContainer:
 	var container := HBoxContainer.new()

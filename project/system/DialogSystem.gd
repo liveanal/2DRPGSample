@@ -30,9 +30,7 @@ func _logging(name:String,msg:String):
 func open_logging():
 	await logging.open()
 	emit_signal("finished_open_logging")
-
-# logging非表示
-func close_logging():
+	await logging.pressed_cancel
 	await logging.close()
 	emit_signal("finished_close_logging")
 

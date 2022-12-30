@@ -2,7 +2,6 @@ class_name Selectable extends Scrollable
 
 signal changed_index(before_index,after_index)
 signal pressed_accept(index)
-signal pressed_cancel
 
 @export_group("Index")
 @export var index:=0:
@@ -14,8 +13,8 @@ signal pressed_cancel
 		return index
 
 @export_group("Input Settings")
+@export_subgroup("Mapping")
 @export var input_accept:String = "ui_accept"
-@export var input_cancel:String = "ui_cancel"
 
 var scroll_tween:Tween
 var index_max:=0
@@ -26,7 +25,7 @@ func _input(event):
 			index-=1
 		elif (event.is_pressed or event.is_echo()) and !event.is_action_released(input_down) and event.is_action(input_down):
 			index+=1
-
+		
 		if event.is_action_pressed(input_accept):
 			emit_signal("pressed_accept",index)
 		

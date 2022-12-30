@@ -3,6 +3,9 @@ class_name OptionModal extends Modal
 signal pressed_cancel
 signal pressed_ok(values:Dictionary)
 
+@onready var contents := $panel/margin/contents/margin/scroller/contents
+@onready var scroller := $panel/margin/contents/margin/scroller
+
 @onready var window_mode := [
 	$panel/margin/contents/margin/scroller/contents/window_mode/small,
 	$panel/margin/contents/margin/scroller/contents/window_mode/midium,
@@ -32,6 +35,17 @@ func _ready():
 	connect("pressed_button1",_on_pressed_default)
 	connect("pressed_button2",_on_pressed_cancel)
 	connect("pressed_button3",_on_pressed_ok)
+	
+	# 自動スクロール処理
+	Utility.each_all_children(contents,func(node):
+		node.connect('focus_entered',func():
+			var owner = Utility.get_parent(node,func(parent):return parent.get_parent()==contents)
+			var focus_offset = owner.position.y
+			var scrolled_top = scroller.get_v_scroll()
+			var scrolled_bottom = scrolled_top + scroller.size.y - owner.size.y
+			if focus_offset < scrolled_top or focus_offset >= scrolled_bottom:
+				scroller.set_v_scroll(focus_offset)
+		))
 	set_values(default_values)
 
 func _on_pressed_default():
