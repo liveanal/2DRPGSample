@@ -7,5 +7,16 @@
 script = ExtResource("1_utx1r")
 index = 0
 input_accept = "ui_accept"
-input_cancel = "ui_cancel"
-scroll_speed = 0.0
+
+[node name="margin" parent="." index="0"]
+layout_mode = 3
+
+[node name="scroll" parent="margin" index="0"]
+layout_mode = 3
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="contents" parent="margin/scroll" index="0"]
+layout_mode = 3
