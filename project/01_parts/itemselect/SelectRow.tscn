@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctdjq6ipe8vwm"]
+
+[ext_resource type="Script" path="res://project/01_parts/itemselect/SelectRow.gd" id="1_r1yai"]
+
+[node name="SelectRow" type="HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+size_flags_horizontal = 3
+script = ExtResource("1_r1yai")
+
+[node name="texture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+ignore_texture_size = true
+
+[node name="label" type="Label" parent="."]
+offset_left = 54.0
+offset_right = 216.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+vertical_alignment = 1
+
+[node name="count" type="Label" parent="."]
+custom_minimum_size = Vector2(30, 0)
+offset_left = 220.0
+offset_right = 250.0
+offset_bottom = 50.0
+size_flags_vertical = 1
+vertical_alignment = 1

@@ -11,7 +11,6 @@ signal pressed_accept(index)
 		emit_signal("changed_index",before,index)
 	get:
 		return index
-
 @export_group("Input Settings")
 @export_subgroup("Mapping")
 @export var input_accept:String = "ui_accept"

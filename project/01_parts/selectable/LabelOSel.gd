@@ -36,5 +36,5 @@ func _ready():
 func mapping_items(select)->Array:
 	var items := []
 	for val in select : 
-		items.append(Utility.create_label(val,horizontal_alignment,vertical_alignment,0,true,size_vertical,expand,label_settings))
+		items.append(Utility.create_label(val,horizontal_alignment,vertical_alignment,0,true,0,true,label_settings))
 	return items

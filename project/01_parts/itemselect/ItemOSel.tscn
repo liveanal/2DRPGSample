@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxbeqe75bgo76"]
+
+[ext_resource type="PackedScene" uid="uid://m1yosgticinh" path="res://project/01_parts/OverlapSelectable.tscn" id="1_2rq40"]
+[ext_resource type="Script" path="res://project/01_parts/itemselect/ItemOSel.gd" id="2_xlx3r"]
+
+[node name="ItemOSel" instance=ExtResource("1_2rq40")]
+script = ExtResource("2_xlx3r")
+row_res = null
+items = null
+scroll_speed = 1.0

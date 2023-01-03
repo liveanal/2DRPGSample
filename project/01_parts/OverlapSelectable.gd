@@ -52,3 +52,4 @@ func set_cursor():
 func set_items(items:Array):
 	await super.set_items(items)
 	set_cursor()
+

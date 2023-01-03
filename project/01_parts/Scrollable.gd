@@ -9,21 +9,6 @@ signal pressed_cancel
 		$margin/scroll/contents.columns = column_size
 	get:
 		return column_size
-@export var minimum_height:float=0.0:
-	set(val):
-		minimum_height = val if 0<val else 0
-	get:
-		return minimum_height
-@export_enum(Fill,Begin,Center,End) var size_vertical:int=0:
-	set(val):
-		size_vertical = val
-	get:
-		return size_vertical
-@export var expand:bool=false:
-	set(val):
-		expand = val
-	get:
-		return expand
 
 @export_group("Input Settings")
 @export var is_input:bool:
@@ -62,21 +47,6 @@ func _input(event):
 			$margin/scroll.scroll_vertical += scroll_speed
 		if event.is_action_pressed(input_cancel):
 			emit_signal("pressed_cancel")
-
-func _create_row(item)->HBoxContainer:
-	var container := HBoxContainer.new()
-	container.custom_minimum_size = Vector2(0,minimum_height)
-	container.size_flags_horizontal=SIZE_EXPAND_FILL
-	match(size_vertical):
-		0: container.size_flags_vertical=SIZE_FILL if !expand else SIZE_EXPAND_FILL
-		1: container.size_flags_vertical=SIZE_SHRINK_BEGIN
-		2: container.size_flags_vertical=SIZE_SHRINK_CENTER if !expand else SIZE_SHRINK_CENTER+SIZE_EXPAND
-		3: container.size_flags_vertical=SIZE_SHRINK_END if !expand else SIZE_SHRINK_END+SIZE_EXPAND
-	if item is Array:
-		for i in item : container.add_child(i)
-	else:
-		container.add_child(item)
-	return container
 
 func _clear_rows():
 	for child in $margin/scroll/contents.get_children():
@@ -120,6 +90,12 @@ func _next_scroll_pos(row, moveup:=false)->int:
 	
 	return next_value
 
+func scrolling_top():
+	$margin/scroll.scroll_vertical = 0
+
+func scrolling_bottom():
+	$margin/scroll.scroll_vertical = $margin/scroll.size.y
+
 func set_items(items:Array):
 	rows.clear()
 	await _clear_rows()
@@ -132,9 +108,3 @@ func add_item(item):
 		rows.append(item)
 	# 行セット
 	await _set_rows([item])
-
-func scrolling_bottom():
-	$margin/scroll.scroll_vertical = _next_scroll_pos(rows.back())
-
-func scrolling_top():
-	$margin/scroll.scroll_vertical = _next_scroll_pos(rows.front(),true)

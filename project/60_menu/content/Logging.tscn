@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd2kwxsvok0a5"]
+[gd_scene load_steps=3 format=3 uid="uid://xn26mg5phe1k"]
 
-[ext_resource type="Script" path="res://project/02_static/Logging.gd" id="1_xvqte"]
+[ext_resource type="Script" path="res://project/60_menu/content/Logging.gd" id="1_xvqte"]
 [ext_resource type="PackedScene" uid="uid://4hclwowi87gs" path="res://project/01_parts/Scrollable.tscn" id="2_irtkc"]
 
 [node name="Logging" type="CanvasLayer"]
