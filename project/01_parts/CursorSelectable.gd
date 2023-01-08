@@ -6,16 +6,26 @@ class_name CursorSelectable extends Selectable
 		minimum_height = val if 0<val else 0
 	get:
 		return minimum_height
-@export_enum(Fill,Begin,Center,End) var size_vertical:int=0:
+@export_enum(Fill,Begin,Center,End) var row_v_size:int=0:
 	set(val):
-		size_vertical = val
+		row_v_size = val
 	get:
-		return size_vertical
-@export var expand:bool=false:
+		return row_v_size
+@export var row_v_expand:bool=false:
 	set(val):
-		expand = val
+		row_v_expand = val
 	get:
-		return expand
+		return row_v_expand
+@export_enum(Fill,Begin,Center,End) var row_h_size:int=0:
+	set(val):
+		row_h_size = val
+	get:
+		return row_h_size
+@export var row_h_expand:bool=true:
+	set(val):
+		row_h_expand = val
+	get:
+		return row_h_expand
 
 @export_group("Cursor Settings")
 @export var cursor:Texture2D:
@@ -33,6 +43,11 @@ class_name CursorSelectable extends Selectable
 		space_size = val
 	get:
 		return space_size
+@export var cursor_offset:Vector2:
+	set(val):
+		cursor_offset=val
+	get:
+		return cursor_offset
 
 var cursor_tween:Tween
 
@@ -48,12 +63,16 @@ func _ready():
 func _create_row(item)->HBoxContainer:
 	var container := HBoxContainer.new()
 	container.custom_minimum_size = Vector2(0,minimum_height)
-	container.size_flags_horizontal=SIZE_EXPAND_FILL
-	match(size_vertical):
-		0: container.size_flags_vertical=SIZE_FILL if !expand else SIZE_EXPAND_FILL
+	match(row_h_size):
+		0: container.size_flags_horizontal=SIZE_FILL if !row_h_expand else SIZE_EXPAND_FILL
+		1: container.size_flags_horizontal=SIZE_SHRINK_BEGIN
+		2: container.size_flags_horizontal=SIZE_SHRINK_CENTER if !row_h_expand else SIZE_SHRINK_CENTER+SIZE_EXPAND
+		3: container.size_flags_horizontal=SIZE_SHRINK_END if !row_h_expand else SIZE_SHRINK_END+SIZE_EXPAND
+	match(row_v_size):
+		0: container.size_flags_vertical=SIZE_FILL if !row_v_expand else SIZE_EXPAND_FILL
 		1: container.size_flags_vertical=SIZE_SHRINK_BEGIN
-		2: container.size_flags_vertical=SIZE_SHRINK_CENTER if !expand else SIZE_SHRINK_CENTER+SIZE_EXPAND
-		3: container.size_flags_vertical=SIZE_SHRINK_END if !expand else SIZE_SHRINK_END+SIZE_EXPAND
+		2: container.size_flags_vertical=SIZE_SHRINK_CENTER if !row_v_expand else SIZE_SHRINK_CENTER+SIZE_EXPAND
+		3: container.size_flags_vertical=SIZE_SHRINK_END if !row_v_expand else SIZE_SHRINK_END+SIZE_EXPAND
 	if item is Array:
 		for i in item : container.add_child(i)
 	else:
@@ -61,7 +80,7 @@ func _create_row(item)->HBoxContainer:
 	return container
 
 func _next_cursor_pos(row)->Vector2:
-	return Vector2(space_size.x/2 + _pos_row_top(row).x, _pos_row_center(row).y) + _get_margin_size()
+	return Vector2(space_size.x/2 + _pos_row_top(row).x, _pos_row_center(row).y) + _get_margin_size() + cursor_offset
 
 func _move_cursor(next_value:Vector2):
 	# スクロール開始
@@ -95,5 +114,10 @@ func set_items(items:Array):
 func get_row_item(idx:int):
 	return rows[idx].get_child(1)
 
-func cursor_visible(val:bool):
-	$cursor.visible = val
+func enable():
+	$cursor.visible = true
+	super.enable()
+
+func disable():
+	super.disable()
+	$cursor.visible = false

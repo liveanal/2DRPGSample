@@ -12,23 +12,30 @@ signal pressed_accept(index)
 	get:
 		return index
 @export_group("Input Settings")
+@export var is_increment_updown:bool=false
 @export_subgroup("Mapping")
 @export var input_accept:String = "ui_accept"
+@export var input_left:String="ui_left"
+@export var input_right:String="ui_right"
 
 var scroll_tween:Tween
 var index_max:=0
 
 func _input(event):
 	if event is InputEventKey:
-		if (event.is_pressed or event.is_echo()) and !event.is_action_released(input_up) and event.is_action(input_up):
+		if !input_left.is_empty() and (event.is_pressed or event.is_echo()) and !event.is_action_released(input_left) and event.is_action(input_left):
 			index-=1
-		elif (event.is_pressed or event.is_echo()) and !event.is_action_released(input_down) and event.is_action(input_down):
+		elif !input_right.is_empty() and (event.is_pressed or event.is_echo()) and !event.is_action_released(input_right) and event.is_action(input_right):
 			index+=1
+		if !input_up.is_empty() and (event.is_pressed or event.is_echo()) and !event.is_action_released(input_up) and event.is_action(input_up):
+			index-=1 if is_increment_updown else column_size
+		elif !input_down.is_empty() and (event.is_pressed or event.is_echo()) and !event.is_action_released(input_down) and event.is_action(input_down):
+			index+=1 if is_increment_updown else column_size
 		
-		if event.is_action_pressed(input_accept):
+		if !input_accept.is_empty() and event.is_action_pressed(input_accept):
 			emit_signal("pressed_accept",index)
 		
-		if event.is_action_pressed(input_cancel):
+		if !input_accept.is_empty() and event.is_action_pressed(input_cancel):
 			emit_signal("pressed_cancel")
 
 func _set_rows(rows:Array):

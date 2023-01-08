@@ -10,31 +10,55 @@ class_name LabelCSel extends CursorSelectable
 		label_settings = val
 	get:
 		return label_settings
-@export_enum(Left,Center,Right) var horizontal_alignment:int=0:
+@export_enum(Left,Center,Right) var text_h_alignment:int=0:
 	set(val):
 		match(val):
-			0: horizontal_alignment=HORIZONTAL_ALIGNMENT_LEFT
-			1: horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-			2: horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
-			3: horizontal_alignment=HORIZONTAL_ALIGNMENT_FILL
+			0: text_h_alignment=HORIZONTAL_ALIGNMENT_LEFT
+			1: text_h_alignment=HORIZONTAL_ALIGNMENT_CENTER
+			2: text_h_alignment=HORIZONTAL_ALIGNMENT_RIGHT
+			3: text_h_alignment=HORIZONTAL_ALIGNMENT_FILL
 	get:
-		return horizontal_alignment
-@export_enum(Top,Center,Bottom) var vertical_alignment:int=1:
+		return text_h_alignment
+@export_enum(Top,Center,Bottom) var text_v_alignment:int=1:
 	set(val):
 		match(val):
-			0: vertical_alignment=VERTICAL_ALIGNMENT_TOP
-			1: vertical_alignment=VERTICAL_ALIGNMENT_CENTER
-			2: vertical_alignment=VERTICAL_ALIGNMENT_BOTTOM
-			3: vertical_alignment=VERTICAL_ALIGNMENT_FILL
+			0: text_v_alignment=VERTICAL_ALIGNMENT_TOP
+			1: text_v_alignment=VERTICAL_ALIGNMENT_CENTER
+			2: text_v_alignment=VERTICAL_ALIGNMENT_BOTTOM
+			3: text_v_alignment=VERTICAL_ALIGNMENT_FILL
 	get:
-		return vertical_alignment
+		return text_v_alignment
+@export_group("Item Layout")
+@export_enum(Fill,Begin,Center,End) var label_h_size:int=0:
+	set(val):
+		label_h_size = val
+	get:
+		return label_h_size
+@export var label_h_expand:bool=true:
+	set(val):
+		label_h_expand = val
+	get:
+		return label_h_expand
+@export_enum(Fill,Begin,Center,End) var label_v_size:int=0:
+	set(val):
+		label_v_size = val
+	get:
+		return label_v_size
+@export var label_v_expand:bool=true:
+	set(val):
+		label_v_expand = val
+	get:
+		return label_v_expand
 
 func _ready():
 	super._ready()
-	set_items(mapping_items(select))
+	set_items(select)
+
+func set_items(select):
+	super.set_items(mapping_items(select))
 
 func mapping_items(select)->Array:
 	var items := []
-	for val in select : 
-		items.append(Utility.create_label(val,horizontal_alignment,vertical_alignment,0,true,0,true,label_settings))
+	for val in select :
+		items.append(Utility.create_label(val,text_h_alignment,text_v_alignment,label_h_size,label_h_expand,label_v_size,label_v_expand,label_settings))
 	return items

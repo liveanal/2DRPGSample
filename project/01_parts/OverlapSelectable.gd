@@ -53,3 +53,10 @@ func set_items(items:Array):
 	await super.set_items(items)
 	set_cursor()
 
+func enable():
+	$cursor.visible = true
+	super.enable()
+
+func disable():
+	super.disable()
+	$cursor.visible = false

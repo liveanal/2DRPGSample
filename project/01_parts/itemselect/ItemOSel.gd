@@ -5,15 +5,18 @@ class_name ItemOSel extends OverlapSelectable
 
 func _ready():
 	super._ready()
-	set_items(mapping_items(items))
+	set_items(items)
+
+func set_items(items):
+	super.set_items(mapping_items(items))
 
 func mapping_items(items)->Array:
 	var res := []
-	for val in items : 
-		res.append(mapping_item(val))
+	for item in items : 
+		res.append(mapping_item(item))
 	return res
 
-func mapping_item(val)->Node:
+func mapping_item(item)->Node:
 	var row := row_res.instantiate()
-	row.data = val
+	row.data = item
 	return row

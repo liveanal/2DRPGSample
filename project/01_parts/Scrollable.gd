@@ -41,11 +41,11 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey:
-		if (event.is_pressed or event.is_echo()) and !event.is_action_released(input_up) and event.is_action(input_up):
+		if !input_up.is_empty() and (event.is_pressed or event.is_echo()) and !event.is_action_released(input_up) and event.is_action(input_up):
 			$margin/scroll.scroll_vertical -= scroll_speed
-		elif (event.is_pressed or event.is_echo()) and !event.is_action_released(input_down) and event.is_action(input_down):
+		elif !input_down.is_empty() and (event.is_pressed or event.is_echo()) and !event.is_action_released(input_down) and event.is_action(input_down):
 			$margin/scroll.scroll_vertical += scroll_speed
-		if event.is_action_pressed(input_cancel):
+		if !input_cancel.is_empty() and event.is_action_pressed(input_cancel):
 			emit_signal("pressed_cancel")
 
 func _clear_rows():
@@ -99,7 +99,8 @@ func scrolling_bottom():
 func set_items(items:Array):
 	rows.clear()
 	await _clear_rows()
-	add_item(items)
+	if !items.is_empty():
+		add_item(items)
 
 func add_item(item):
 	if item is Array:
@@ -108,3 +109,16 @@ func add_item(item):
 		rows.append(item)
 	# 行セット
 	await _set_rows([item])
+
+func get_row_item(idx:int):
+	return rows[idx]
+
+func enable():
+	is_input = true
+
+func disable():
+	is_input = false
+
+func clear():
+	await set_items([])
+	disable()

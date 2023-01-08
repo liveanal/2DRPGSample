@@ -194,3 +194,8 @@ static func is_empty(value):
 		return value.is_empty()
 	
 	return false
+
+# 最初位置に子ノードを挿入
+static func add_child_first(parent,child):
+	parent.add_child(child)
+	parent.move_child(child,0)

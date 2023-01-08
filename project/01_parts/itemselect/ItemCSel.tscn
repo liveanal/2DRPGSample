@@ -9,10 +9,19 @@ row_res = null
 items = null
 
 [node name="margin" parent="." index="0"]
-layout_mode = 1
+layout_mode = 3
 
 [node name="scroll" parent="margin" index="0"]
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="contents" parent="margin/scroll" index="0"]
-layout_mode = 2
+layout_mode = 3

@@ -6,17 +6,8 @@
 [node name="Selectable" instance=ExtResource("1_en7hh")]
 script = ExtResource("1_utx1r")
 index = 0
+is_increment_updown = false
 input_accept = "ui_accept"
-
-[node name="margin" parent="." index="0"]
-layout_mode = 3
-
-[node name="scroll" parent="margin" index="0"]
-layout_mode = 3
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 10.0
-offset_bottom = 10.0
-
-[node name="contents" parent="margin/scroll" index="0"]
-layout_mode = 3
+input_left = "ui_left"
+input_right = "ui_right"
+scroll_speed = 0.0

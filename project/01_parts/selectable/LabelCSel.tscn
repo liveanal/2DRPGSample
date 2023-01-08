@@ -7,21 +7,25 @@
 script = ExtResource("2_r02wr")
 select = PackedStringArray()
 label_settings = null
-horizontal_alignment = 0
-vertical_alignment = 1
+text_h_alignment = 0
+text_v_alignment = 1
+label_h_size = 0
+label_h_expand = true
+label_v_size = 0
+label_v_expand = true
+minimum_height = 0.0
+expand_vertical = null
+size_horizontal = null
+expand_horizontal = null
 
 [node name="margin" parent="." index="0"]
-layout_mode = 3
+layout_mode = 1
 
 [node name="scroll" parent="margin" index="0"]
-layout_mode = 3
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 10.0
-offset_bottom = 10.0
+layout_mode = 2
 
 [node name="contents" parent="margin/scroll" index="0"]
-layout_mode = 3
+layout_mode = 2
 
 [node name="cursor" parent="." index="1"]
 position = Vector2(10, 10)

@@ -1,4 +1,4 @@
-class_name Logging extends CanvasLayer
+class_name Logging extends Control
 
 signal pressed_cancel
 
@@ -13,13 +13,13 @@ func append(name,msg):
 	scrollable.add_item(msg)
 
 func open():
+	scrollable.enable()
 	visible = true
-	scrollable.is_input = true
 	await get_tree().process_frame
 	scrollable.modulate = Color(Color.WHITE,1.0)
 	scrollable.scrolling_bottom()
 
 func close():
-	scrollable.is_input = false
+	scrollable.disable()
 	visible = false
 	scrollable.modulate = Color(Color.WHITE,0.0)
