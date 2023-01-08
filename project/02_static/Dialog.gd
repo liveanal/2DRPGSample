@@ -147,7 +147,7 @@ func update():
 			dialog_status = DialogStatus.WAIT_SCROLLING
 			scroll_timer.start()
 		if t_selectable != null:
-			t_selectable.set_items(t_selectable.mapping_items(data.get_selectable_text()))
+			t_selectable.set_items(data.get_selectable_text())
 			t_selectable.is_input = false
 			t_selectable.visible = false
 		if t_pagenation != null:
