@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://x1qkhkfp77yy"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://project/60_menu/content/ShopRow.gd" id="1_tch5w"]
+[ext_resource type="Script" path="res://project/60_menu/control/ShopRow.gd" id="1_tch5w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4k440"]
 

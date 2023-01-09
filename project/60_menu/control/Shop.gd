@@ -1,7 +1,6 @@
-class_name Shop extends Control
+class_name Shop extends MenuControl
 
 signal pressed_accept(shop_money:int,shop_items:Array,player_money:int,inventory_items:Array)
-signal pressed_cancel
 signal finished_menu
 signal finished_table
 
@@ -46,10 +45,12 @@ enum TableState{BUY,SELL}
 var table_status:TableState
 
 func _ready():
-	close()
+	super._ready()
 	menu.connect("pressed_accept",func(i):
 		if i==0:finish_shop()
-		else:emit_signal("finished_menu"))
+		else:
+			emit_signal("finished_menu")
+			close())
 	menu.connect("pressed_cancel",return_table)
 	shop_table.connect("changed_index",update_infomation)
 	shop_table.connect("pressed_accept",add_cart_item)
@@ -57,7 +58,6 @@ func _ready():
 	inventory_table.connect("changed_index",update_infomation)
 	inventory_table.connect("pressed_accept",add_cart_item)
 	inventory_table.connect("pressed_cancel",table_cancel)
-	open()
 
 func _input(event):
 	if event is InputEventKey:
@@ -78,21 +78,13 @@ func open():
 	update_operation()
 	update_transaction()
 	start_table()
-	enable()
-	visible = true
+	super.open()
 
 func close():
 	menu.disable()
 	shop_table.disable()
 	inventory_table.disable()
-	disable()
-	visible = false
-
-func enable():
-	set_process_input(true)
-
-func disable():
-	set_process_input(false)
+	super.disable()
 
 func start_menu():
 	menu.enable()

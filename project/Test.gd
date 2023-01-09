@@ -6,8 +6,8 @@ func _ready():
 	await start()
 	# DialogTest
 	await DialogSystem.open_dialog(self,dialog_data,0.4)
-	# LoggingTest
-	await DialogSystem.open_logging()
+	# MenuTest
+	Menu.open()
 
 func start():
 	var fade:Fade = System.pop_fade()

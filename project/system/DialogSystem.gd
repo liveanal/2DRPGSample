@@ -13,26 +13,11 @@ const dialog_full_res := preload("res://project/02_static/dialog/FullDialog.tscn
 const dialog_noface_res := preload("res://project/02_static/dialog/NoFaceDialog.tscn")
 # Infoダイアログ
 const dialog_info_res := preload("res://project/02_static/dialog/InfoDialog.tscn")
-# ログウィンドウ
-@onready var logging := $Logging
+
+var message_log := []
 
 func _ready():
-	connect("log_message",_logging)
-
-# ログ入力
-func _logging(name:String,msg:String):
-	logging.append(
-		Utility.create_label(name,0,0,0,false,0,false,null),
-		Utility.create_label(msg,0,0,0,false,0,true,null)
-	)
-
-# logging表示
-func open_logging():
-	await logging.open()
-	emit_signal("finished_open_logging")
-	await logging.pressed_cancel
-	await logging.close()
-	emit_signal("finished_close_logging")
+	connect("log_message",func(name,message):message_log.append({"name":name,"message":message}))
 
 # fullダイアログ生成
 func _create_full_dialog(time:float=0.0)->Dialog:
@@ -92,7 +77,7 @@ func _switch_dialog(data:DialogData, anim_time:float, dialog)->Dialog:
 	
 	new_dialog.data = data
 	return new_dialog
-
+ 
 # dataに応じた適切なダイアログの表示
 func open_dialog(caller:Node, data:DialogData, anim_time:=0.0, dialog=null, auto_close:=true):
 	var d = dialog
@@ -128,4 +113,3 @@ func open_dialog(caller:Node, data:DialogData, anim_time:=0.0, dialog=null, auto
 		await d.finished_close
 	else:
 		return d
-

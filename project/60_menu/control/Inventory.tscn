@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d16wmx4i5n2fj"]
+[gd_scene load_steps=6 format=3 uid="uid://ckk6xvyv4f0xs"]
 
-[ext_resource type="Script" path="res://project/60_menu/content/Inventory.gd" id="1_auljy"]
-[ext_resource type="PackedScene" uid="uid://2w47bxvr5jlg" path="res://project/01_parts/itemselect/ItemCSel.tscn" id="1_sl37k"]
-[ext_resource type="PackedScene" uid="uid://ctdjq6ipe8vwm" path="res://project/01_parts/itemselect/SelectRow.tscn" id="2_6h618"]
-[ext_resource type="PackedScene" uid="uid://du4527wksyd2h" path="res://project/01_parts/selectable/LabelCSel.tscn" id="5_nayqn"]
-[ext_resource type="Texture2D" uid="uid://ddlqquuupuka4" path="res://resource/ui/select_cursor.png" id="7_e2r5w"]
+[ext_resource type="Script" path="res://project/60_menu/control/Inventory.gd" id="1_gputa"]
+[ext_resource type="PackedScene" uid="uid://2w47bxvr5jlg" path="res://project/01_parts/itemselect/ItemCSel.tscn" id="2_2nte8"]
+[ext_resource type="PackedScene" uid="uid://ctdjq6ipe8vwm" path="res://project/01_parts/itemselect/SelectRow.tscn" id="3_ddeua"]
+[ext_resource type="Texture2D" uid="uid://ddlqquuupuka4" path="res://resource/ui/select_cursor.png" id="4_q3i7l"]
+[ext_resource type="PackedScene" uid="uid://du4527wksyd2h" path="res://project/01_parts/selectable/LabelCSel.tscn" id="5_kfa3t"]
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray("list", "menu", "desc")]
 layout_mode = 3
@@ -13,27 +13,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_auljy")
+script = ExtResource("1_gputa")
 list = NodePath("list")
 menu = NodePath("menu")
 desc = NodePath("description/margin/label")
 
-[node name="list" parent="." instance=ExtResource("1_sl37k")]
-layout_mode = 1
+[node name="list" parent="." instance=ExtResource("2_2nte8")]
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.7
 grow_horizontal = 2
 grow_vertical = 2
-row_res = ExtResource("2_6h618")
+row_res = ExtResource("3_ddeua")
 row_v_expand = false
-cursor = ExtResource("7_e2r5w")
+cursor = ExtResource("4_q3i7l")
 cursor_scale = Vector2(0.1, 0.1)
 space_size = Vector2(30, 30)
 scroll_speed = 0.25
 
-[node name="menu" parent="." instance=ExtResource("5_nayqn")]
-layout_mode = 1
+[node name="menu" parent="." instance=ExtResource("5_kfa3t")]
 anchors_preset = -1
 anchor_left = 0.6
 anchor_top = 0.7
@@ -41,13 +39,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-cursor = ExtResource("7_e2r5w")
+cursor = ExtResource("4_q3i7l")
 cursor_scale = Vector2(0.1, 0.1)
 space_size = Vector2(30, 30)
 scroll_speed = 0.25
 
 [node name="description" type="PanelContainer" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.7
 anchor_right = 0.6
@@ -56,11 +53,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="margin" type="MarginContainer" parent="description"]
-layout_mode = 2
+offset_right = 576.0
+offset_bottom = 180.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="label" type="RichTextLabel" parent="description/margin"]
-layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 566.0
+offset_bottom = 170.0
