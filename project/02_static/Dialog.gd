@@ -34,9 +34,9 @@ signal updated(data:DialogData)
 @export var scroll_time_fast:=0.001
 @export var scroll_nums_fast:=10
 @export_group("Input Settings")
-@export var input_next:String = "ui_accept"
-@export var input_skip:String = "ui_accept"
-@export var input_hide:String = "ui_cancel"
+@export var input_next:String = "accept"
+@export var input_skip:String = "skip"
+@export var input_hide:String = "cancel"
 
 var scroll_timer:Timer
 var pagenation_timer:Timer
