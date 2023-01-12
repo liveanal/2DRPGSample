@@ -14,19 +14,15 @@ cursor = null
 cursor_scale = Vector2(0, 0)
 space_size = Vector2(0, 0)
 cursor_offset = null
-
-[node name="margin" parent="." index="0"]
-layout_mode = 3
+input_accept = "accept"
+input_left = "left"
+input_right = "right"
 
 [node name="scroll" parent="margin" index="0"]
-layout_mode = 3
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 10.0
 offset_bottom = 10.0
-
-[node name="contents" parent="margin/scroll" index="0"]
-layout_mode = 3
 
 [node name="cursor" type="Sprite2D" parent="." index="1"]
 texture_filter = 1

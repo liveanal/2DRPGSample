@@ -7,7 +7,13 @@
 script = ExtResource("1_utx1r")
 index = 0
 is_increment_updown = false
-input_accept = "ui_accept"
-input_left = "ui_left"
-input_right = "ui_right"
+input_accept = "accept"
+input_left = "left"
+input_right = "right"
 scroll_speed = 0.0
+
+[node name="scroll" parent="margin" index="0"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0

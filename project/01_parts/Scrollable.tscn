@@ -7,7 +7,6 @@ script = ExtResource("1_5riv1")
 metadata/_edit_group_ = true
 
 [node name="margin" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,10 +18,12 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="scroll" type="ScrollContainer" parent="margin"]
-layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
 horizontal_scroll_mode = 0
 
 [node name="contents" type="GridContainer" parent="margin/scroll"]
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

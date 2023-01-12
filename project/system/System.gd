@@ -13,9 +13,27 @@ var option := {}
 
 # 初期化
 func _init():
+	# 入力キー初期化
+	_init_inputmap()
+	# オプション初期化
 	_init_option()
 	# ウィンドウ初期化
 	update_window()
+
+# 入力キー初期化
+func _init_inputmap():
+	InputMap.action_erase_events("ui_left")
+	for event in InputMap.action_get_events("left")   : InputMap.action_add_event("ui_left",event)
+	InputMap.action_erase_events("ui_right")
+	for event in InputMap.action_get_events("right")  : InputMap.action_add_event("ui_right",event)
+	InputMap.action_erase_events("ui_up")
+	for event in InputMap.action_get_events("up")     : InputMap.action_add_event("ui_up",event)
+	InputMap.action_erase_events("ui_down")
+	for event in InputMap.action_get_events("down")   : InputMap.action_add_event("ui_down",event)
+	InputMap.action_erase_events("ui_accept")
+	for event in InputMap.action_get_events("accept") : InputMap.action_add_event("ui_accept",event)
+	InputMap.action_erase_events("ui_cancel")
+	for event in InputMap.action_get_events("cancel") : InputMap.action_add_event("ui_cancel",event)
 
 # オプション初期化
 func _init_option():

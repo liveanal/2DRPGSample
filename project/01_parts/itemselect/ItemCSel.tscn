@@ -7,12 +7,3 @@
 script = ExtResource("2_6xo25")
 row_res = null
 items = null
-
-[node name="margin" parent="." index="0"]
-layout_mode = 1
-
-[node name="scroll" parent="margin" index="0"]
-layout_mode = 2
-
-[node name="contents" parent="margin/scroll" index="0"]
-layout_mode = 2

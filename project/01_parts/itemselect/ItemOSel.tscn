@@ -8,3 +8,19 @@ script = ExtResource("2_xlx3r")
 row_res = null
 items = null
 scroll_speed = 1.0
+
+[node name="margin" parent="." index="0"]
+layout_mode = 3
+
+[node name="scroll" parent="margin" index="0"]
+layout_mode = 3
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="contents" parent="margin/scroll" index="0"]
+layout_mode = 3
+
+[node name="cursor" parent="." index="1"]
+layout_mode = 3

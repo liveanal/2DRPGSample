@@ -6,6 +6,9 @@
 [node name="ImageBalloon" instance=ExtResource("1_qgxg1")]
 script = ExtResource("2_vn22a")
 anim_name = null
+pos_offset = Vector2(0, 0)
 speed_scale = 1.0
 
 [node name="sprites" type="AnimatedSprite2D" parent="." index="0"]
+animation = &"!"
+playing = true

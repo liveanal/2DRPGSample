@@ -199,3 +199,15 @@ static func is_empty(value):
 static func add_child_first(parent,child):
 	parent.add_child(child)
 	parent.move_child(child,0)
+
+# 文字列のバイトサイズを取得（a=1,aA=2,aあ=3）
+static func  get_bytesize(str:String)->int:
+	var sum=0
+	var arr := str.to_utf16_buffer()
+	for i in range(0, arr.size(), 2):
+		var byte := arr[i]+arr[i+1]
+		if byte<128:
+			sum += 1
+		else:
+			sum += 2
+	return sum

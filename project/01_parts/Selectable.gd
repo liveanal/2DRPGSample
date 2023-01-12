@@ -14,9 +14,9 @@ signal pressed_accept(index)
 @export_group("Input Settings")
 @export var is_increment_updown:bool=false
 @export_subgroup("Mapping")
-@export var input_accept:String = "ui_accept"
-@export var input_left:String="ui_left"
-@export var input_right:String="ui_right"
+@export var input_accept:String = "accept"
+@export var input_left:String="left"
+@export var input_right:String="right"
 
 var scroll_tween:Tween
 var index_max:=0

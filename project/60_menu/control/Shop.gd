@@ -33,10 +33,10 @@ const operation_text := {
 @export var description:RichTextLabel
 @export var iteminfo:RichTextLabel
 @export_group("Input Setting")
-@export var tab_next:=""
-@export var tab_prev:=""
-@export var count_add:=""
-@export var count_sub:=""
+@export var tab_next:="tab_next"
+@export var tab_prev:="tab_prev"
+@export var count_add:="right"
+@export var count_sub:="left"
 
 enum OpStatus{SELECT,MENU}
 var op_status:OpStatus

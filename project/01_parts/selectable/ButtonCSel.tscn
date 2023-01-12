@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://csa3rlg26jawr"]
+
+[ext_resource type="PackedScene" uid="uid://bk3f3qrpfwksw" path="res://project/01_parts/CursorSelectable.tscn" id="1_eolcm"]
+[ext_resource type="Script" path="res://project/01_parts/selectable/ButtonCSel.gd" id="2_4r4hp"]
+
+[node name="ButtonCSel" instance=ExtResource("1_eolcm")]
+script = ExtResource("2_4r4hp")
+select = null
+flat = false
+clip_text = false
+alignment = 1
+h_size = 0
+h_expand = true
+v_size = 0
+v_expand = true
+normal = null
+pressed = null
+
+[node name="margin" parent="." index="0"]
+layout_mode = 1
+
+[node name="scroll" parent="margin" index="0"]
+layout_mode = 2
+
+[node name="contents" parent="margin/scroll" index="0"]
+layout_mode = 2

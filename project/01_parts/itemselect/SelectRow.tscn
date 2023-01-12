@@ -9,17 +9,22 @@ script = ExtResource("1_r1yai")
 
 [node name="texture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
+offset_right = 30.0
+offset_bottom = 30.0
 ignore_texture_size = true
 
 [node name="label" type="Label" parent="."]
-layout_mode = 2
+offset_left = 34.0
+offset_right = 216.0
+offset_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 vertical_alignment = 1
 
 [node name="count" type="Label" parent="."]
 custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
+offset_left = 220.0
+offset_right = 250.0
+offset_bottom = 30.0
 size_flags_vertical = 1
 vertical_alignment = 1

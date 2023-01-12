@@ -7,17 +7,18 @@
 script = ExtResource("2_f0vu1")
 select = PackedStringArray("hogehoge", "mogemoge", "TOGETOGE")
 label_settings = null
-horizontal_alignment = 0
-vertical_alignment = 1
+text_h_alignment = 0
+text_v_alignment = 1
+label_h_size = 0
+label_h_expand = true
+label_v_size = 0
+label_v_expand = true
 
 [node name="margin" parent="." index="0"]
-layout_mode = 3
+layout_mode = 1
 
 [node name="scroll" parent="margin" index="0"]
-layout_mode = 3
+layout_mode = 2
 
 [node name="contents" parent="margin/scroll" index="0"]
-layout_mode = 3
-
-[node name="cursor" parent="." index="1"]
-layout_mode = 3
+layout_mode = 2

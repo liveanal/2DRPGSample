@@ -6,15 +6,12 @@
 [node name="IconBalloon" instance=ExtResource("1_qgxg1")]
 script = ExtResource("2_vn22a")
 anim_name = null
+pos_offset = Vector2(0, 0)
 speed_scale = 1.0
+icon_scale = 1.0
 
 [node name="frame" type="NinePatchRect" parent="." index="0"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [node name="sprites" type="AnimatedSprite2D" parent="frame" index="0"]
+animation = &"dice"
+playing = true

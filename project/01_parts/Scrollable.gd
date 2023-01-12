@@ -18,9 +18,9 @@ signal pressed_cancel
 	get:
 		return is_input
 @export_subgroup("Mapping")
-@export var input_up:String = "ui_up"
-@export var input_down:String = "ui_down"
-@export var input_cancel:String = "ui_cancel"
+@export var input_up:String = "up"
+@export var input_down:String = "down"
+@export var input_cancel:String = "cancel"
 
 @export_group("Scroll Setting")
 @export var hide_scrollbar:bool=false:
