@@ -14,10 +14,35 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://project/00_utility/AStarUtil.gd"
 }, {
+"base": "Node2D",
+"class": &"Balloon",
+"language": &"GDScript",
+"path": "res://project/01_parts/Balloon.gd"
+}, {
+"base": "CursorSelectable",
+"class": &"ButtonCSel",
+"language": &"GDScript",
+"path": "res://project/01_parts/selectable/ButtonCSel.gd"
+}, {
+"base": "OverlapSelectable",
+"class": &"ButtonOSel",
+"language": &"GDScript",
+"path": "res://project/01_parts/selectable/ButtonOSel.gd"
+}, {
 "base": "Node",
 "class": &"CameraManager",
 "language": &"GDScript",
 "path": "res://project/01_parts/CameraManager.gd"
+}, {
+"base": "Resource",
+"class": &"CharData",
+"language": &"GDScript",
+"path": "res://project/30_char/CharData.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Character",
+"language": &"GDScript",
+"path": "res://project/30_char/Character.gd"
 }, {
 "base": "Selectable",
 "class": &"CursorSelectable",
@@ -49,10 +74,45 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://project/02_static/dialog/FullDialog.gd"
 }, {
+"base": "Balloon",
+"class": &"IconBalloon",
+"language": &"GDScript",
+"path": "res://project/01_parts/balloon/IconBalloon.gd"
+}, {
+"base": "Balloon",
+"class": &"ImageBalloon",
+"language": &"GDScript",
+"path": "res://project/01_parts/balloon/ImageBalloon.gd"
+}, {
 "base": "Dialog",
 "class": &"InfoDialog",
 "language": &"GDScript",
 "path": "res://project/02_static/dialog/InfoDialog.gd"
+}, {
+"base": "MenuControl",
+"class": &"Inventory",
+"language": &"GDScript",
+"path": "res://project/60_menu/control/Inventory.gd"
+}, {
+"base": "SelectItem",
+"class": &"InventoryItem",
+"language": &"GDScript",
+"path": "res://project/60_menu/control/InventoryItem.gd"
+}, {
+"base": "Resource",
+"class": &"InventoryMenu",
+"language": &"GDScript",
+"path": "res://project/60_menu/control/InventoryMenu.gd"
+}, {
+"base": "CursorSelectable",
+"class": &"ItemCSel",
+"language": &"GDScript",
+"path": "res://project/01_parts/itemselect/ItemCSel.gd"
+}, {
+"base": "OverlapSelectable",
+"class": &"ItemOSel",
+"language": &"GDScript",
+"path": "res://project/01_parts/itemselect/ItemOSel.gd"
 }, {
 "base": "CursorSelectable",
 "class": &"LabelCSel",
@@ -64,15 +124,20 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://project/01_parts/selectable/LabelOSel.gd"
 }, {
-"base": "CanvasLayer",
+"base": "MenuControl",
 "class": &"Logging",
 "language": &"GDScript",
-"path": "res://project/02_static/Logging.gd"
+"path": "res://project/60_menu/control/Logging.gd"
 }, {
 "base": "Node",
 "class": &"Main",
 "language": &"GDScript",
 "path": "res://project/Main.gd"
+}, {
+"base": "Control",
+"class": &"MenuControl",
+"language": &"GDScript",
+"path": "res://project/60_menu/MenuControl.gd"
 }, {
 "base": "CanvasLayer",
 "class": &"Modal",
@@ -109,15 +174,45 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://project/01_parts/Scrollable.gd"
 }, {
+"base": "Resource",
+"class": &"SelectItem",
+"language": &"GDScript",
+"path": "res://project/01_parts/itemselect/SelectItem.gd"
+}, {
+"base": "HBoxContainer",
+"class": &"SelectRow",
+"language": &"GDScript",
+"path": "res://project/01_parts/itemselect/SelectRow.gd"
+}, {
 "base": "Scrollable",
 "class": &"Selectable",
 "language": &"GDScript",
 "path": "res://project/01_parts/Selectable.gd"
 }, {
+"base": "MenuControl",
+"class": &"Shop",
+"language": &"GDScript",
+"path": "res://project/60_menu/control/Shop.gd"
+}, {
+"base": "SelectItem",
+"class": &"ShopItem",
+"language": &"GDScript",
+"path": "res://project/60_menu/control/ShopItem.gd"
+}, {
+"base": "Control",
+"class": &"ShopRow",
+"language": &"GDScript",
+"path": "res://project/60_menu/control/ShopRow.gd"
+}, {
 "base": "Node",
 "class": &"Test",
 "language": &"GDScript",
 "path": "res://project/Test.gd"
+}, {
+"base": "Balloon",
+"class": &"TextBalloon",
+"language": &"GDScript",
+"path": "res://project/01_parts/balloon/TextBalloon.gd"
 }, {
 "base": "Control",
 "class": &"Title",
@@ -128,21 +223,39 @@ _global_script_classes=[{
 "class": &"Utility",
 "language": &"GDScript",
 "path": "res://project/00_utility/Utility.gd"
+}, {
+"base": "VideoStreamPlayer",
+"class": &"VideoManager",
+"language": &"GDScript",
+"path": "res://project/10_title/VideoManager.gd"
 }]
 _global_script_class_icons={
 "AStarUtil": "",
+"Balloon": "",
+"ButtonCSel": "",
+"ButtonOSel": "",
 "CameraManager": "",
+"CharData": "",
+"Character": "",
 "CursorSelectable": "",
 "Dialog": "",
 "DialogData": "",
 "DialogSelect": "",
 "Fade": "",
 "FullDialog": "",
+"IconBalloon": "",
+"ImageBalloon": "",
 "InfoDialog": "",
+"Inventory": "",
+"InventoryItem": "",
+"InventoryMenu": "",
+"ItemCSel": "",
+"ItemOSel": "",
 "LabelCSel": "",
 "LabelOSel": "",
 "Logging": "",
 "Main": "",
+"MenuControl": "",
 "Modal": "",
 "NoFaceDialog": "",
 "OptionModal": "",
@@ -150,15 +263,22 @@ _global_script_class_icons={
 "QuitModal": "",
 "RichTextVAlign": "",
 "Scrollable": "",
+"SelectItem": "",
+"SelectRow": "",
 "Selectable": "",
+"Shop": "",
+"ShopItem": "",
+"ShopRow": "",
 "Test": "",
+"TextBalloon": "",
 "Title": "",
-"Utility": ""
+"Utility": "",
+"VideoManager": ""
 }
 
 [application]
 
-config/name="2DRPGSample"
+config/name="LiA-Rogue"
 run/main_scene="res://project/Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://resource/icon.svg"
@@ -172,6 +292,7 @@ buses/default_bus_layout=""
 ModalSystem="*res://project/system/ModalSystem.tscn"
 DialogSystem="*res://project/system/DialogSystem.tscn"
 System="*res://project/system/System.tscn"
+Menu="*res://project/60_menu/Menu.tscn"
 
 [display]
 
@@ -180,3 +301,90 @@ window/size/viewport_height=600
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
+
+[input]
+
+tab_next={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"unicode":0,"echo":false,"script":null)
+]
+}
+tab_prev={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"unicode":0,"echo":false,"script":null)
+]
+}
+skip={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"unicode":0,"echo":false,"script":null)
+]
+}
+accept={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"unicode":0,"echo":false,"script":null)
+]
+}
+cancel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"unicode":0,"echo":false,"script":null)
+]
+}
+menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"unicode":0,"echo":false,"script":null)
+]
+}
+smenu1={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"unicode":0,"echo":false,"script":null)
+]
+}
+smenu2={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"unicode":0,"echo":false,"script":null)
+]
+}
+smenu3={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"unicode":0,"echo":false,"script":null)
+]
+}
+attack={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"unicode":0,"echo":false,"script":null)
+]
+}
+run={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"unicode":0,"echo":false,"script":null)
+]
+}
+turn={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"unicode":0,"echo":false,"script":null)
+]
+}
+left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"unicode":0,"echo":false,"script":null)
+]
+}
+right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"unicode":0,"echo":false,"script":null)
+]
+}
+down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"unicode":0,"echo":false,"script":null)
+]
+}
+up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"unicode":0,"echo":false,"script":null)
+]
+}

@@ -1,6 +1,41 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://c1axten0pkrn"]
 
 [ext_resource type="Script" path="res://project/02_static/Modal.gd" id="1_ubfh5"]
+[ext_resource type="Texture2D" uid="uid://dnts7qmhsih6v" path="res://resource/ui/common_frame.png" id="2_cdpqy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wou7h"]
+texture = ExtResource("2_cdpqy")
+margin_left = 10.0
+margin_top = 12.0
+margin_right = 12.0
+margin_bottom = 13.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 240, 72)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skshr"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.470588, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0btfs"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.470588, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Modal" type="CanvasLayer"]
 layer = 100
@@ -17,6 +52,8 @@ size_flags_vertical = 6
 color = Color(0, 0, 0, 0.392157)
 
 [node name="panel" type="PanelContainer" parent="."]
+texture_filter = 1
+texture_repeat = 1
 custom_minimum_size = Vector2(420, 260)
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,10 +68,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_wou7h")
 
 [node name="margin" type="MarginContainer" parent="panel"]
-offset_right = 420.0
-offset_bottom = 260.0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 408.0
+offset_bottom = 247.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -43,59 +83,62 @@ theme_override_constants/margin_bottom = 5
 [node name="contents" type="VBoxContainer" parent="panel/margin"]
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 415.0
-offset_bottom = 255.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 393.0
+offset_bottom = 230.0
 
 [node name="margin" type="MarginContainer" parent="panel/margin/contents"]
-offset_right = 410.0
-offset_bottom = 173.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 388.0
+offset_bottom = 148.0
 size_flags_vertical = 3
 
 [node name="separate" type="HSeparator" parent="panel/margin/contents"]
-offset_top = 177.0
-offset_right = 410.0
-offset_bottom = 181.0
+offset_top = 152.0
+offset_right = 388.0
+offset_bottom = 156.0
 
 [node name="buttons" type="HBoxContainer" parent="panel/margin/contents"]
 custom_minimum_size = Vector2(0, 65)
-offset_top = 185.0
-offset_right = 410.0
-offset_bottom = 250.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_top = 160.0
+offset_right = 388.0
+offset_bottom = 225.0
 
 [node name="button1" type="Button" parent="panel/margin/contents/buttons"]
 custom_minimum_size = Vector2(120, 50)
-offset_left = 7.0
+offset_left = 3.0
 offset_top = 7.0
-offset_right = 127.0
+offset_right = 123.0
 offset_bottom = 57.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_skshr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0btfs")
 
 [node name="button2" type="Button" parent="panel/margin/contents/buttons"]
 custom_minimum_size = Vector2(120, 50)
-offset_left = 145.0
+offset_left = 133.0
 offset_top = 7.0
-offset_right = 265.0
+offset_right = 253.0
 offset_bottom = 57.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_skshr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0btfs")
 
 [node name="button3" type="Button" parent="panel/margin/contents/buttons"]
 custom_minimum_size = Vector2(120, 50)
-offset_left = 283.0
+offset_left = 264.0
 offset_top = 7.0
-offset_right = 403.0
+offset_right = 384.0
 offset_bottom = 57.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_skshr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0btfs")
 text = "
 "
