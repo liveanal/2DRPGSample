@@ -1,20 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwpi1iv8r8mbc"]
+[gd_scene load_steps=4 format=3 uid="uid://bwpi1iv8r8mbc"]
 
 [ext_resource type="Script" path="res://project/60_menu/Menu.gd" id="1_x3wer"]
 [ext_resource type="PackedScene" uid="uid://ckk6xvyv4f0xs" path="res://project/60_menu/control/Inventory.tscn" id="2_bclvm"]
 [ext_resource type="PackedScene" uid="uid://bolboir7423wb" path="res://project/60_menu/control/Logging.tscn" id="3_gbo66"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_556ut"]
-bg_color = Color(0.141176, 0.141176, 0.141176, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.470588, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
 
 [node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("inventory", "logging")]
 script = ExtResource("1_x3wer")
@@ -44,6 +32,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="button_area" type="ScrollContainer" parent="frame/margin/container"]
+clip_contents = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 follow_focus = true
@@ -52,13 +41,10 @@ follow_focus = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 15
 
 [node name="inventory" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -67,8 +53,6 @@ text = "インベントリ"
 [node name="equip" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -77,8 +61,6 @@ text = "装備"
 [node name="skills" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -87,8 +69,6 @@ text = "スキル"
 [node name="status" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -97,8 +77,6 @@ text = "ステータス"
 [node name="log" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -107,8 +85,6 @@ text = "メッセージログ"
 [node name="dictionary" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -117,8 +93,6 @@ text = "図鑑"
 [node name="saveload" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -128,8 +102,6 @@ text = "セーブ/ロード
 [node name="bonus" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -138,8 +110,6 @@ text = "おまけ"
 [node name="option" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
@@ -148,8 +118,6 @@ text = "オプション"
 [node name="quit" type="Button" parent="frame/margin/container/button_area/select"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_556ut")
 shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
