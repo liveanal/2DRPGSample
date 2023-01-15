@@ -1,5 +1,6 @@
 class_name SelectItem extends Resource
 
+@export var item:ItemBase
 @export var name:String
 @export var texture:Texture2D
 @export_group("Multiple")

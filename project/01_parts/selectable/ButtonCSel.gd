@@ -49,12 +49,12 @@ func _ready():
 	set_items(select)
 	connect("pressed_accept",func(i):_pressed_animation(get_row_item(i)))
 
-func set_items(select):
-	super.set_items(mapping_items(select))
+func set_items(_items):
+	super.set_items(mapping_items(_items))
 
-func mapping_items(select)->Array:
-	var items := []
-	for val in select :
+func mapping_items(_items)->Array:
+	var res := []
+	for val in _items :
 		var button:=Button.new()
 		button.text = val
 		button.flat = flat
@@ -66,8 +66,8 @@ func mapping_items(select)->Array:
 		button.set("theme_override_styles/pressed",pressed)
 		button.button_mask = 0
 		button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		items.append(button)
-	return items
+		res.append(button)
+	return res
 
 func _pressed_animation(btn:Button):
 	btn.set("theme_override_styles/normal",pressed)

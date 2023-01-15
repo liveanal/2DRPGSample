@@ -11,6 +11,6 @@ func open():
 	scrollable.enable()
 	super.open()
 
-func append(name,msg):
-	scrollable.add_item(name)
-	scrollable.add_item(msg)
+func append(_name,_msg):
+	scrollable.add_item(_name)
+	scrollable.add_item(_msg)

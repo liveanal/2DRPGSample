@@ -17,9 +17,9 @@ func _ready():
 			await _start_menu(items[i])
 			list.enable())
 	list.connect("pressed_cancel",func():close())
-	list.connect("changed_index",func(before_idx,after_idx):
+	list.connect("changed_index",func(_bi:int,_ai:int):
 		if !items.is_empty():
-			desc.text = items[after_idx].description)
+			desc.text = items[_ai].description)
 	
 	if !items.is_empty():
 		list.set_items(items)
@@ -36,7 +36,8 @@ func _start_menu(item):
 	menu.connect("pressed_accept",accept)
 	menu.connect("pressed_cancel",cancel)
 	
-	await menu.set_items(item.get_menu_labels())
+	var labels = item.get_menu_labels()
+	menu.set_items(labels)
 	menu.enable()
 	await finished_inventory_menu
 	menu.clear()

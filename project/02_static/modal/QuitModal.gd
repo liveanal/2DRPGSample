@@ -9,7 +9,8 @@ func _ready():
 
 func _on_pressed_cancel():
 	emit_signal("pressed_cancel")
-	await close(anim_time)
+	close(anim_time)
+	await finished_close
 
 func _on_pressed_ok():
 	disable()
@@ -17,5 +18,6 @@ func _on_pressed_ok():
 	get_tree().quit()
 
 func open(time:=anim_time):
-	await super.open(time)
+	super.open(time)
+	await finished_open
 	button[0].grab_focus()

@@ -54,11 +54,11 @@ func _ready():
 	super._ready()
 	set_items(select)
 
-func set_items(select):
-	super.set_items(mapping_items(select))
+func set_items(_items):
+	super.set_items(mapping_items(_items))
 
-func mapping_items(select)->Array:
-	var items := []
-	for val in select :
-		items.append(Utility.create_label(val,text_h_alignment,text_v_alignment,label_h_size,label_h_expand,label_v_size,label_v_expand,label_settings))
-	return items
+func mapping_items(_items)->Array:
+	var res := []
+	for val in _items :
+		res.append(Utility.create_label(val,text_h_alignment,text_v_alignment,label_h_size,label_h_expand,label_v_size,label_v_expand,label_settings))
+	return res

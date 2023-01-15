@@ -17,7 +17,7 @@ const dialog_info_res := preload("res://project/02_static/dialog/InfoDialog.tscn
 var message_log := []
 
 func _ready():
-	connect("log_message",func(name,message):message_log.append({"name":name,"message":message}))
+	connect("log_message",func(_name,_message):message_log.append({"name":_name,"message":_message}))
 
 # fullダイアログ生成
 func _create_full_dialog(time:float=0.0)->Dialog:

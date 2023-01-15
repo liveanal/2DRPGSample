@@ -1,18 +1,11 @@
 class_name Utility
 
-# レイヤー情報
-const _layers:Dictionary = {}
-
-# 初期化
-func _init():
-	# レイヤー情報を{レイヤー名：bit値}で管理
-	for i in range(0, 32, 1):
-		var layer = ProjectSettings.get_setting("layer_names/2d_physics/layer_" + str(i + 1))
-		_layers[layer] = pow(2, i)
-
 # レイヤー名からbit値を取得
-static func get_layerbit(name:String):
-	return _layers[name]
+static func get_layerbit(name:String) -> int:
+	for i in range(0, 32, 1):
+		if ProjectSettings.get_setting("layer_names/2d_physics/layer_" + str(i + 1)) == name :
+			return int(pow(2, i))
+	return -1
 
 # Dictionaryの複製
 static func clone_dict(source) -> Dictionary:
@@ -28,7 +21,6 @@ static func get_data(data:Dictionary, path:String, default=null):
 		data = data.get(key)
 		if data == null:
 			return default
-
 	return data
 
 # dataに該当するキーが存在するか確認（pathは各階層のkeyを"/"で連結　例："player/position/x"）
@@ -68,7 +60,7 @@ static func del_data(data:Dictionary,path:String):
 # ファイル書き出し
 static func save_file(path:String, content:Dictionary):
 	var file := FileAccess.open(path, FileAccess.WRITE)
-	file.store_string(JSON.new().stringify(content))
+	file.store_string(JSON.stringify(content))
 
 # ファイル読み込み
 static func load_file(path:String):
@@ -86,14 +78,14 @@ static func get_all_children(in_node):
 	return arr
 
 # 指定ノードの全階層分の子ノードを処理
-static func each_all_children(in_node,call:Callable):
-	call.call(in_node)
+static func each_all_children(in_node,callable:Callable):
+	callable.call(in_node)
 	if 0<in_node.get_child_count():
 		for child in in_node.get_children():
-			each_all_children(child,call)
+			each_all_children(child,callable)
 
 # 指定ノードの親を遡りtestの条件に一致する親を取得
-static func get_parent(in_node,test:Callable=func(panret):return true):
+static func get_parent(in_node,test:Callable):
 	var parent = in_node.get_parent()
 	if parent==null:
 		return null
@@ -146,13 +138,12 @@ static func comma_sep(n:int) -> String:
 # 画像の一部をTextureとして取得
 static func get_atlas_texture(texture:Texture2D, hframes:int, vframes:int, frame:int):
 	var texture_size := texture.get_size()
-	var chip_width_size   := texture_size.x / hframes
-	var chip_height_size  := texture_size.y / vframes
-	var region_x = chip_width_size * (frame % hframes)
-	var region_y = chip_height_size * (frame / hframes)
+	var chip_width_size := texture_size.x / hframes
+	var chip_height_size := texture_size.y / vframes
+	var region_x := chip_width_size * (frame % hframes)
+	var region_y := int(chip_height_size * (float(frame) / hframes))
 	
-	var img_tex = ImageTexture.new();
-	return img_tex.create_from_image(texture.get_image().get_rect(Rect2(region_x, region_y, chip_width_size, chip_height_size)))
+	return ImageTexture.create_from_image(texture.get_image().get_rect(Rect2(region_x, region_y, chip_width_size, chip_height_size)))
 
 # ラジオボタンから選択済みの番号を取得
 static func get_radios_idx_checked(radios:Array) -> int:
@@ -201,12 +192,11 @@ static func add_child_first(parent,child):
 	parent.move_child(child,0)
 
 # 文字列のバイトサイズを取得（a=1,aA=2,aあ=3）
-static func  get_bytesize(str:String)->int:
+static func get_bytesize(string:String)->int:
 	var sum=0
-	var arr := str.to_utf16_buffer()
-	for i in range(0, arr.size(), 2):
-		var byte := arr[i]+arr[i+1]
-		if byte<128:
+	var arr := string.to_utf16_buffer()
+	for i in range(1, arr.size(), 2):
+		if arr[i]==0:
 			sum += 1
 		else:
 			sum += 2

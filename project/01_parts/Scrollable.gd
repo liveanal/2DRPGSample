@@ -45,7 +45,7 @@ func _input(event):
 			$margin/scroll.scroll_vertical -= scroll_speed
 		elif !input_down.is_empty() and (event.is_pressed or event.is_echo()) and !event.is_action_released(input_down) and event.is_action(input_down):
 			$margin/scroll.scroll_vertical += scroll_speed
-		if !input_cancel.is_empty() and event.is_action_pressed(input_cancel):
+		if !input_cancel.is_empty() and !event.is_action_released(input_cancel) and event.is_action_pressed(input_cancel):
 			emit_signal("pressed_cancel")
 
 func _clear_rows():
@@ -53,8 +53,8 @@ func _clear_rows():
 		child.queue_free()
 	await get_tree().process_frame
 
-func _set_rows(rows:Array):
-	for row in rows:
+func _set_rows(_rows:Array):
+	for row in _rows:
 		$margin/scroll/contents.add_child(row)
 	await get_tree().process_frame
 
@@ -100,15 +100,15 @@ func set_items(items:Array):
 	rows.clear()
 	await _clear_rows()
 	if !items.is_empty():
-		add_item(items)
+		await add_item(items)
 
 func add_item(item):
 	if item is Array:
 		for i in item: rows.append(i)
+		await _set_rows(item)
 	else:
 		rows.append(item)
-	# 行セット
-	await _set_rows([item])
+		await _set_rows([item])
 
 func get_row_item(idx:int):
 	return rows[idx]

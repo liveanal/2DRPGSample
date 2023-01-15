@@ -34,7 +34,7 @@ func open():
 	margin.set("theme_override_constants/margin_bottom",frame.patch_margin_bottom)
 	
 	label.text = "[center][font_size=%d]%s[/font_size][/center]" % [font_size,text]
-	frame.size += Vector2(max_width,max_height) * Vector2(font_size*2/3, font_size)
+	frame.size += Vector2(max_width,max_height) * Vector2(font_size*2.0/3, font_size)
 	frame.pivot_offset = Vector2(frame.size.x/2,frame.size.y)
 	frame.position = -Vector2(frame.size.x/2,frame.size.y)
 	

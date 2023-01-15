@@ -13,5 +13,4 @@ icon_scale = 1.0
 [node name="frame" type="NinePatchRect" parent="." index="0"]
 
 [node name="sprites" type="AnimatedSprite2D" parent="frame" index="0"]
-animation = &"dice"
 playing = true

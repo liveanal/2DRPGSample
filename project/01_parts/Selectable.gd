@@ -1,7 +1,7 @@
 class_name Selectable extends Scrollable
 
-signal changed_index(before_index,after_index)
-signal pressed_accept(index)
+signal changed_index(_before_index,_after_index)
+signal pressed_accept(_index)
 
 @export_group("Index")
 @export var index:=0:
@@ -38,8 +38,8 @@ func _input(event):
 		if !input_accept.is_empty() and event.is_action_pressed(input_cancel):
 			emit_signal("pressed_cancel")
 
-func _set_rows(rows:Array):
-	await super._set_rows(rows)
+func _set_rows(_rows:Array):
+	await super._set_rows(_rows)
 	index_max=rows.size()
 	index=index
 

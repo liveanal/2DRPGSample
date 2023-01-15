@@ -3,7 +3,7 @@ class_name CursorSelectable extends Selectable
 @export_group("Layout Settings")
 @export var minimum_height:float=0.0:
 	set(val):
-		minimum_height = val if 0<val else 0
+		minimum_height = val if 0.0<val else 0.0
 	get:
 		return minimum_height
 @export_enum(Fill,Begin,Center,End) var row_v_size:int=0:

@@ -42,11 +42,13 @@ func _on_pressed_default():
 
 func _on_pressed_cancel():
 	emit_signal("pressed_cancel")
-	await close(anim_time)
+	close(anim_time)
+	await finished_close
 
 func _on_pressed_ok():
 	emit_signal("pressed_ok", get_values())
-	await close(anim_time)
+	close(anim_time)
+	await finished_close
 
 func get_values() -> Dictionary :
 	var result := {}
@@ -65,5 +67,6 @@ func set_values(values:Dictionary) :
 	move_type[values["move_type"]].button_pressed = true
 
 func open(time:=anim_time):
-	await super.open(time)
+	super.open(time)
+	await finished_open
 	window_mode[0].grab_focus()

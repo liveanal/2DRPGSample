@@ -3,9 +3,10 @@ extends Node
 # Feedシーン
 const fade_res := preload("res://project/02_static/Fade.tscn")
 
+signal finished_fade_backprocess
+
 # シーン切り替え用フェード一時退避
 var current_fade:Fade
-
 # オプションパス
 var option_path := "res://savedata/option.conf"
 # オプションデータ
@@ -59,7 +60,8 @@ func fade_inout(time:float, callable:Callable, layer:=120):
 	fade.start_in(time)
 	await fade.finished
 	# 裏処理
-	await callable.call()
+	callable.call()
+	await finished_fade_backprocess
 	# フェードアウト
 	fade.start_out(time)
 	await fade.finished
@@ -74,7 +76,8 @@ func fade_outin(time:float, callable:Callable, layer:=120):
 	fade.start_out(time)
 	await fade.finished
 	# 裏処理
-	await callable.call()
+	callable.call()
+	await finished_fade_backprocess
 	# フェードアウト
 	fade.start_in(time)
 	await fade.finished

@@ -43,14 +43,14 @@ func _process(delta):
 		seek = 0.0
 		emit_signal("finished")
 
-func start_in(time:=self.time,color:=self.color):
+func start_in(t:=self.time,c:=self.color):
 	if !fade_in && !fade_out:
 		fade_in = true
-		self.time = time
-		self.color = Color(color.r,color.g,color.b,0.0)
+		self.time = t
+		self.color = Color(c.r,c.g,c.b,0.0)
 
-func start_out(time:=self.time,color:=self.color):
+func start_out(t:=self.time,c:=self.color):
 	if !fade_in && !fade_out:
 		fade_out = true
-		self.time = time
-		self.color = Color(color.r,color.g,color.b,1.0)
+		self.time = t
+		self.color = Color(c.r,c.g,c.b,1.0)

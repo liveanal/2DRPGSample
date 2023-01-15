@@ -10,17 +10,9 @@ items = null
 scroll_speed = 1.0
 
 [node name="margin" parent="." index="0"]
-layout_mode = 3
-
-[node name="scroll" parent="margin" index="0"]
-layout_mode = 3
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 10.0
-offset_bottom = 10.0
-
-[node name="contents" parent="margin/scroll" index="0"]
-layout_mode = 3
-
-[node name="cursor" parent="." index="1"]
-layout_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

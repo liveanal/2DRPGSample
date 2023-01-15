@@ -73,7 +73,7 @@ func _ready_selectable():
 			emit_signal("pressed_select",index,get_select_item())
 			emit_signal("finished_message"))
 
-func _process(delta):
+func _process(_delta):
 	if visible :
 		match(dialog_status):
 			DialogStatus.WAIT_SCROLLING:
@@ -147,7 +147,7 @@ func update():
 			dialog_status = DialogStatus.WAIT_SCROLLING
 			scroll_timer.start()
 		if t_selectable != null:
-			t_selectable.set_items(data.get_selectable_text())
+			await t_selectable.set_items(data.get_selectable_text())
 			t_selectable.is_input = false
 			t_selectable.visible = false
 		if t_pagenation != null:

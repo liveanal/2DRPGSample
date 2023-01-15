@@ -7,12 +7,12 @@ func _ready():
 	super._ready()
 	set_items(items)
 
-func set_items(items):
-	super.set_items(mapping_items(items))
+func set_items(_items):
+	super.set_items(mapping_items(_items))
 
-func mapping_items(items)->Array:
+func mapping_items(_items:Array)->Array:
 	var res := []
-	for item in items : 
+	for item in _items : 
 		res.append(mapping_item(item))
 	return res
 

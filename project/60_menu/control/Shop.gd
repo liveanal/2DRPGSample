@@ -98,9 +98,11 @@ func start_table():
 
 func update():
 	if !shop_items.is_empty():
-		await shop_table.set_items(shop_items)
+		shop_table.set_items(shop_items)
+		await shop_table.setted_rows
 	if !inventory_items.is_empty():
-		await inventory_table.set_items(inventory_items)
+		inventory_table.set_items(inventory_items)
+		await inventory_table.setted_rows
 
 func update_operation():
 	operation.text = operation_text[op_status]
@@ -184,7 +186,7 @@ func return_table():
 	enable()
 	update_operation()
 	update_infomation(0,0)
-	
+
 func finish_shop():
 	emit_signal("pressed_accept",shop_money,shop_items,player_money,inventory_items)
 	emit_signal("finished_menu")

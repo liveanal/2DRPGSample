@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://x77a6f6i87u"]
 
 [ext_resource type="Script" path="res://project/60_menu/control/ShopRow.gd" id="1_tch5w"]
 
@@ -45,7 +45,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="content" type="VBoxContainer" parent="margin/content"]
 layout_mode = 2

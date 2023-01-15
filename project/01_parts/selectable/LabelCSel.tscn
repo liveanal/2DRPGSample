@@ -14,5 +14,15 @@ label_h_expand = true
 label_v_size = 0
 label_v_expand = true
 
+[node name="margin" parent="." index="0"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_right = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="cursor" parent="." index="1"]
 position = Vector2(10, 10)
