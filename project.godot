@@ -34,6 +34,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://project/01_parts/CameraManager.gd"
 }, {
+"base": "Resource",
+"class": &"CharData",
+"language": &"GDScript",
+"path": "res://project/30_char/CharData.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Character",
+"language": &"GDScript",
+"path": "res://project/30_char/Character.gd"
+}, {
 "base": "Selectable",
 "class": &"CursorSelectable",
 "language": &"GDScript",
@@ -230,6 +240,8 @@ _global_script_class_icons={
 "ButtonCSel": "",
 "ButtonOSel": "",
 "CameraManager": "",
+"CharData": "",
+"Character": "",
 "CursorSelectable": "",
 "Dialog": "",
 "DialogData": "",
@@ -295,6 +307,10 @@ window/size/viewport_height=600
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

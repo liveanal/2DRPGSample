@@ -1,39 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://byx4kh8ochsja"]
+[gd_scene load_steps=10 format=3 uid="uid://byx4kh8ochsja"]
 
 [ext_resource type="PackedScene" uid="uid://cno2pfamxwi0u" path="res://project/02_static/Modal.tscn" id="1_wdwm5"]
 [ext_resource type="Script" path="res://project/02_static/modal/OptionModal.gd" id="2_npwev"]
+[ext_resource type="Texture2D" uid="uid://dnts7qmhsih6v" path="res://resource/ui/common_frame.png" id="3_i1gtp"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02u16"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n372k"]
+texture = ExtResource("3_i1gtp")
+margin_left = 6.45449
+margin_top = 12.909
+margin_right = 6.45449
+margin_bottom = 14.4458
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 240, 72)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j4o3"]
 content_margin_bottom = 10.0
 draw_center = false
 border_width_bottom = 1
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_n55uq"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_ypgwn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2wym"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3pn3"]
 content_margin_top = 15.0
 content_margin_bottom = 10.0
 draw_center = false
 border_width_bottom = 1
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_a5kcm"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_jd7f8"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_lpyhs"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_g27xx"]
 
 [node name="OptionModal" instance=ExtResource("1_wdwm5")]
 script = ExtResource("2_npwev")
 
 [node name="panel" parent="." index="1"]
+texture_filter = 1
+texture_repeat = 1
 custom_minimum_size = Vector2(640, 420)
-
-[node name="margin" parent="panel" index="0"]
-layout_mode = 2
-
-[node name="contents" parent="panel/margin" index="0"]
-layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n372k")
 
 [node name="margin" parent="panel/margin/contents" index="0"]
-layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -50,7 +57,8 @@ size_flags_horizontal = 3
 
 [node name="section1" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="0"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_02u16")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0j4o3")
 text = "Window Mode"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -62,38 +70,51 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
 button_pressed = true
-button_group = SubResource("ButtonGroup_n55uq")
+button_group = SubResource("ButtonGroup_ypgwn")
 text = "960x600"
 
 [node name="midium" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="1"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_n55uq")
+button_group = SubResource("ButtonGroup_ypgwn")
 text = "1280x800"
 
 [node name="big" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="2"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_n55uq")
+button_group = SubResource("ButtonGroup_ypgwn")
 text = "1440x900"
 
 [node name="fullscreen" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="3"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_n55uq")
+button_group = SubResource("ButtonGroup_ypgwn")
 text = "FullScreen"
 
 [node name="section2" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="2"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_s2wym")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3pn3")
 text = "Sound Volume"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -104,6 +125,7 @@ layout_mode = 2
 [node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/bgm_volume" index="0"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "BGM"
 horizontal_alignment = 1
 
@@ -121,6 +143,7 @@ layout_mode = 2
 [node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/se_volume" index="0"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "SE"
 horizontal_alignment = 1
 
@@ -134,7 +157,8 @@ value = 100.0
 
 [node name="section3" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="5"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_s2wym")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3pn3")
 text = "Game Setting"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -145,6 +169,7 @@ layout_mode = 2
 [node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/text_speed" index="0"]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "テキスト表示設定"
 
 [node name="contents" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents/text_speed" index="1"]
@@ -155,29 +180,41 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-button_group = SubResource("ButtonGroup_a5kcm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
+button_group = SubResource("ButtonGroup_jd7f8")
 text = "遅い"
 
 [node name="normal" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="1"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 button_pressed = true
-button_group = SubResource("ButtonGroup_a5kcm")
+button_group = SubResource("ButtonGroup_jd7f8")
 text = "標準"
 
 [node name="high" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="2"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-button_group = SubResource("ButtonGroup_a5kcm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
+button_group = SubResource("ButtonGroup_jd7f8")
 text = "早い"
 
 [node name="nowait" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="3"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-button_group = SubResource("ButtonGroup_a5kcm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
+button_group = SubResource("ButtonGroup_jd7f8")
 text = "瞬間"
 
 [node name="move_type" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="7"]
@@ -186,6 +223,7 @@ layout_mode = 2
 [node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/move_type" index="0"]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "移動タイプ"
 
 [node name="contents" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents/move_type" index="1"]
@@ -196,36 +234,33 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
 button_pressed = true
-button_group = SubResource("ButtonGroup_lpyhs")
+button_group = SubResource("ButtonGroup_g27xx")
 text = "常時:歩き 押下:走り"
 
 [node name="default_run" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/move_type/contents" index="1"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_lpyhs")
+button_group = SubResource("ButtonGroup_g27xx")
 text = "常時:走り 押下:歩き"
-
-[node name="separate" parent="panel/margin/contents" index="1"]
-layout_mode = 2
-
-[node name="buttons" parent="panel/margin/contents" index="2"]
-layout_mode = 2
 
 [node name="button1" parent="panel/margin/contents/buttons" index="0"]
 custom_minimum_size = Vector2(180, 50)
-layout_mode = 2
 text = "DEFAULT"
 
 [node name="button2" parent="panel/margin/contents/buttons" index="1"]
 custom_minimum_size = Vector2(180, 50)
-layout_mode = 2
 text = "CANCEL"
 
 [node name="button3" parent="panel/margin/contents/buttons" index="2"]
 custom_minimum_size = Vector2(180, 50)
-layout_mode = 2
 text = "OK"

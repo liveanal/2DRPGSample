@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnldke8vl302n"]
+[gd_scene load_steps=4 format=3 uid="uid://bnldke8vl302n"]
 
 [ext_resource type="Script" path="res://project/Main.gd" id="1_asj38"]
+[ext_resource type="Texture2D" uid="uid://blojyq25vifmo" path="res://resource/splash/splash.png" id="2_4ce1f"]
 [ext_resource type="PackedScene" uid="uid://dmdal0o381jm1" path="res://project/10_title/Title.tscn" id="2_hvaf6"]
 
 [node name="Main" type="Node"]
@@ -12,6 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_4ce1f")
+expand_mode = 1
 
 [node name="title" parent="." instance=ExtResource("2_hvaf6")]
 visible = false
