@@ -1,24 +1,24 @@
 [gd_scene load_steps=8 format=3 uid="uid://byx4kh8ochsja"]
 
-[ext_resource type="PackedScene" uid="uid://c1axten0pkrn" path="res://project/02_static/Modal.tscn" id="1_wdwm5"]
+[ext_resource type="PackedScene" uid="uid://cno2pfamxwi0u" path="res://project/02_static/Modal.tscn" id="1_wdwm5"]
 [ext_resource type="Script" path="res://project/02_static/modal/OptionModal.gd" id="2_npwev"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g3i0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02u16"]
 content_margin_bottom = 10.0
 draw_center = false
 border_width_bottom = 1
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_37m27"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_n55uq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_as58k"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2wym"]
 content_margin_top = 15.0
 content_margin_bottom = 10.0
 draw_center = false
 border_width_bottom = 1
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ihlwi"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_a5kcm"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_yxiw3"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_lpyhs"]
 
 [node name="OptionModal" instance=ExtResource("1_wdwm5")]
 script = ExtResource("2_npwev")
@@ -27,129 +27,88 @@ script = ExtResource("2_npwev")
 custom_minimum_size = Vector2(640, 420)
 
 [node name="margin" parent="panel" index="0"]
-offset_right = 628.0
-offset_bottom = 407.0
+layout_mode = 2
 
 [node name="contents" parent="panel/margin" index="0"]
-offset_right = 613.0
-offset_bottom = 390.0
+layout_mode = 2
 
 [node name="margin" parent="panel/margin/contents" index="0"]
-offset_right = 608.0
-offset_bottom = 308.0
+layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
 [node name="scroller" type="ScrollContainer" parent="panel/margin/contents/margin" index="0"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 598.0
-offset_bottom = 303.0
+layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 
 [node name="contents" type="VBoxContainer" parent="panel/margin/contents/margin/scroller" index="0"]
-offset_right = 580.0
-offset_bottom = 311.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="section1" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="0"]
-offset_right = 580.0
-offset_bottom = 36.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_1g3i0")
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_02u16")
 text = "Window Mode"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="window_mode" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="1"]
-offset_top = 40.0
-offset_right = 580.0
-offset_bottom = 71.0
+layout_mode = 2
 
 [node name="small" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="0"]
-offset_left = 22.0
-offset_right = 120.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
 button_pressed = true
-button_group = SubResource("ButtonGroup_37m27")
+button_group = SubResource("ButtonGroup_n55uq")
 text = "960x600"
 
 [node name="midium" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="1"]
-offset_left = 163.0
-offset_right = 270.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_37m27")
+button_group = SubResource("ButtonGroup_n55uq")
 text = "1280x800"
 
 [node name="big" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="2"]
-offset_left = 309.0
-offset_right = 416.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_37m27")
+button_group = SubResource("ButtonGroup_n55uq")
 text = "1440x900"
 
 [node name="fullscreen" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="3"]
-offset_left = 452.0
-offset_right = 566.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_37m27")
+button_group = SubResource("ButtonGroup_n55uq")
 text = "FullScreen"
 
 [node name="section2" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="2"]
-offset_top = 75.0
-offset_right = 580.0
-offset_bottom = 126.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_as58k")
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_s2wym")
 text = "Sound Volume"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="bgm_volume" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="3"]
-offset_top = 130.0
-offset_right = 580.0
-offset_bottom = 156.0
+layout_mode = 2
 
 [node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/bgm_volume" index="0"]
 custom_minimum_size = Vector2(150, 0)
-offset_right = 150.0
-offset_bottom = 26.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+layout_mode = 2
 text = "BGM"
 horizontal_alignment = 1
 
 [node name="slider" type="HSlider" parent="panel/margin/contents/margin/scroller/contents/bgm_volume" index="1"]
-offset_left = 154.0
-offset_top = 5.0
-offset_right = 580.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
@@ -157,23 +116,16 @@ step = 10.0
 value = 100.0
 
 [node name="se_volume" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="4"]
-offset_top = 160.0
-offset_right = 580.0
-offset_bottom = 186.0
+layout_mode = 2
 
 [node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/se_volume" index="0"]
 custom_minimum_size = Vector2(150, 0)
-offset_right = 150.0
-offset_bottom = 26.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+layout_mode = 2
 text = "SE"
 horizontal_alignment = 1
 
 [node name="slider" type="HSlider" parent="panel/margin/contents/margin/scroller/contents/se_volume" index="1"]
-offset_left = 154.0
-offset_top = 5.0
-offset_right = 580.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
@@ -181,153 +133,99 @@ step = 10.0
 value = 100.0
 
 [node name="section3" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="5"]
-offset_top = 190.0
-offset_right = 580.0
-offset_bottom = 241.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_as58k")
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_s2wym")
 text = "Game Setting"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="text_speed" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="6"]
-offset_top = 245.0
-offset_right = 580.0
-offset_bottom = 276.0
+layout_mode = 2
 
 [node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/text_speed" index="0"]
 custom_minimum_size = Vector2(220, 0)
-offset_top = 2.0
-offset_right = 220.0
-offset_bottom = 28.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+layout_mode = 2
 text = "テキスト表示設定"
 
 [node name="contents" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents/text_speed" index="1"]
-offset_left = 224.0
-offset_right = 580.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="slow" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="0"]
-offset_left = 14.0
-offset_right = 72.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-button_group = SubResource("ButtonGroup_ihlwi")
+button_group = SubResource("ButtonGroup_a5kcm")
 text = "遅い"
 
 [node name="normal" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="1"]
-offset_left = 103.0
-offset_right = 163.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 button_pressed = true
-button_group = SubResource("ButtonGroup_ihlwi")
+button_group = SubResource("ButtonGroup_a5kcm")
 text = "標準"
 
 [node name="high" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="2"]
-offset_left = 194.0
-offset_right = 252.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-button_group = SubResource("ButtonGroup_ihlwi")
+button_group = SubResource("ButtonGroup_a5kcm")
 text = "早い"
 
 [node name="nowait" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="3"]
-offset_left = 283.0
-offset_right = 343.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-button_group = SubResource("ButtonGroup_ihlwi")
+button_group = SubResource("ButtonGroup_a5kcm")
 text = "瞬間"
 
 [node name="move_type" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="7"]
-offset_top = 280.0
-offset_right = 580.0
-offset_bottom = 311.0
+layout_mode = 2
 
 [node name="label" type="Label" parent="panel/margin/contents/margin/scroller/contents/move_type" index="0"]
 custom_minimum_size = Vector2(220, 0)
-offset_top = 2.0
-offset_right = 220.0
-offset_bottom = 28.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+layout_mode = 2
 text = "移動タイプ"
 
 [node name="contents" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents/move_type" index="1"]
-offset_left = 224.0
-offset_right = 580.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="default_walk" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/move_type/contents" index="0"]
-offset_left = 4.0
-offset_right = 171.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
 button_pressed = true
-button_group = SubResource("ButtonGroup_yxiw3")
+button_group = SubResource("ButtonGroup_lpyhs")
 text = "常時:歩き 押下:走り"
 
 [node name="default_run" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/move_type/contents" index="1"]
-offset_left = 184.0
-offset_right = 351.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
-theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_yxiw3")
+button_group = SubResource("ButtonGroup_lpyhs")
 text = "常時:走り 押下:歩き"
 
 [node name="separate" parent="panel/margin/contents" index="1"]
-offset_top = 312.0
-offset_right = 608.0
-offset_bottom = 316.0
+layout_mode = 2
 
 [node name="buttons" parent="panel/margin/contents" index="2"]
-offset_top = 320.0
-offset_right = 608.0
-offset_bottom = 385.0
+layout_mode = 2
 
 [node name="button1" parent="panel/margin/contents/buttons" index="0"]
 custom_minimum_size = Vector2(180, 50)
-offset_left = 10.0
-offset_right = 190.0
+layout_mode = 2
 text = "DEFAULT"
 
 [node name="button2" parent="panel/margin/contents/buttons" index="1"]
 custom_minimum_size = Vector2(180, 50)
-offset_left = 214.0
-offset_right = 394.0
+layout_mode = 2
 text = "CANCEL"
 
 [node name="button3" parent="panel/margin/contents/buttons" index="2"]
 custom_minimum_size = Vector2(180, 50)
-offset_left = 418.0
-offset_right = 598.0
+layout_mode = 2
 text = "OK"
