@@ -3,7 +3,7 @@ class_name ButtonOSel extends OverlapSelectable
 @export var select:PackedStringArray
 @export var flat:=false
 @export var clip_text:=false
-@export_enum(Left,Center,Right) var alignment=1:
+@export_enum("Left","Center","Right") var alignment=1:
 	set(val):
 		match(val):
 			0: alignment=HORIZONTAL_ALIGNMENT_LEFT
@@ -12,7 +12,7 @@ class_name ButtonOSel extends OverlapSelectable
 	get:
 		return alignment
 @export_group("Item Layout")
-@export_enum(Fill,Begin,Center,End) var h_size:int=0:
+@export_enum("Fill","Begin","Center","End") var h_size:int=0:
 	set(val):
 		match(val):
 			0: h_size=Control.SIZE_FILL if !h_expand else Control.SIZE_EXPAND_FILL
@@ -26,7 +26,7 @@ class_name ButtonOSel extends OverlapSelectable
 		h_expand = val
 	get:
 		return h_expand
-@export_enum(Fill,Begin,Center,End) var v_size:int=0:
+@export_enum("Fill","Begin","Center","End") var v_size:int=0:
 	set(val):
 		match(val):
 			0: v_size=Control.SIZE_FILL if !v_expand else Control.SIZE_EXPAND_FILL

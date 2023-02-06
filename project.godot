@@ -8,280 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "RefCounted",
-"class": &"AStarUtil",
-"language": &"GDScript",
-"path": "res://project/00_utility/AStarUtil.gd"
-}, {
-"base": "Node2D",
-"class": &"Balloon",
-"language": &"GDScript",
-"path": "res://project/01_parts/Balloon.gd"
-}, {
-"base": "CursorSelectable",
-"class": &"ButtonCSel",
-"language": &"GDScript",
-"path": "res://project/01_parts/selectable/ButtonCSel.gd"
-}, {
-"base": "OverlapSelectable",
-"class": &"ButtonOSel",
-"language": &"GDScript",
-"path": "res://project/01_parts/selectable/ButtonOSel.gd"
-}, {
-"base": "Node",
-"class": &"CameraManager",
-"language": &"GDScript",
-"path": "res://project/01_parts/CameraManager.gd"
-}, {
-"base": "Resource",
-"class": &"CharData",
-"language": &"GDScript",
-"path": "res://project/30_char/CharData.gd"
-}, {
-"base": "CharacterBody2D",
-"class": &"Character",
-"language": &"GDScript",
-"path": "res://project/30_char/Character.gd"
-}, {
-"base": "Selectable",
-"class": &"CursorSelectable",
-"language": &"GDScript",
-"path": "res://project/01_parts/CursorSelectable.gd"
-}, {
-"base": "CanvasLayer",
-"class": &"Dialog",
-"language": &"GDScript",
-"path": "res://project/02_static/Dialog.gd"
-}, {
-"base": "Resource",
-"class": &"DialogData",
-"language": &"GDScript",
-"path": "res://project/02_static/DialogData.gd"
-}, {
-"base": "Resource",
-"class": &"DialogSelect",
-"language": &"GDScript",
-"path": "res://project/02_static/DialogSelect.gd"
-}, {
-"base": "CanvasLayer",
-"class": &"Fade",
-"language": &"GDScript",
-"path": "res://project/02_static/Fade.gd"
-}, {
-"base": "Dialog",
-"class": &"FullDialog",
-"language": &"GDScript",
-"path": "res://project/02_static/dialog/FullDialog.gd"
-}, {
-"base": "Balloon",
-"class": &"IconBalloon",
-"language": &"GDScript",
-"path": "res://project/01_parts/balloon/IconBalloon.gd"
-}, {
-"base": "Balloon",
-"class": &"ImageBalloon",
-"language": &"GDScript",
-"path": "res://project/01_parts/balloon/ImageBalloon.gd"
-}, {
-"base": "Dialog",
-"class": &"InfoDialog",
-"language": &"GDScript",
-"path": "res://project/02_static/dialog/InfoDialog.gd"
-}, {
-"base": "MenuControl",
-"class": &"Inventory",
-"language": &"GDScript",
-"path": "res://project/60_menu/control/Inventory.gd"
-}, {
-"base": "SelectItem",
-"class": &"InventoryItem",
-"language": &"GDScript",
-"path": "res://project/60_menu/control/InventoryItem.gd"
-}, {
-"base": "Resource",
-"class": &"InventoryMenu",
-"language": &"GDScript",
-"path": "res://project/60_menu/control/InventoryMenu.gd"
-}, {
-"base": "Resource",
-"class": &"ItemBase",
-"language": &"GDScript",
-"path": "res://project/40_item/ItemBase.gd"
-}, {
-"base": "CursorSelectable",
-"class": &"ItemCSel",
-"language": &"GDScript",
-"path": "res://project/01_parts/itemselect/ItemCSel.gd"
-}, {
-"base": "OverlapSelectable",
-"class": &"ItemOSel",
-"language": &"GDScript",
-"path": "res://project/01_parts/itemselect/ItemOSel.gd"
-}, {
-"base": "CursorSelectable",
-"class": &"LabelCSel",
-"language": &"GDScript",
-"path": "res://project/01_parts/selectable/LabelCSel.gd"
-}, {
-"base": "OverlapSelectable",
-"class": &"LabelOSel",
-"language": &"GDScript",
-"path": "res://project/01_parts/selectable/LabelOSel.gd"
-}, {
-"base": "MenuControl",
-"class": &"Logging",
-"language": &"GDScript",
-"path": "res://project/60_menu/control/Logging.gd"
-}, {
-"base": "Node",
-"class": &"Main",
-"language": &"GDScript",
-"path": "res://project/Main.gd"
-}, {
-"base": "Control",
-"class": &"MenuControl",
-"language": &"GDScript",
-"path": "res://project/60_menu/MenuControl.gd"
-}, {
-"base": "CanvasLayer",
-"class": &"Modal",
-"language": &"GDScript",
-"path": "res://project/02_static/Modal.gd"
-}, {
-"base": "Dialog",
-"class": &"NoFaceDialog",
-"language": &"GDScript",
-"path": "res://project/02_static/dialog/NoFaceDialog.gd"
-}, {
-"base": "Modal",
-"class": &"OptionModal",
-"language": &"GDScript",
-"path": "res://project/02_static/modal/OptionModal.gd"
-}, {
-"base": "Selectable",
-"class": &"OverlapSelectable",
-"language": &"GDScript",
-"path": "res://project/01_parts/OverlapSelectable.gd"
-}, {
-"base": "Modal",
-"class": &"QuitModal",
-"language": &"GDScript",
-"path": "res://project/02_static/modal/QuitModal.gd"
-}, {
-"base": "RichTextEffect",
-"class": &"RichTextVAlign",
-"language": &"GDScript",
-"path": "res://project/00_utility/bbcode/RichTextVAlign.gd"
-}, {
-"base": "Panel",
-"class": &"Scrollable",
-"language": &"GDScript",
-"path": "res://project/01_parts/Scrollable.gd"
-}, {
-"base": "Resource",
-"class": &"SelectItem",
-"language": &"GDScript",
-"path": "res://project/01_parts/itemselect/SelectItem.gd"
-}, {
-"base": "HBoxContainer",
-"class": &"SelectRow",
-"language": &"GDScript",
-"path": "res://project/01_parts/itemselect/SelectRow.gd"
-}, {
-"base": "Scrollable",
-"class": &"Selectable",
-"language": &"GDScript",
-"path": "res://project/01_parts/Selectable.gd"
-}, {
-"base": "MenuControl",
-"class": &"Shop",
-"language": &"GDScript",
-"path": "res://project/60_menu/control/Shop.gd"
-}, {
-"base": "SelectItem",
-"class": &"ShopItem",
-"language": &"GDScript",
-"path": "res://project/60_menu/control/ShopItem.gd"
-}, {
-"base": "Control",
-"class": &"ShopRow",
-"language": &"GDScript",
-"path": "res://project/60_menu/control/ShopRow.gd"
-}, {
-"base": "Node",
-"class": &"Test",
-"language": &"GDScript",
-"path": "res://project/Test.gd"
-}, {
-"base": "Balloon",
-"class": &"TextBalloon",
-"language": &"GDScript",
-"path": "res://project/01_parts/balloon/TextBalloon.gd"
-}, {
-"base": "Control",
-"class": &"Title",
-"language": &"GDScript",
-"path": "res://project/10_title/Title.gd"
-}, {
-"base": "RefCounted",
-"class": &"Utility",
-"language": &"GDScript",
-"path": "res://project/00_utility/Utility.gd"
-}, {
-"base": "VideoStreamPlayer",
-"class": &"VideoManager",
-"language": &"GDScript",
-"path": "res://project/10_title/VideoManager.gd"
-}]
-_global_script_class_icons={
-"AStarUtil": "",
-"Balloon": "",
-"ButtonCSel": "",
-"ButtonOSel": "",
-"CameraManager": "",
-"CharData": "",
-"Character": "",
-"CursorSelectable": "",
-"Dialog": "",
-"DialogData": "",
-"DialogSelect": "",
-"Fade": "",
-"FullDialog": "",
-"IconBalloon": "",
-"ImageBalloon": "",
-"InfoDialog": "",
-"Inventory": "",
-"InventoryItem": "",
-"InventoryMenu": "",
-"ItemBase": "",
-"ItemCSel": "",
-"ItemOSel": "",
-"LabelCSel": "",
-"LabelOSel": "",
-"Logging": "",
-"Main": "",
-"MenuControl": "",
-"Modal": "",
-"NoFaceDialog": "",
-"OptionModal": "",
-"OverlapSelectable": "",
-"QuitModal": "",
-"RichTextVAlign": "",
-"Scrollable": "",
-"SelectItem": "",
-"SelectRow": "",
-"Selectable": "",
-"Shop": "",
-"ShopItem": "",
-"ShopRow": "",
-"Test": "",
-"TextBalloon": "",
-"Title": "",
-"Utility": "",
-"VideoManager": ""
-}
-
 [application]
 
 config/name="LiA-Rogue"
@@ -316,85 +42,85 @@ import/blender/enabled=false
 
 tab_next={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 tab_prev={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 skip={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 accept={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 cancel={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 menu={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 smenu1={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 smenu2={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 smenu3={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 attack={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 run={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 turn={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 left={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 right={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 down={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 up={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }

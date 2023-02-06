@@ -2,6 +2,12 @@ class_name ItemBase extends Resource
 
 enum MENUSET{ORGANIC,EQUIP,ESSENCE}
 
+@export var item_id:String:
+	set(val):
+		item_id=val
+		resource_name=item_id
+	get:
+		return item_id
 @export var name:String
 @export var texture:Texture2D
 @export_group("Multiple")

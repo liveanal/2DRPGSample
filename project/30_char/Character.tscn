@@ -1,19 +1,26 @@
-[gd_scene load_steps=28 format=3 uid="uid://dc66t26t14xac"]
+[gd_scene load_steps=28 format=3 uid="uid://c8s7jtpdloju2"]
 
-[ext_resource type="Script" path="res://project/30_char/Character.gd" id="1_oghh4"]
+[ext_resource type="Script" path="res://project/30_char/MoveCharacter.gd" id="1_xqjd3"]
 [ext_resource type="Texture2D" uid="uid://da6vgt73vqa60" path="res://resource/char/shadow.png" id="2_fh6va"]
 [ext_resource type="Script" path="res://project/30_char/CharData.gd" id="2_vqeuh"]
-[ext_resource type="Texture2D" uid="uid://qmo87g683k4d" path="res://resource/char/kusokimo/Kusokimo.png" id="3_26ugy"]
+[ext_resource type="Texture2D" uid="uid://qmo87g683k4d" path="res://resource/char/kusokimo/Kusokimo.png" id="4_rj0fp"]
 [ext_resource type="AnimationLibrary" uid="uid://ul1gvdnq1j57" path="res://resource/char/kusokimo/anim.res" id="4_suef8"]
 
-[sub_resource type="Resource" id="Resource_l02j6"]
+[sub_resource type="Resource" id="Resource_lsgot"]
+resource_local_to_scene = true
 script = ExtResource("2_vqeuh")
 name = null
 direction = Vector2(0, 1)
 money = null
 inventory = null
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvaq5"]
+resource_local_to_scene = true
+radius = 6.0
+height = 16.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5o3oe"]
+resource_local_to_scene = true
 radius = 13.0
 height = 26.0
 
@@ -91,6 +98,7 @@ node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"BlendSpace2D"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uhyay"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mymvi"]
+resource_local_to_scene = true
 states/End/position = Vector2(886, 264.702)
 states/Idle/node = SubResource("AnimationNodeBlendTree_nfpik")
 states/Idle/position = Vector2(567, 264.702)
@@ -102,56 +110,63 @@ graph_offset = Vector2(114, 149.702)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wyeg0"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tjjg"]
-
 [node name="Character" type="CharacterBody2D"]
-position = Vector2(215, 190)
 motion_mode = 1
 platform_on_leave = 1
-script = ExtResource("1_oghh4")
-data = SubResource("Resource_l02j6")
+script = ExtResource("1_xqjd3")
+data = SubResource("Resource_lsgot")
+walkable_custom_data = PackedStringArray("walkable")
 
 [node name="balloon" type="Marker2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -30)
 
 [node name="shadow" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(4.76837e-07, 0)
+position = Vector2(-1.42109e-14, 1)
 scale = Vector2(1.625, 1)
 texture = ExtResource("2_fh6va")
 
 [node name="texture" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(0, -16)
-texture = ExtResource("3_26ugy")
+position = Vector2(0, -14)
+texture = ExtResource("4_rj0fp")
 hframes = 3
 vframes = 8
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bvaq5")
+
+[node name="body" type="Area2D" parent="."]
+position = Vector2(0, 2)
+collision_layer = 2
+collision_mask = 0
+
+[node name="collision" type="CollisionShape2D" parent="body"]
 position = Vector2(0, -9)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5o3oe")
 
 [node name="look" type="Node2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0, -7)
 
 [node name="_ray" type="RayCast2D" parent="look"]
 target_position = Vector2(0, 40)
+collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="navigation" type="NavigationAgent2D" parent="."]
-path_desired_distance = 32.0
-target_desired_distance = 5.0
+path_desired_distance = 24.0
+target_desired_distance = 8.0
+path_max_distance = 32.0
 avoidance_enabled = true
-radius = 20.0
-neighbor_distance = 48.0
-max_neighbors = 6
-time_horizon = 3.0
-
-[node name="obstacle" type="NavigationObstacle2D" parent="."]
+radius = 16.0
+neighbor_distance = 100.0
+debug_enabled = true
 
 [node name="anim_tree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_mymvi")
@@ -166,6 +181,5 @@ parameters/Move/TimeScale/scale = 0.5
 [node name="anim_player" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_2tjjg"),
 "kusokimo": ExtResource("4_suef8")
 }
