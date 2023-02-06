@@ -12,7 +12,7 @@ class_name DialogData extends Resource
 @export var call_func:StringName
 
 func get_selectable_text()->Array[String]:
-	var textarr:=[]
+	var textarr:Array[String]=[]
 	for text in selectable:
 		textarr.append(text.text)
 	return textarr

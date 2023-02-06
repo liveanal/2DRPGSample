@@ -7,110 +7,110 @@
 
 [sub_resource type="Resource" id="Resource_ycckn"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "かちかちやまのたぬきさん
 おっぱいのんでねんねして
 だっこしておんぶしてまたあした"
-selectable = null
-call_func = null
+selectable = Array[ExtResource("3_hm10v")]([])
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_buyp0"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "スーパーマリオＲＰＧ
 Anarchy実況
 穴タコくん
 ゲームを作るために必要なものは技術より根気
 線路は続くよどこまでも"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_ycckn")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_ylj02"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "動作確認のため、メッセージログを溜め込んでいます。"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_buyp0")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_twytc"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "あ
 い
 う
 え
 お"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_ylj02")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_ao8p2"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "改行テスト
 改行テスト
 改行テスト"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_twytc")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_nr62e"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "もげもげチゲ"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_ao8p2")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_1bgtu"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "ほげはげひげ"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_nr62e")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_lpv5o"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "ダイアログ連続表示テスト"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_1bgtu")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_ejlnq"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "ぬるぬるちんちん"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_lpv5o")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_vnryg"]
 script = ExtResource("3_pi880")
 name = "なまえ"
 face = ExtResource("2_vc344")
 dialog = "またね！"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_ejlnq")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_a7oa4"]
 script = ExtResource("3_pi880")
-name = null
+name = ""
 dialog = "なまえさんからアイテムを貰った！"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_vnryg")
-call_func = null
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_yvhah"]
 script = ExtResource("3_pi880")
 name = "なまえ"
 face = ExtResource("2_vc344")
 dialog = "あなたにこれをあげるね。"
-selectable = null
+selectable = Array[ExtResource("3_hm10v")]([])
 next = SubResource("Resource_a7oa4")
 call_func = &"give_item"
 
@@ -119,8 +119,8 @@ script = ExtResource("3_pi880")
 name = "なまえ"
 face = ExtResource("2_vc344")
 dialog = "よろしくね。"
-selectable = null
-call_func = null
+selectable = Array[ExtResource("3_hm10v")]([])
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_7scg0"]
 script = ExtResource("3_hm10v")
@@ -133,8 +133,8 @@ script = ExtResource("3_pi880")
 name = "なまえ"
 face = ExtResource("2_vc344")
 dialog = "...？"
-selectable = null
-call_func = null
+selectable = Array[ExtResource("3_hm10v")]([])
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_r522e"]
 script = ExtResource("3_hm10v")
@@ -148,9 +148,9 @@ name = "なまえ"
 face = ExtResource("2_vc344")
 dialog = "こんにちは！私の名前は名前です。
 あなたの名前はなんですか？"
-selectable = [SubResource("Resource_7scg0"), SubResource("Resource_r522e")]
+selectable = Array[ExtResource("3_hm10v")]([SubResource("Resource_7scg0"), SubResource("Resource_r522e")])
 next = SubResource("Resource_yvhah")
-call_func = null
+call_func = &""
 
 [node name="Test" type="Node"]
 script = ExtResource("1_nuls8")
