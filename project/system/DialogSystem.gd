@@ -2,10 +2,8 @@ extends Node
 
 # ログウィンドウへの書き込みシグナル
 signal log_message(name:String,msg:String)
-# ログウィンドウ表示シグナル
-signal finished_open_logging
-# ログウィンドウ非表示シグナル
-signal finished_close_logging
+# ウィンドウ終了シグナル
+signal finished
 
 # Fullダイアログ
 const dialog_full_res := preload("res://project/02_static/dialog/FullDialog.tscn")
@@ -14,6 +12,7 @@ const dialog_noface_res := preload("res://project/02_static/dialog/NoFaceDialog.
 # Infoダイアログ
 const dialog_info_res := preload("res://project/02_static/dialog/InfoDialog.tscn")
 
+@export var default_anim_time:float=0.0
 var message_log := []
 
 func _ready():
@@ -79,7 +78,7 @@ func _switch_dialog(data:DialogData, anim_time:float, dialog)->Dialog:
 	return new_dialog
  
 # dataに応じた適切なダイアログの表示
-func open_dialog(caller:Node, data:DialogData, anim_time:=0.0, dialog=null, auto_close:=true):
+func open_dialog(caller:Node, data:DialogData, anim_time:=default_anim_time, auto_close:=true, dialog=null):
 	var d = dialog
 	
 	# ダイアログを表示
@@ -96,8 +95,7 @@ func open_dialog(caller:Node, data:DialogData, anim_time:=0.0, dialog=null, auto
 			caller.call(selected.call_func)
 		# 選択肢のnextを呼び出し
 		if selected.next != null:
-			d = await open_dialog(caller, selected.next, anim_time, d, false)
-	
+			d = await open_dialog(caller, selected.next, anim_time, false, d)
 	# call_funcがある場合
 	if !Utility.is_empty(data.call_func):
 		# 選択後のcall_funcを呼出し
@@ -105,11 +103,14 @@ func open_dialog(caller:Node, data:DialogData, anim_time:=0.0, dialog=null, auto
 	# nextがある場合
 	if data.next != null:
 		# 選択肢のnextを呼び出し
-		d = await open_dialog(caller, data.next, anim_time, d, false)
+		d = await open_dialog(caller, data.next, anim_time, false, d)
 	
 	# ダイアログ終了
 	if auto_close:
 		d.close()
 		await d.finished_close
+		# ダイアログ終了検知
+		if dialog == null:
+			emit_signal("finished")
 	else:
 		return d

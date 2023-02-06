@@ -201,3 +201,10 @@ static func get_bytesize(string:String)->int:
 		else:
 			sum += 2
 	return sum
+
+# 3点の内積を求める
+static func get_inner_angle(p1:Vector2,p2:Vector2,p3:Vector2):
+	var a:Vector2 = p2 * p1
+	var b:Vector2 = p2 * p3
+	var c = (a.x*b.x + a.y*b.y) / (sqrt(pow(a.x,2)+pow(a.y,2)) * sqrt(pow(b.x,2)+pow(b.y,2)))
+	return acos(c)

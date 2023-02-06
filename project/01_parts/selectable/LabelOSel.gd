@@ -10,7 +10,7 @@ class_name LabelOSel extends OverlapSelectable
 		label_settings = val
 	get:
 		return label_settings
-@export_enum(Left,Center,Right) var text_h_alignment:int=0:
+@export_enum("Left","Center","Right") var text_h_alignment:int=0:
 	set(val):
 		match(val):
 			0: text_h_alignment=HORIZONTAL_ALIGNMENT_LEFT
@@ -19,7 +19,7 @@ class_name LabelOSel extends OverlapSelectable
 			3: text_h_alignment=HORIZONTAL_ALIGNMENT_FILL
 	get:
 		return text_h_alignment
-@export_enum(Top,Center,Bottom) var text_v_alignment:int=1:
+@export_enum("Top","Center","Bottom") var text_v_alignment:int=1:
 	set(val):
 		match(val):
 			0: text_v_alignment=VERTICAL_ALIGNMENT_TOP
@@ -29,7 +29,7 @@ class_name LabelOSel extends OverlapSelectable
 	get:
 		return text_v_alignment
 @export_group("Item Layout")
-@export_enum(Fill,Begin,Center,End) var label_h_size:int=0:
+@export_enum("Fill","Begin","Center","End") var label_h_size:int=0:
 	set(val):
 		label_h_size = val
 	get:
@@ -39,7 +39,7 @@ class_name LabelOSel extends OverlapSelectable
 		label_h_expand = val
 	get:
 		return label_h_expand
-@export_enum(Fill,Begin,Center,End) var label_v_size:int=0:
+@export_enum("Fill","Begin","Center","End") var label_v_size:int=0:
 	set(val):
 		label_v_size = val
 	get:

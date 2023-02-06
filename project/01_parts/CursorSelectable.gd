@@ -6,7 +6,7 @@ class_name CursorSelectable extends Selectable
 		minimum_height = val if 0.0<val else 0.0
 	get:
 		return minimum_height
-@export_enum(Fill,Begin,Center,End) var row_v_size:int=0:
+@export_enum("Fill","Begin","Center","End") var row_v_size:=0:
 	set(val):
 		row_v_size = val
 	get:
@@ -16,7 +16,7 @@ class_name CursorSelectable extends Selectable
 		row_v_expand = val
 	get:
 		return row_v_expand
-@export_enum(Fill,Begin,Center,End) var row_h_size:int=0:
+@export_enum("Fill","Begin","Center","End") var row_h_size:=0:
 	set(val):
 		row_h_size = val
 	get:
