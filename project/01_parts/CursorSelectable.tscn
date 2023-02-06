@@ -16,10 +16,7 @@ space_size = Vector2(0, 0)
 cursor_offset = null
 
 [node name="margin" parent="." index="0"]
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+anchors_preset = 0
 
 [node name="cursor" type="Sprite2D" parent="." index="1"]
 texture_filter = 1

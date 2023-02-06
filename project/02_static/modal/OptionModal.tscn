@@ -1,44 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://byx4kh8ochsja"]
+[gd_scene load_steps=8 format=3 uid="uid://byx4kh8ochsja"]
 
 [ext_resource type="PackedScene" uid="uid://cno2pfamxwi0u" path="res://project/02_static/Modal.tscn" id="1_wdwm5"]
 [ext_resource type="Script" path="res://project/02_static/modal/OptionModal.gd" id="2_npwev"]
-[ext_resource type="Texture2D" uid="uid://dnts7qmhsih6v" path="res://resource/ui/common_frame.png" id="3_i1gtp"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n372k"]
-texture = ExtResource("3_i1gtp")
-margin_left = 6.45449
-margin_top = 12.909
-margin_right = 6.45449
-margin_bottom = 14.4458
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 0, 240, 72)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j4o3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvp74"]
 content_margin_bottom = 10.0
 draw_center = false
 border_width_bottom = 1
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ypgwn"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_2d2q2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3pn3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4egc"]
 content_margin_top = 15.0
 content_margin_bottom = 10.0
 draw_center = false
 border_width_bottom = 1
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_jd7f8"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_fsyci"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_g27xx"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_b5c4d"]
 
 [node name="OptionModal" instance=ExtResource("1_wdwm5")]
 script = ExtResource("2_npwev")
 
 [node name="panel" parent="." index="1"]
-texture_filter = 1
-texture_repeat = 1
 custom_minimum_size = Vector2(640, 420)
-theme_override_styles/panel = SubResource("StyleBoxTexture_n372k")
 
 [node name="margin" parent="panel/margin/contents" index="0"]
 theme_override_constants/margin_left = 10
@@ -58,7 +44,7 @@ size_flags_horizontal = 3
 [node name="section1" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="0"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_0j4o3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvp74")
 text = "Window Mode"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -75,7 +61,7 @@ theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
 button_pressed = true
-button_group = SubResource("ButtonGroup_ypgwn")
+button_group = SubResource("ButtonGroup_2d2q2")
 text = "960x600"
 
 [node name="midium" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="1"]
@@ -86,7 +72,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_ypgwn")
+button_group = SubResource("ButtonGroup_2d2q2")
 text = "1280x800"
 
 [node name="big" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="2"]
@@ -97,7 +83,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_ypgwn")
+button_group = SubResource("ButtonGroup_2d2q2")
 text = "1440x900"
 
 [node name="fullscreen" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/window_mode" index="3"]
@@ -108,13 +94,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_ypgwn")
+button_group = SubResource("ButtonGroup_2d2q2")
 text = "FullScreen"
 
 [node name="section2" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_j3pn3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i4egc")
 text = "Sound Volume"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -158,7 +144,7 @@ value = 100.0
 [node name="section3" type="Label" parent="panel/margin/contents/margin/scroller/contents" index="5"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_j3pn3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i4egc")
 text = "Game Setting"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -183,7 +169,7 @@ mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-button_group = SubResource("ButtonGroup_jd7f8")
+button_group = SubResource("ButtonGroup_fsyci")
 text = "遅い"
 
 [node name="normal" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="1"]
@@ -194,7 +180,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 button_pressed = true
-button_group = SubResource("ButtonGroup_jd7f8")
+button_group = SubResource("ButtonGroup_fsyci")
 text = "標準"
 
 [node name="high" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="2"]
@@ -204,7 +190,7 @@ mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-button_group = SubResource("ButtonGroup_jd7f8")
+button_group = SubResource("ButtonGroup_fsyci")
 text = "早い"
 
 [node name="nowait" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/text_speed/contents" index="3"]
@@ -214,7 +200,7 @@ mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
-button_group = SubResource("ButtonGroup_jd7f8")
+button_group = SubResource("ButtonGroup_fsyci")
 text = "瞬間"
 
 [node name="move_type" type="HBoxContainer" parent="panel/margin/contents/margin/scroller/contents" index="7"]
@@ -239,7 +225,7 @@ theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
 button_pressed = true
-button_group = SubResource("ButtonGroup_g27xx")
+button_group = SubResource("ButtonGroup_b5c4d")
 text = "常時:歩き 押下:走り"
 
 [node name="default_run" type="CheckBox" parent="panel/margin/contents/margin/scroller/contents/move_type/contents" index="1"]
@@ -250,7 +236,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_constants/h_separation = 10
-button_group = SubResource("ButtonGroup_g27xx")
+button_group = SubResource("ButtonGroup_b5c4d")
 text = "常時:走り 押下:歩き"
 
 [node name="button1" parent="panel/margin/contents/buttons" index="0"]

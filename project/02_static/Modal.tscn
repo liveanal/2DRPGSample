@@ -5,10 +5,10 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afye4"]
 texture = ExtResource("2_4bf0s")
-margin_left = 6.45449
-margin_top = 12.909
-margin_right = 6.45449
-margin_bottom = 14.4458
+texture_margin_left = 10.0
+texture_margin_top = 12.804
+texture_margin_right = 10.0
+texture_margin_bottom = 13.402
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 240, 72)

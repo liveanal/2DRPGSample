@@ -196,7 +196,7 @@ custom_data_layer_0/name = "walkable"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_1k6sp")
 
-[sub_resource type="Resource" id="Resource_0csvh"]
+[sub_resource type="Resource" id="Resource_dbiga"]
 resource_local_to_scene = true
 script = ExtResource("4_eod38")
 name = null
@@ -204,7 +204,7 @@ direction = Vector2(0, 1)
 money = null
 inventory = null
 
-[sub_resource type="Resource" id="Resource_t6ubt"]
+[sub_resource type="Resource" id="Resource_dc7pm"]
 resource_local_to_scene = true
 script = ExtResource("4_eod38")
 name = null
@@ -212,7 +212,7 @@ direction = Vector2(0, 1)
 money = null
 inventory = null
 
-[sub_resource type="Resource" id="Resource_ju5me"]
+[sub_resource type="Resource" id="Resource_fgkn5"]
 resource_local_to_scene = true
 script = ExtResource("4_eod38")
 name = null
@@ -220,7 +220,7 @@ direction = Vector2(0, 1)
 money = null
 inventory = null
 
-[sub_resource type="Resource" id="Resource_4vr6i"]
+[sub_resource type="Resource" id="Resource_bqjn4"]
 resource_local_to_scene = true
 script = ExtResource("4_eod38")
 name = null
@@ -228,7 +228,7 @@ direction = Vector2(0, 1)
 money = null
 inventory = null
 
-[sub_resource type="Resource" id="Resource_xhhi7"]
+[sub_resource type="Resource" id="Resource_kebgi"]
 resource_local_to_scene = true
 script = ExtResource("4_eod38")
 name = null
@@ -249,35 +249,35 @@ position = Vector2(80, 80)
 
 [node name="Character" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
 position = Vector2(80, 48)
-data = SubResource("Resource_0csvh")
+data = SubResource("Resource_dbiga")
 world = NodePath("../TileMap")
 move_mode = 2
 navi_target = Vector2(912, 176)
 
 [node name="Character2" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
 position = Vector2(818, 45)
-data = SubResource("Resource_t6ubt")
+data = SubResource("Resource_dc7pm")
 world = NodePath("../TileMap")
 move_mode = 1
 navi_target = Vector2(80, 80)
 
 [node name="Character3" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
 position = Vector2(933, 544)
-data = SubResource("Resource_ju5me")
+data = SubResource("Resource_fgkn5")
 world = NodePath("../TileMap")
 move_mode = 2
 navi_target = Vector2(80, 80)
 
 [node name="Character4" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
 position = Vector2(904, 364)
-data = SubResource("Resource_4vr6i")
+data = SubResource("Resource_bqjn4")
 world = NodePath("../TileMap")
 move_mode = 2
 navi_target = Vector2(80, 80)
 
 [node name="Character5" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
 position = Vector2(17, 560)
-data = SubResource("Resource_xhhi7")
+data = SubResource("Resource_kebgi")
 world = NodePath("../TileMap")
 move_mode = 1
 navi_target = Vector2(80, 80)
