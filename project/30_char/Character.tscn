@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8s7jtpdloju2"]
+
+[ext_resource type="Script" path="res://project/30_char/MoveCharacter.gd" id="1_xqjd3"]
+[ext_resource type="Script" path="res://project/30_char/CharData.gd" id="2_vqeuh"]
+
+[sub_resource type="Resource" id="Resource_lsgot"]
+resource_local_to_scene = true
+script = ExtResource("2_vqeuh")
+name = ""
+direction = Vector2(0, 1)
+money = 0
+inventory = Array[Resource("res://project/40_item/ItemBase.gd")]([])
+
+[node name="Character" type="CharacterBody2D"]
+motion_mode = 1
+platform_on_leave = 1
+script = ExtResource("1_xqjd3")
+data = SubResource("Resource_lsgot")
+
+[node name="balloon" type="Marker2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="shadow" type="Sprite2D" parent="."]
+scale = Vector2(1.625, 1)
+
+[node name="texture" type="Sprite2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+rotation = 1.5708
+
+[node name="body" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="body"]
+
+[node name="look" type="Node2D" parent="."]
+
+[node name="_ray" type="RayCast2D" parent="look"]
+target_position = Vector2(0, 40)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="navigation" type="NavigationAgent2D" parent="."]
+
+[node name="anim_tree" type="AnimationTree" parent="."]
+anim_player = NodePath("../anim_player")
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
