@@ -4,32 +4,8 @@ const balloon_icon_res  := preload("res://project/01_parts/balloon/IconBalloon.t
 const balloon_image_res := preload("res://project/01_parts/balloon/ImageBalloon.tscn")
 const balloon_text_res  := preload("res://project/01_parts/balloon/TextBalloon.tscn")
 
-# 基準速度
-@export var walk_speed := 32.0
-@export var run_speed := 64.0
-# アニメ速度
-@export var anim_walk_speed := 1.0
-@export var anim_run_speed := 1.5
 # 基本情報
 @export var data:CharData
-# 移動設定
-@export_category("Auto Control")
-@export var world:TileMap
-enum MOVE_MODE {RANDOM,NAV,ASTAR,SELF,NONE} # 移動モード
-@export var move_mode:MOVE_MODE = MOVE_MODE.NONE:
-	set(val):
-		move_mode = val
-		_update_move_mode()
-	get:
-		return move_mode
-@export_group("Navi,AStar")
-@export var navi_target:Vector2
-@export_subgroup("AStar Setting")
-@export var is_diagonal:bool = false # AStar計算時の斜め歩行許可
-@export var walkable_custom_data:PackedStringArray : # AStar計算時の歩行許可レイヤ名
-	set(val):
-		walkable_custom_data = val
-		if walkable_custom_data != null : walkable_custom_data.sort()
 
 # ノード
 @onready var balloon := $balloon
@@ -40,113 +16,63 @@ enum MOVE_MODE {RANDOM,NAV,ASTAR,SELF,NONE} # 移動モード
 @onready var look := $look/_ray
 @onready var navigation := $navigation
 @onready var anim_tree := $anim_tree
+@onready var anim_state:AnimationNodeStateMachinePlayback = anim_tree.get("parameters/playback")
+@onready var anim_player := $anim_player
 
-# AStar情報
-var astar:AStar2D
-var cells_list:Array
-var cells_info:Dictionary
-# ASTAR用変数
-var astar_path_index:int
-var astar_path:PackedVector2Array
-# Navigation用変数
-@onready var default_desired_distance:int = navigation.path_desired_distance
+# 基準速度
+var move_speed := 32.0
+# アニメ速度
+var anim_speed := 0.5
+# ナビターゲット
+var navi_target := Vector2.ZERO :
+	set(val):
+		navi_target = val
+		if navigation != null: navigation.target_position = navi_target
+	get:
+		return navi_target
 
-# 移動フラグ
-var is_moving:bool = false
-# 停止フラグ
-var is_waiting:bool = false
-# 走りフラグ
-var is_running:bool = false
-# ナビゲートフラグ
-var is_navigate:bool = false
-
-# 初期化
+# 初期化処理
 func _ready():
-	navigation.connect("velocity_computed", _velocity_computed)
-	_update_move_mode()
+	Menu.connect("open_menu",disable)
+	Menu.connect("finish_closed",enable)
+	navigation.target_position = navi_target
+	start_anim()
 
 # プロセス処理
 func _process(_delta):
-	if is_moving:
-		velocity = get_velocity_by_direction()
-		state_move()
+	velocity = get_velocity_direction()
+	if velocity != Vector2.ZERO:
 		move_and_slide()
-	elif is_navigate:
-		if !navigation.avoidance_enabled:
-			_velocity_computed(get_velocity_by_direction())
-		else:
-			navigation.set_velocity(get_velocity_by_direction())
-	else:
-		velocity = Vector2.ZERO
-		state_idle()
+	update_anim()
 
 # velocity計算
-func get_velocity_by_direction():
-	return data.direction.normalized()*(walk_speed if !is_running else run_speed)
+func get_velocity_direction():
+	return data.direction.normalized()*move_speed
 
-# 移動モード変更
-func _update_move_mode():
-	if anim_tree!=null:
-		idle()
-	if navigation!=null:
-		navigation.target_position = navi_target
-		if move_mode == MOVE_MODE.ASTAR:
-			navigation.path_desired_distance = 1
-		else:
-			navigation.path_desired_distance = default_desired_distance
-	if world!=null and !walkable_custom_data.is_empty():
-		reload_world_info()
-		get_astar_path(navi_target)
+# アニメーション再生
+func start_anim():
+	anim_state.start("Idle")
 
-# アニメーション変更(歩行)
-func state_move():
+# アニメーション更新
+func update_anim():
 	anim_tree.set("parameters/Move/BlendSpace2D/blend_position",data.direction)
-	anim_tree.set("parameters/Move/TimeScale/scale",anim_walk_speed if !is_running else anim_run_speed)
-
-# アニメーション変更(立ち)
-func state_idle():
 	anim_tree.set("parameters/Idle/BlendSpace2D/blend_position",data.direction)
-	anim_tree.set("parameters/Idle/TimeScale/scale",anim_walk_speed if !is_running else anim_run_speed)
+	anim_tree.set("parameters/Attack/BlendSpace2D/blend_position",data.direction)
+	anim_tree.set("parameters/Move/TimeScale/scale",anim_speed)
+	anim_tree.set("parameters/Idle/TimeScale/scale",anim_speed)
+	anim_tree.set("parameters/Attack/TimeScale/scale",anim_speed*8.0)
 
 # 立ち
-func idle():
-	anim_tree.get("parameters/playback").travel("Idle")
-	is_moving = false
-	is_waiting = false
-	is_navigate = false
+func change_anim_idle():
+	anim_state.travel("Idle")
 
 # 移動
-func move():
-	anim_tree.get("parameters/playback").travel("Move")
-	is_moving = true
-	is_waiting = false
-	is_navigate = false
+func change_anim_move():
+	anim_state.travel("Move")
 
-# 停止
-func wait():
-	anim_tree.get("parameters/playback").travel("Idle")
-	is_moving = false
-	is_waiting = true
-	is_navigate = false
-
-# ナビゲート
-func navigate():
-	anim_tree.get("parameters/playback").travel("Move")
-	is_moving = false
-	is_waiting = false
-	is_navigate = true
-
-# 時間分移動
-func move_to_time(time:float):
-	move()
-	await get_tree().create_timer(time).timeout
-	idle()
-
-# 時間分停止
-func wait_to_time(time:float):
-	wait()
-	await get_tree().create_timer(time).timeout
-	idle()
+# 攻撃
+func change_anim_attack():
+	anim_state.travel("Attack")
 
 # バルーン表示（アイコン）
 func balloon_icon(anim_name:String,iscale:float=1.0,_scale:float=1.0,speed_scale:float=1.0,auto_close:bool=true,anim_time:=0.65,wait_time:=1.5)->IconBalloon:
@@ -233,20 +159,3 @@ func enable():
 func disable():
 	set_process(false)
 	set_process_input(false)
-
-# ナビゲート処理
-func _velocity_computed(_val):
-	data.direction = _val
-	velocity = _val
-	state_move()
-	move_and_slide()
-
-# ASTAR情報リロード（worldチップ変更後などに）
-func reload_world_info():
-	cells_list = AStarUtil.create_walkable_cells_list(world,walkable_custom_data)
-	cells_info = AStarUtil.create_walkable_cells_info(cells_list)
-	astar = AStarUtil.create_AStar2D(cells_list,cells_info,is_diagonal)
-
-# AStarパス取得
-func get_astar_path(target:Vector2):
-	astar_path = AStarUtil.recalculate_path(position,target,astar,cells_list,cells_info,world.cell_quadrant_size)
