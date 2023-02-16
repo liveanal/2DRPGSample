@@ -65,9 +65,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "インベントリ"
 
 [node name="equip" type="Button" parent="frame/margin/container/button_area/select"]
@@ -76,9 +76,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "装備"
 
 [node name="skills" type="Button" parent="frame/margin/container/button_area/select"]
@@ -87,9 +87,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "スキル"
 
 [node name="status" type="Button" parent="frame/margin/container/button_area/select"]
@@ -98,9 +98,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "ステータス"
 
 [node name="log" type="Button" parent="frame/margin/container/button_area/select"]
@@ -109,9 +109,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "メッセージログ"
 
 [node name="dictionary" type="Button" parent="frame/margin/container/button_area/select"]
@@ -120,9 +120,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "図鑑"
 
 [node name="saveload" type="Button" parent="frame/margin/container/button_area/select"]
@@ -131,9 +131,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "セーブ/ロード
 "
 
@@ -143,9 +143,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "おまけ"
 
 [node name="option" type="Button" parent="frame/margin/container/button_area/select"]
@@ -154,9 +154,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "オプション"
 
 [node name="quit" type="Button" parent="frame/margin/container/button_area/select"]
@@ -165,9 +165,9 @@ size_flags_vertical = 3
 theme_override_colors/font_focus_color = Color(1, 0.470588, 0, 1)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3bgxu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dw0g4")
-shortcut_in_tooltip = false
 button_mask = 0
 shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "終了"
 
 [node name="content_area" type="Control" parent="frame/margin/container"]

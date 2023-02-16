@@ -1,18 +1,18 @@
-[gd_scene load_steps=28 format=3 uid="uid://c8s7jtpdloju2"]
+[gd_scene load_steps=40 format=3 uid="uid://c8s7jtpdloju2"]
 
 [ext_resource type="Script" path="res://project/30_char/MoveCharacter.gd" id="1_xqjd3"]
 [ext_resource type="Texture2D" uid="uid://da6vgt73vqa60" path="res://resource/char/shadow.png" id="2_fh6va"]
-[ext_resource type="Script" path="res://project/30_char/CharData.gd" id="2_vqeuh"]
+[ext_resource type="Script" path="res://project/30_char/CharData.gd" id="2_nqcef"]
 [ext_resource type="Texture2D" uid="uid://qmo87g683k4d" path="res://resource/char/kusokimo/Kusokimo.png" id="4_rj0fp"]
 [ext_resource type="AnimationLibrary" uid="uid://ul1gvdnq1j57" path="res://resource/char/kusokimo/anim.res" id="4_suef8"]
 
-[sub_resource type="Resource" id="Resource_lsgot"]
+[sub_resource type="Resource" id="Resource_70uv0"]
 resource_local_to_scene = true
-script = ExtResource("2_vqeuh")
-name = null
+script = ExtResource("2_nqcef")
+name = ""
 direction = Vector2(0, 1)
-money = null
-inventory = null
+money = 0
+inventory = Array[Resource("res://project/40_item/ItemBase.gd")]([])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvaq5"]
 resource_local_to_scene = true
@@ -23,6 +23,39 @@ height = 16.0
 resource_local_to_scene = true
 radius = 13.0
 height = 26.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0hc4s"]
+animation = &"kusokimo/attack_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ha8v"]
+animation = &"kusokimo/attack_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e2r7a"]
+animation = &"kusokimo/attack_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lr45e"]
+animation = &"kusokimo/attack_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_oane8"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0hc4s")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_5ha8v")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_e2r7a")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_lr45e")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0yt3v"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tocgo"]
+nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_oane8")
+nodes/BlendSpace2D/position = Vector2(20, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_0yt3v")
+nodes/TimeScale/position = Vector2(260, 120)
+nodes/output/position = Vector2(440, 140)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"BlendSpace2D"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hy4pa"]
 animation = &"kusokimo/idle_down"
@@ -50,7 +83,6 @@ blend_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ennhd"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_nfpik"]
-graph_offset = Vector2(0.582886, 91.9481)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_dmig6")
 nodes/BlendSpace2D/position = Vector2(360, 180)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ennhd")
@@ -97,25 +129,92 @@ node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"BlendSpace2D"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uhyay"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8wxrp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pe0as"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lacnl"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mymvi"]
 resource_local_to_scene = true
+states/Attack/node = SubResource("AnimationNodeBlendTree_tocgo")
+states/Attack/position = Vector2(661, 399.702)
 states/End/position = Vector2(886, 264.702)
 states/Idle/node = SubResource("AnimationNodeBlendTree_nfpik")
 states/Idle/position = Vector2(567, 264.702)
 states/Move/node = SubResource("AnimationNodeBlendTree_tqmfj")
 states/Move/position = Vector2(753, 264.702)
 states/Start/position = Vector2(429, 264.702)
-transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_rsag1"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_taaya"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_uhyay")]
+transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_rsag1"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_taaya"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_uhyay"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_8wxrp"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_pe0as"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_lacnl")]
 graph_offset = Vector2(114, 149.702)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wyeg0"]
+
+[sub_resource type="Animation" id="Animation_7m1xx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shadow:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gq48k"]
+_data = {
+"RESET": SubResource("Animation_7m1xx")
+}
 
 [node name="Character" type="CharacterBody2D"]
 motion_mode = 1
 platform_on_leave = 1
 script = ExtResource("1_xqjd3")
-data = SubResource("Resource_lsgot")
-walkable_custom_data = PackedStringArray("walkable")
+move_mode = null
+move_speed_walk = null
+move_speed_run = null
+anim_speed_idle = null
+anim_speed_walk = null
+anim_speed_run = null
+is_input = null
+is_attack = null
+is_move = null
+input_left = null
+input_right = null
+input_up = null
+input_down = null
+input_attack = null
+input_run = null
+input_turn = null
+input_menu = null
+input_smenu_skill = null
+input_smenu_item = null
+input_smenu_stance = null
+random_wait_range_min = null
+random_wait_range_max = null
+random_wait_rate = null
+navigate_point = null
+nav_desired_distance = null
+astar_desired_distance = null
+is_diagonal = null
+walkable_custom_data = null
+data = SubResource("Resource_70uv0")
 
 [node name="balloon" type="Marker2D" parent="."]
 position = Vector2(0, -30)
@@ -124,7 +223,7 @@ position = Vector2(0, -30)
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(-1.42109e-14, 1)
-scale = Vector2(1.625, 1)
+scale = Vector2(1.4, 1)
 texture = ExtResource("2_fh6va")
 
 [node name="texture" type="Sprite2D" parent="."]
@@ -134,6 +233,7 @@ position = Vector2(0, -14)
 texture = ExtResource("4_rj0fp")
 hframes = 3
 vframes = 8
+frame = 3
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
@@ -156,7 +256,6 @@ position = Vector2(0, -7)
 [node name="_ray" type="RayCast2D" parent="look"]
 target_position = Vector2(0, 40)
 collision_mask = 2
-hit_from_inside = true
 collide_with_areas = true
 
 [node name="navigation" type="NavigationAgent2D" parent="."]
@@ -173,13 +272,15 @@ tree_root = SubResource("AnimationNodeStateMachine_mymvi")
 anim_player = NodePath("../anim_player")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wyeg0")
-parameters/Idle/BlendSpace2D/blend_position = Vector2(0, 1)
-parameters/Idle/TimeScale/scale = 0.5
+parameters/Attack/BlendSpace2D/blend_position = Vector2(0, -1)
+parameters/Attack/TimeScale/scale = 1.0
+parameters/Idle/BlendSpace2D/blend_position = Vector2(0, 0)
+parameters/Idle/TimeScale/scale = 1.0
 parameters/Move/BlendSpace2D/blend_position = Vector2(0, 1)
 parameters/Move/TimeScale/scale = 0.5
 
 [node name="anim_player" type="AnimationPlayer" parent="."]
-reset_on_save = false
 libraries = {
+"": SubResource("AnimationLibrary_gq48k"),
 "kusokimo": ExtResource("4_suef8")
 }

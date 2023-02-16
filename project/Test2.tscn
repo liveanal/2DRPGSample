@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ckgijc5bjb4k4"]
+[gd_scene load_steps=24 format=3 uid="uid://ckgijc5bjb4k4"]
 
 [ext_resource type="Texture2D" uid="uid://ccav0hqc6p2l6" path="res://resource/world/map_tiles.png" id="2_71iud"]
 [ext_resource type="PackedScene" uid="uid://c8s7jtpdloju2" path="res://project/30_char/Character.tscn" id="3_nq7y4"]
@@ -127,11 +127,13 @@ texture_region_size = Vector2i(32, 32)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, -16, -16, -16)
 1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_eejfe")
+1:1/0/custom_data_0 = true
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, -16, 16, -16)
 2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_1v5k2")
+2:1/0/custom_data_0 = true
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
@@ -151,11 +153,13 @@ texture_region_size = Vector2i(32, 32)
 1:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, 16, -16, 16)
 1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3rcx8")
+1:2/0/custom_data_0 = true
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 16, 16, 16, 16)
 2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_y0fvy")
+2:2/0/custom_data_0 = true
 3:2/0 = 0
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
@@ -196,39 +200,7 @@ custom_data_layer_0/name = "walkable"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_1k6sp")
 
-[sub_resource type="Resource" id="Resource_dbiga"]
-resource_local_to_scene = true
-script = ExtResource("4_eod38")
-name = null
-direction = Vector2(0, 1)
-money = null
-inventory = null
-
-[sub_resource type="Resource" id="Resource_dc7pm"]
-resource_local_to_scene = true
-script = ExtResource("4_eod38")
-name = null
-direction = Vector2(0, 1)
-money = null
-inventory = null
-
-[sub_resource type="Resource" id="Resource_fgkn5"]
-resource_local_to_scene = true
-script = ExtResource("4_eod38")
-name = null
-direction = Vector2(0, 1)
-money = null
-inventory = null
-
-[sub_resource type="Resource" id="Resource_bqjn4"]
-resource_local_to_scene = true
-script = ExtResource("4_eod38")
-name = null
-direction = Vector2(0, 1)
-money = null
-inventory = null
-
-[sub_resource type="Resource" id="Resource_kebgi"]
+[sub_resource type="Resource" id="Resource_x2jak"]
 resource_local_to_scene = true
 script = ExtResource("4_eod38")
 name = null
@@ -237,6 +209,7 @@ money = null
 inventory = null
 
 [node name="Test2" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_q5mmo")
@@ -249,35 +222,33 @@ position = Vector2(80, 80)
 
 [node name="Character" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
 position = Vector2(80, 48)
-data = SubResource("Resource_dbiga")
+move_mode = 3
+move_speed_walk = null
+move_speed_run = null
+anim_speed_idle = null
+anim_speed_walk = null
+anim_speed_run = null
+is_input = null
+is_attack = null
+is_move = null
+input_left = null
+input_right = null
+input_up = null
+input_down = null
+input_attack = null
+input_run = null
+input_turn = null
+input_menu = null
+input_smenu_skill = null
+input_smenu_item = null
+input_smenu_stance = null
+random_wait_range_min = null
+random_wait_range_max = null
+random_wait_rate = null
+navigate_point = Vector2i(904, 364)
+nav_desired_distance = null
+astar_desired_distance = null
 world = NodePath("../TileMap")
-move_mode = 2
-navi_target = Vector2(912, 176)
-
-[node name="Character2" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
-position = Vector2(818, 45)
-data = SubResource("Resource_dc7pm")
-world = NodePath("../TileMap")
-move_mode = 1
-navi_target = Vector2(80, 80)
-
-[node name="Character3" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
-position = Vector2(933, 544)
-data = SubResource("Resource_fgkn5")
-world = NodePath("../TileMap")
-move_mode = 2
-navi_target = Vector2(80, 80)
-
-[node name="Character4" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
-position = Vector2(904, 364)
-data = SubResource("Resource_bqjn4")
-world = NodePath("../TileMap")
-move_mode = 2
-navi_target = Vector2(80, 80)
-
-[node name="Character5" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_nq7y4")]
-position = Vector2(17, 560)
-data = SubResource("Resource_kebgi")
-world = NodePath("../TileMap")
-move_mode = 1
-navi_target = Vector2(80, 80)
+is_diagonal = null
+walkable_custom_data = PackedStringArray("walkable")
+data = SubResource("Resource_x2jak")
