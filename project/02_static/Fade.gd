@@ -24,8 +24,8 @@ func _process(delta):
 				Color(color.r,color.g,color.b,1.0),
 				seek,
 				time,
-				Tween.EASE_OUT,
-				Tween.TRANS_LINEAR
+				Tween.TRANS_LINEAR,
+				Tween.EASE_OUT
 			)
 		elif fade_out :
 			fade.color = Color(color.r,color.g,color.b,1.0) - Tween.interpolate_value(
@@ -33,8 +33,8 @@ func _process(delta):
 				Color(color.r,color.g,color.b,1.0),
 				seek,
 				time,
-				Tween.EASE_OUT,
-				Tween.TRANS_LINEAR
+				Tween.TRANS_LINEAR,
+				Tween.EASE_OUT
 			)
 	if time < seek :
 		fade_in = false

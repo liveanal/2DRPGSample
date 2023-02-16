@@ -1,5 +1,10 @@
 extends CanvasLayer
 
+# Openするためのシグナル
+signal open_menu
+# Closeを通知するためのシグナル
+signal finish_closed
+
 @export var input_cancel := "cancel"
 @export_group("Control Settings")
 @export var inventory:Inventory
@@ -7,7 +12,7 @@ extends CanvasLayer
 
 @onready var contents := {
 	$frame/margin/container/button_area/select/inventory : inventory,
-	$frame/margin/container/button_area/select/log       : logging,
+	$frame/margin/container/button_area/select/log       : logging
 }
 @onready var modals   := {
 	$frame/margin/container/button_area/select/option    : "open_modal_option",
@@ -17,11 +22,11 @@ extends CanvasLayer
 
 func _ready():
 	if logging!=null:DialogSystem.connect("log_message",_add_message)
-	
 	for btn in contents.keys():
 		btn.connect("pressed",_open_contents.bind(btn))
 	for btn in modals.keys():
 		btn.connect("pressed",_open_modals.bind(btn))
+	connect("open_menu", open)
 	close()
 
 func _input(event):
@@ -64,6 +69,7 @@ func open():
 func close():
 	disable()
 	visible = false
+	emit_signal("finish_closed")
 
 func enable():
 	grab_first.grab_focus()
