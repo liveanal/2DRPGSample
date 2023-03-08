@@ -13,9 +13,9 @@ enum MOVE_MODE {RANDOM,NAV,ASTAR,SELF,NONE}
 		return move_mode
 
 # 歩行速度
-@export var move_speed_walk := 32.0
+@export var move_speed_walk := 64.0
 # 走行速度
-@export var move_speed_run  := 128.0
+@export var move_speed_run  := 192.0
 # 立ちアニメ速度
 @export var anim_speed_idle := 0.5
 # 歩行アニメ速度
@@ -37,9 +37,9 @@ enum MOVE_MODE {RANDOM,NAV,ASTAR,SELF,NONE}
 @export var input_run:String = "run"
 @export var input_turn:String = "turn"
 @export var input_menu:String = "cancel"
-@export var input_smenu_skill:String = "smenu1"
-@export var input_smenu_item:String = "smenu2"
-@export var input_smenu_stance:String = "smenu3"
+@export var input_smenu1:String = "smenu1"
+@export var input_smenu2:String = "smenu2"
+@export var input_smenu3:String = "smenu3"
 @export_group("Random Setting")
 # ランダム停止最小時間
 @export var random_wait_range_min:float = 0.7
@@ -87,25 +87,22 @@ var is_waiting:bool = false
 var is_running:bool = false
 var is_navigate:bool = false
 var is_attacked:bool = false
-var is_menu:bool = false
+# メニューフラグ
+var is_smenus:bool = false
+var is_smenu1:bool = false
+var is_smenu2:bool = false
+var is_smenu3:bool = false
 
 # 初期化
 func _ready():
 	super._ready()
 	navigation.connect("velocity_computed", _velocity_computed)
-	Menu.connect("open_menu",change_anim_idle)
-	Menu.connect("finish_closed",func():if is_moving and !is_waiting: change_anim_move())
 	_update_move_mode()
 
-# 移動モード変更時の初期化処理
-func _update_move_mode():
-	if anim_tree!=null:
-		idle()
-	if navigation!=null:
-		navigation.path_desired_distance = astar_desired_distance if move_mode==MOVE_MODE.ASTAR else nav_desired_distance
-	if world!=null and !walkable_custom_data.is_empty() and move_mode == MOVE_MODE.ASTAR:
-		reload_world_info()
-		get_astar_path(navi_target)
+# 共通入力制御
+func _input(_ev):
+	if is_main and _ev.is_action_pressed(input_menu) and !_ev.is_echo():
+		await open_menu()
 
 # プロセス処理
 func _process(_delta):
@@ -147,26 +144,83 @@ func _process(_delta):
 func _process_self(_delta):
 	# 入力制御
 	if is_input:
-		var input_vector = Vector2.ZERO
-		# 移動入力
-		if is_move:
+		# 移動・攻撃入力制御
+		if !is_smenus:
+			if is_attack:
+				if !is_attacked and Input.is_action_pressed(input_attack):
+					await attack()
+			if !is_attacked:
+				var input_vector = Vector2.ZERO
+				# 移動入力
+				if is_move:
+					input_vector.x = Input.get_action_strength(input_right) - Input.get_action_strength(input_left)
+					input_vector.y = Input.get_action_strength(input_down) - Input.get_action_strength(input_up)
+					is_running = Input.is_action_pressed(input_run)
+				# ターン入力
+				move_turn = Input.is_action_pressed(input_turn)
+				# 移動入力反映
+				if input_vector != Vector2.ZERO:
+					data.direction = input_vector
+					if !move_turn:
+						move()
+					else:
+						idle()
+				elif is_moving:
+					idle()
+				
+				# SMenu入力
+				if Input.is_action_pressed(input_smenu1):
+					is_smenus = true
+					smenu1.open()
+					await smenu1.finished_open
+					is_smenu1 = true
+				elif Input.is_action_pressed(input_smenu2):
+					is_smenus = true
+					smenu2.open()
+					await smenu2.finished_open
+					is_smenu2 = true
+				elif Input.is_action_pressed(input_smenu3):
+					is_smenus = true
+					smenu3.open()
+					await smenu3.finished_open
+					is_smenu3 = true
+		
+		# SMenu入力制御
+		else:
+			if is_moving:
+				idle()
+			
+			var input_vector = Vector2.ZERO
 			input_vector.x = Input.get_action_strength(input_right) - Input.get_action_strength(input_left)
 			input_vector.y = Input.get_action_strength(input_down) - Input.get_action_strength(input_up)
-			is_running = Input.is_action_pressed(input_run)
-		
-		# 移動入力反映
-		if input_vector != Vector2.ZERO:
-			data.direction = input_vector
-			move()
-		elif is_moving:
-			idle()
-	
-	# メニュー制御
-	if !is_menu && Input.is_action_just_pressed("menu"):
-		Menu.emit_signal("open_menu")
-		is_menu = true
-	elif is_menu:
-		is_menu = false
+			
+			if is_smenu1:
+				if Input.is_action_pressed(input_smenu1):
+					smenu1.change_cursor(SMenu.vector_to_index(input_vector))
+				else:
+					is_smenu1 = false
+					smenu1.accept()
+					smenu1.close()
+					await smenu1.finished_close
+					is_smenus = false
+			elif is_smenu2:
+				if Input.is_action_pressed(input_smenu2):
+					smenu2.change_cursor(SMenu.vector_to_index(input_vector))
+				else:
+					is_smenu2 = false
+					smenu2.accept()
+					smenu2.close()
+					await smenu2.finished_close
+					is_smenus = false
+			elif is_smenu3:
+				if Input.is_action_pressed(input_smenu3):
+					smenu3.change_cursor(SMenu.vector_to_index(input_vector))
+				else:
+					is_smenu3 = false
+					smenu3.accept()
+					smenu3.close()
+					await smenu3.finished_close
+					is_smenus = false
 
 # 単純ランダム移動プロセス
 func _process_random(_delta):
@@ -215,6 +269,16 @@ func _process_astar(_delta):
 	else:
 		move_mode = MOVE_MODE.NAV
 
+# 移動モード変更時の初期化処理
+func _update_move_mode():
+	if anim_tree!=null:
+		idle()
+	if navigation!=null:
+		navigation.path_desired_distance = astar_desired_distance if move_mode==MOVE_MODE.ASTAR else nav_desired_distance
+	if world!=null and !walkable_custom_data.is_empty() and move_mode == MOVE_MODE.ASTAR:
+		reload_world_info()
+		get_astar_path(navi_target)
+
 # ナビゲート処理
 func _velocity_computed(_val):
 	data.direction = _val
@@ -243,12 +307,13 @@ func navigate():
 
 # 攻撃
 func attack():
-	is_waiting = true
-	is_attacked = true
-	change_anim_attack()
-	await anim_tree.animation_finished
-	is_waiting = false
-	is_attacked = false
+	if anim_state.get_current_node() != "Attack":
+		is_waiting = true
+		is_attacked = true
+		change_anim_attack()
+		await anim_tree.animation_finished
+		is_waiting = false
+		is_attacked = false
 
 # 時間分移動
 func move_to_time(time:float):

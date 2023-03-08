@@ -6,11 +6,10 @@
 [node name="IconBalloon" instance=ExtResource("1_qgxg1")]
 script = ExtResource("2_vn22a")
 anim_name = null
-pos_offset = Vector2(0, 0)
-speed_scale = 1.0
-icon_scale = 1.0
+pos_offset = null
+speed_scale = null
+icon_scale = null
 
 [node name="frame" type="NinePatchRect" parent="." index="0"]
 
 [node name="sprites" type="AnimatedSprite2D" parent="frame" index="0"]
-playing = true
