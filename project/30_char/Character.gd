@@ -6,6 +6,13 @@ const balloon_text_res  := preload("res://project/01_parts/balloon/TextBalloon.t
 
 # 基本情報
 @export var data:CharData
+# メインキャラ設定
+@export var is_main:bool=false:
+	set(val):
+		is_main = val
+		set_process_input(is_main)
+	get:
+		return is_main
 
 # ノード
 @onready var balloon := $balloon
@@ -15,14 +22,24 @@ const balloon_text_res  := preload("res://project/01_parts/balloon/TextBalloon.t
 @onready var body := $body
 @onready var look := $look/_ray
 @onready var navigation := $navigation
+@onready var smenu1 := $smenu1
+@onready var smenu2 := $smenu2
+@onready var smenu3 := $smenu3
 @onready var anim_tree := $anim_tree
 @onready var anim_state:AnimationNodeStateMachinePlayback = anim_tree.get("parameters/playback")
 @onready var anim_player := $anim_player
+@onready var attack_effect := $attack_effect
+@onready var attack_area := $attack
+@onready var attack_collision := $attack/collision
 
 # 基準速度
 var move_speed := 32.0
+# 向き変更フラグ（移動反映なし）
+var move_turn := false
 # アニメ速度
 var anim_speed := 0.5
+# 攻撃時のアニメ速度（乗算値）
+var anim_speed_attack_multiple := 20.0
 # ナビターゲット
 var navi_target := Vector2.ZERO :
 	set(val):
@@ -34,14 +51,18 @@ var navi_target := Vector2.ZERO :
 # 初期化処理
 func _ready():
 	Menu.connect("open_menu",disable)
-	Menu.connect("finish_closed",enable)
+	Menu.connect("finished_close",enable)
 	navigation.target_position = navi_target
+	attack_effect.visible = false
+	attack_area.visible = false
+	attack_collision.disabled = true
 	start_anim()
 
 # プロセス処理
 func _process(_delta):
+	# velocity反映
 	velocity = get_velocity_direction()
-	if velocity != Vector2.ZERO:
+	if velocity != Vector2.ZERO and !move_turn:
 		move_and_slide()
 	update_anim()
 
@@ -60,19 +81,19 @@ func update_anim():
 	anim_tree.set("parameters/Attack/BlendSpace2D/blend_position",data.direction)
 	anim_tree.set("parameters/Move/TimeScale/scale",anim_speed)
 	anim_tree.set("parameters/Idle/TimeScale/scale",anim_speed)
-	anim_tree.set("parameters/Attack/TimeScale/scale",anim_speed*8.0)
+	anim_tree.set("parameters/Attack/TimeScale/scale",anim_speed*anim_speed_attack_multiple)
 
 # 立ち
-func change_anim_idle():
-	anim_state.travel("Idle")
+func change_anim_idle(reset:=false):
+	anim_state.travel("Idle",reset)
 
 # 移動
-func change_anim_move():
-	anim_state.travel("Move")
+func change_anim_move(reset:=false):
+	anim_state.travel("Move",reset)
 
 # 攻撃
-func change_anim_attack():
-	anim_state.travel("Attack")
+func change_anim_attack(reset:=false):
+	anim_state.travel("Attack",reset)
 
 # バルーン表示（アイコン）
 func balloon_icon(anim_name:String,iscale:float=1.0,_scale:float=1.0,speed_scale:float=1.0,auto_close:bool=true,anim_time:=0.65,wait_time:=1.5)->IconBalloon:
@@ -124,6 +145,12 @@ func open_dialog(_data:DialogData):
 	await DialogSystem.finished
 	enable()
 
+# メニュー表示
+func open_menu():
+	Menu.emit_signal("open_menu")
+	Menu.open()
+	await Menu.finished_close
+
 # lay先オブジェクト取得
 func get_raycast_object():
 	if look.is_colliding():
@@ -153,9 +180,12 @@ func has_item(item:ItemBase)->int:
 # 有効化
 func enable():
 	set_process(true)
-	set_process_input(true)
-
+	set_process_input(is_main)
+	anim_tree.set("parameters/"+str(anim_state.get_current_node())+"/TimeSeek/seek_request",anim_state.get_current_play_position())
+	anim_tree.active = true
+	
 # 無効化
 func disable():
 	set_process(false)
 	set_process_input(false)
+	anim_tree.active = false
