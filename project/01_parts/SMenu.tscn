@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://buell7lw8oqyd"]
+
+[ext_resource type="Script" path="res://project/01_parts/SMenu.gd" id="1_desak"]
+[ext_resource type="PackedScene" uid="uid://bb7u3e0aqggfq" path="res://project/01_parts/SMenuPanel.tscn" id="2_vsj4t"]
+
+[node name="SMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_desak")
+panel_resource = ExtResource("2_vsj4t")
+
+[node name="name" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_top = 150.0
+offset_right = 175.0
+offset_bottom = 190.0
+grow_horizontal = 2
+
+[node name="margin" type="MarginContainer" parent="name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="label" type="Label" parent="name/margin"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_top = 190.0
+offset_right = 175.0
+offset_bottom = 270.0
+grow_horizontal = 2
+
+[node name="margin" type="MarginContainer" parent="description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="label" type="RichTextLabel" parent="description/margin"]
+layout_mode = 2
+bbcode_enabled = true
+scroll_active = false

@@ -3,7 +3,7 @@ extends CanvasLayer
 # Openするためのシグナル
 signal open_menu
 # Closeを通知するためのシグナル
-signal finish_closed
+signal finished_close
 
 @export var input_cancel := "cancel"
 @export_group("Control Settings")
@@ -69,7 +69,7 @@ func open():
 func close():
 	disable()
 	visible = false
-	emit_signal("finish_closed")
+	emit_signal("finished_close")
 
 func enable():
 	grab_first.grab_focus()
