@@ -270,3 +270,4 @@ func reload_world_info():
 # AStarパス取得
 func get_astar_path(target:Vector2):
 	astar_path = AStarUtil2.recalculate_path(position,target,astar,world_info,world.tile_set.tile_size)
+
