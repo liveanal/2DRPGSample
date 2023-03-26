@@ -1,11 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmdal0o381jm1"]
+[gd_scene load_steps=4 format=3 uid="uid://dmdal0o381jm1"]
 
 [ext_resource type="Script" path="res://project/10_title/Title.gd" id="1_rnp32"]
-[ext_resource type="Script" path="res://project/10_title/VideoManager.gd" id="2_r8vd7"]
-[ext_resource type="VideoStream" path="res://resource/title/video/opening_01.ogv" id="3_1nsp6"]
-[ext_resource type="Texture2D" uid="uid://fmsms4llxebr" path="res://resource/title/title.png" id="3_whlck"]
-[ext_resource type="VideoStream" path="res://resource/title/video/opening_02.ogv" id="4_6rv8i"]
-[ext_resource type="VideoStream" path="res://resource/title/video/opening_03.ogv" id="5_xxi4q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkp3q"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 1)
@@ -40,39 +35,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rnp32")
 
-[node name="background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="video" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand = true
-script = ExtResource("2_r8vd7")
-videos = [ExtResource("3_1nsp6"), ExtResource("4_6rv8i"), ExtResource("5_xxi4q")]
-
-[node name="picture" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_top = 60.0
-offset_right = 200.0
-offset_bottom = 220.0
-grow_horizontal = 2
-texture = ExtResource("3_whlck")
-expand_mode = 1
-
 [node name="select" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(250, 150)
 layout_mode = 1
@@ -94,7 +56,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tkp3q")
 theme_override_styles/focus = SubResource("StyleBoxFlat_v5r0s")
-text = "新しく始める"
+text = "NewGame"
 
 [node name="Button2" type="Button" parent="select"]
 layout_mode = 2
@@ -102,7 +64,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tkp3q")
 theme_override_styles/focus = SubResource("StyleBoxFlat_v5r0s")
-text = "データをロードする"
+text = "LoadGame"
 
 [node name="Button3" type="Button" parent="select"]
 layout_mode = 2
@@ -110,7 +72,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tkp3q")
 theme_override_styles/focus = SubResource("StyleBoxFlat_v5r0s")
-text = "オプション"
+text = "Option"
 
 [node name="Button4" type="Button" parent="select"]
 layout_mode = 2
@@ -118,4 +80,4 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tkp3q")
 theme_override_styles/focus = SubResource("StyleBoxFlat_v5r0s")
-text = "ゲームを終了する"
+text = "Exit"
