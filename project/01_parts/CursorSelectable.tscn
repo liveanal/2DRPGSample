@@ -15,6 +15,9 @@ cursor_scale = Vector2(0, 0)
 space_size = Vector2(0, 0)
 cursor_offset = null
 
+[node name="margin" parent="." index="0"]
+anchors_preset = 0
+
 [node name="cursor" type="Sprite2D" parent="." index="1"]
 texture_filter = 1
 texture_repeat = 1

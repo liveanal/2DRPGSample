@@ -27,6 +27,7 @@ script = ExtResource("2_2hqvp")
 [node name="label" type="Label" parent="panel/margin/contents/margin" index="0"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "ゲームを終了しますか？"
 
 [node name="button1" parent="panel/margin/contents/buttons" index="0"]
