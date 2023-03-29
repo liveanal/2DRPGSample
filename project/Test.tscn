@@ -1,9 +1,92 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh6re7n4rxwdt"]
+[gd_scene load_steps=22 format=3 uid="uid://bh6re7n4rxwdt"]
 
 [ext_resource type="Script" path="res://project/Test.gd" id="1_nuls8"]
 [ext_resource type="Texture2D" uid="uid://c83hgv6ksxss" path="res://resource/icon.svg" id="2_vc344"]
 [ext_resource type="Script" path="res://project/02_static/DialogSelect.gd" id="3_hm10v"]
 [ext_resource type="Script" path="res://project/02_static/DialogData.gd" id="3_pi880"]
+
+[sub_resource type="Resource" id="Resource_ycckn"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "かちかちやまのたぬきさん
+おっぱいのんでねんねして
+だっこしておんぶしてまたあした"
+selectable = Array[ExtResource("3_hm10v")]([])
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_buyp0"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "スーパーマリオＲＰＧ
+Anarchy実況
+穴タコくん
+ゲームを作るために必要なものは技術より根気
+線路は続くよどこまでも"
+selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_ycckn")
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_ylj02"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "動作確認のため、メッセージログを溜め込んでいます。"
+selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_buyp0")
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_twytc"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "あ
+い
+う
+え
+お"
+selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_ylj02")
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_ao8p2"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "改行テスト
+改行テスト
+改行テスト"
+selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_twytc")
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_nr62e"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "もげもげチゲ"
+selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_ao8p2")
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_1bgtu"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "ほげはげひげ"
+selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_nr62e")
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_lpv5o"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "ダイアログ連続表示テスト"
+selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_1bgtu")
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_ejlnq"]
+script = ExtResource("3_pi880")
+name = ""
+dialog = "ぬるぬるちんちん"
+selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_lpv5o")
+call_func = &""
 
 [sub_resource type="Resource" id="Resource_vnryg"]
 script = ExtResource("3_pi880")
@@ -11,6 +94,7 @@ name = "なまえ"
 face = ExtResource("2_vc344")
 dialog = "またね！"
 selectable = Array[ExtResource("3_hm10v")]([])
+next = SubResource("Resource_ejlnq")
 call_func = &""
 
 [sub_resource type="Resource" id="Resource_a7oa4"]

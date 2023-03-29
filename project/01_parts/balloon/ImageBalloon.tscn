@@ -10,3 +10,4 @@ pos_offset = Vector2(0, 0)
 speed_scale = 1.0
 
 [node name="sprites" type="AnimatedSprite2D" parent="." index="0"]
+playing = true

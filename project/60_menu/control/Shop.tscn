@@ -126,6 +126,7 @@ theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
 bbcode_enabled = true
+fit_content_height = true
 scroll_active = false
 
 [node name="ledge" type="RichTextLabel" parent="transaction/margin/container/player"]
@@ -135,6 +136,7 @@ theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
 bbcode_enabled = true
+fit_content_height = true
 scroll_active = false
 
 [node name="sum" type="RichTextLabel" parent="transaction/margin/container/player"]
@@ -144,6 +146,7 @@ theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
 bbcode_enabled = true
+fit_content_height = true
 scroll_active = false
 
 [node name="shop" type="VBoxContainer" parent="transaction/margin/container"]
@@ -157,6 +160,7 @@ theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
 bbcode_enabled = true
+fit_content_height = true
 scroll_active = false
 
 [node name="ledge" type="RichTextLabel" parent="transaction/margin/container/shop"]
@@ -166,6 +170,7 @@ theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
 bbcode_enabled = true
+fit_content_height = true
 scroll_active = false
 
 [node name="sum" type="RichTextLabel" parent="transaction/margin/container/shop"]
@@ -175,6 +180,7 @@ theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
 bbcode_enabled = true
+fit_content_height = true
 scroll_active = false
 
 [node name="iteminfo" type="PanelContainer" parent="."]
