@@ -1,11 +1,7 @@
-[gd_scene load_steps=82 format=3 uid="uid://djwepv7tj8r1e"]
+[gd_scene load_steps=76 format=3 uid="uid://djwepv7tj8r1e"]
 
 [ext_resource type="Script" path="res://project/30_char/MoveCharacter.gd" id="1_xqjd3"]
-[ext_resource type="Texture2D" uid="uid://da6vgt73vqa60" path="res://resource/char/shadow.png" id="2_fh6va"]
 [ext_resource type="Script" path="res://project/30_char/CharData.gd" id="2_nqcef"]
-[ext_resource type="Texture2D" uid="uid://qmo87g683k4d" path="res://resource/char/kusokimo/Kusokimo.png" id="4_rj0fp"]
-[ext_resource type="AnimationLibrary" uid="uid://ul1gvdnq1j57" path="res://resource/char/kusokimo/anim.res" id="4_suef8"]
-[ext_resource type="Texture2D" uid="uid://chexx66hkbjqi" path="res://resource/char/attack.png" id="5_pi377"]
 [ext_resource type="PackedScene" uid="uid://buell7lw8oqyd" path="res://project/01_parts/SMenu.tscn" id="5_q0ve2"]
 [ext_resource type="Script" path="res://project/01_parts/SMenuEntry.gd" id="6_gtwur"]
 
@@ -349,10 +345,6 @@ states/Start/position = Vector2(429, 264.702)
 transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_rsag1"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_taaya"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_uhyay"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_8wxrp"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_pe0as"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_lacnl")]
 graph_offset = Vector2(28, 200.702)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wyeg0"]
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gq48k"]
-
 [node name="Character" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
@@ -367,26 +359,22 @@ position = Vector2(0, -30)
 [node name="shadow" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-scale = Vector2(1.625, 1)
-texture = ExtResource("2_fh6va")
+position = Vector2(-1.42109e-14, 1)
+scale = Vector2(1.4, 1)
 
 [node name="texture" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(0, -14)
-texture = ExtResource("4_rj0fp")
 hframes = 3
 vframes = 8
-frame = 4
+frame = 3
 
 [node name="attack_effect" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("5_pi377")
 offset = Vector2(0, 16)
 flip_h = true
 flip_v = true
 hframes = 5
-frame = 4
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
@@ -404,13 +392,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5o3oe")
 
 [node name="attack" type="Area2D" parent="."]
-visible = false
 
 [node name="collision" type="CollisionShape2D" parent="attack"]
 position = Vector2(0, 16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vdn6t")
-disabled = true
 
 [node name="look" type="Node2D" parent="."]
 position = Vector2(0, -7)
@@ -456,9 +442,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="anim_tree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_mymvi")
-anim_player = NodePath("../anim_player")
-active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wyeg0")
+parameters/playback = null
 parameters/Attack/BlendSpace2D/blend_position = Vector2(-0.497259, 0.606911)
 parameters/Attack/TimeScale/scale = 1.0
 parameters/Attack/TimeSeek/seek_request = -1.0
@@ -470,7 +454,3 @@ parameters/Move/TimeScale/scale = 0.5
 parameters/Move/TimeSeek/seek_request = -1.0
 
 [node name="anim_player" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_gq48k"),
-"kusokimo": ExtResource("4_suef8")
-}

@@ -6,7 +6,6 @@ signal start_newgame
 @onready var btn_loadgame := $select/Button2
 @onready var btn_option   := $select/Button3
 @onready var btn_exit     := $select/Button4
-@onready var video := $video
 
 func _ready():
 	# シグナル接続
@@ -35,6 +34,4 @@ func _on_pressed_Exit():
 	btn_exit.grab_focus()
 
 func start():
-	video.refresh()
-	# ボタンフォーカス
 	btn_newgame.grab_focus()

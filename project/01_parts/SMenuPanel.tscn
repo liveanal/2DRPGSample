@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb7u3e0aqggfq"]
+[gd_scene load_steps=2 format=3 uid="uid://bb7u3e0aqggfq"]
 
 [ext_resource type="Script" path="res://project/01_parts/SMenuPanel.gd" id="1_w7tua"]
-[ext_resource type="Texture2D" uid="uid://cq27nqsu6nk88" path="res://resource/ui/empty.png" id="2_yoepl"]
 
 [node name="panel" type="PanelContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -17,7 +16,6 @@ offset_bottom = -240.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w7tua")
-empty_icon = ExtResource("2_yoepl")
 
 [node name="margin" type="MarginContainer" parent="."]
 layout_mode = 2
