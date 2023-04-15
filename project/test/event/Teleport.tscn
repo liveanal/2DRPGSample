@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://dm7i0el3c5g86"]
+
+[ext_resource type="PackedScene" uid="uid://co83b5jbt7d2v" path="res://project/20_world/event/Event.tscn" id="1_1h7wn"]
+[ext_resource type="Texture2D" uid="uid://bwsrs2hac1082" path="res://resource/char/exit.png" id="2_0y2q3"]
+[ext_resource type="Script" path="res://project/test/event/Teleport.gd" id="2_kpkiv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftmnr"]
+radius = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg2mn"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrx2t"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5vbu"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk74q"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8s8y"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpcld"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xf7h"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku3u6"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua6j0"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2bq0"]
+atlas = ExtResource("2_0y2q3")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3id1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg2mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrx2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5vbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk74q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8s8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpcld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xf7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku3u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua6j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2bq0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Teleport" instance=ExtResource("1_1h7wn")]
+script = ExtResource("2_kpkiv")
+map_res_path = ""
+on_main = true
+
+[node name="collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_ftmnr")
+
+[node name="texture" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_q3id1")
+frame_progress = 0.212148

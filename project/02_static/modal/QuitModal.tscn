@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcqd5mrvrqukh"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="PackedScene" uid="uid://cno2pfamxwi0u" path="res://project/02_static/Modal.tscn" id="1_hmor6"]
+[ext_resource type="PackedScene" path="res://project/02_static/Modal.tscn" id="1_hmor6"]
 [ext_resource type="Script" path="res://project/02_static/modal/QuitModal.gd" id="2_2hqvp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyreq"]

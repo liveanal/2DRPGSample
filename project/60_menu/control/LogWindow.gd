@@ -1,4 +1,4 @@
-class_name Logging extends MenuControl
+class_name LogWindow extends MenuControl
 
 @onready var scrollable:Scrollable = $Scrollable
 

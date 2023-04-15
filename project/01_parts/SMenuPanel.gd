@@ -3,11 +3,15 @@ class_name SMenuPanel extends PanelContainer
 @export var empty_icon:Texture2D
 @export var anim_time:float = 0.25
 @export var scale_select:float = 1.5
+@export var data:SMenuEntry
 
 @onready var texture := $margin/texture
 
 func _ready():
-	clear_icon()
+	if data != null:
+		set_icon(data.icon)
+	else:
+		clear_icon()
 
 # アイコン設定
 func set_icon(icon:Texture2D):

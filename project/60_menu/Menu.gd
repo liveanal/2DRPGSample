@@ -8,11 +8,11 @@ signal finished_close
 @export var input_cancel := "cancel"
 @export_group("Control Settings")
 @export var inventory:Inventory
-@export var logging:Logging
+@export var logwindow:LogWindow
 
 @onready var contents := {
 	$frame/margin/container/button_area/select/inventory : inventory,
-	$frame/margin/container/button_area/select/log       : logging
+	$frame/margin/container/button_area/select/log       : logwindow
 }
 @onready var modals   := {
 	$frame/margin/container/button_area/select/option    : "open_modal_option",
@@ -21,7 +21,7 @@ signal finished_close
 @onready var grab_first := $frame/margin/container/button_area/select/inventory
 
 func _ready():
-	if logging!=null:DialogSystem.connect("log_message",_add_message)
+	if logwindow!=null:DialogSystem.connect("log_message",_add_message)
 	for btn in contents.keys():
 		btn.connect("pressed",_open_contents.bind(btn))
 	for btn in modals.keys():
@@ -58,9 +58,9 @@ func _open_modals(btn):
 	set_process_input(true)
 
 func _add_message(_name,_msg):
-	logging.append(
-		Utility.create_label(_name,0,0,0,false,0,false,null),
-		Utility.create_label(_msg,0,0,0,false,0,true,null))
+	logwindow.append(
+		Utility.create_label(_name,HORIZONTAL_ALIGNMENT_LEFT,VERTICAL_ALIGNMENT_TOP,0,false,0,false,null),
+		Utility.create_label(_msg,HORIZONTAL_ALIGNMENT_LEFT,VERTICAL_ALIGNMENT_TOP,0,false,0,true,null))
 
 func open():
 	enable()

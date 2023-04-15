@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckk6xvyv4f0xs"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://project/60_menu/control/Inventory.gd" id="1_gputa"]
-[ext_resource type="PackedScene" uid="uid://2w47bxvr5jlg" path="res://project/01_parts/itemselect/ItemCSel.tscn" id="2_2nte8"]
-[ext_resource type="PackedScene" uid="uid://ctdjq6ipe8vwm" path="res://project/01_parts/itemselect/SelectRow.tscn" id="3_ddeua"]
+[ext_resource type="PackedScene" path="res://project/01_parts/itemselect/ItemCSel.tscn" id="2_2nte8"]
+[ext_resource type="PackedScene" path="res://project/01_parts/itemselect/SelectRow.tscn" id="3_ddeua"]
 [ext_resource type="Texture2D" uid="uid://ddlqquuupuka4" path="res://resource/ui/select_cursor.png" id="4_q3i7l"]
-[ext_resource type="PackedScene" uid="uid://du4527wksyd2h" path="res://project/01_parts/selectable/LabelCSel.tscn" id="5_kfa3t"]
+[ext_resource type="PackedScene" path="res://project/01_parts/selectable/LabelCSel.tscn" id="5_kfa3t"]
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray("list", "menu", "desc")]
 layout_mode = 3

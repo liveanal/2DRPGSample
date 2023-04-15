@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://x77a6f6i87u"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://project/60_menu/control/ShopRow.gd" id="1_tch5w"]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdsgkkkd1ieaa"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://m1yosgticinh" path="res://project/01_parts/OverlapSelectable.tscn" id="1_t4uoh"]
+[ext_resource type="PackedScene" path="res://project/01_parts/OverlapSelectable.tscn" id="1_t4uoh"]
 [ext_resource type="Script" path="res://project/01_parts/selectable/LabelOSel.gd" id="2_f0vu1"]
 
 [node name="LabelOSel" instance=ExtResource("1_t4uoh")]

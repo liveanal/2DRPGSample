@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwpi1iv8r8mbc"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://project/60_menu/Menu.gd" id="1_x3wer"]
-[ext_resource type="PackedScene" uid="uid://ckk6xvyv4f0xs" path="res://project/60_menu/control/Inventory.tscn" id="2_bclvm"]
-[ext_resource type="PackedScene" uid="uid://bolboir7423wb" path="res://project/60_menu/control/Logging.tscn" id="3_gbo66"]
+[ext_resource type="PackedScene" path="res://project/60_menu/control/Inventory.tscn" id="2_bclvm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bgxu"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -21,10 +20,9 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(1, 0.470588, 0, 1)
 
-[node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("inventory", "logging")]
+[node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("inventory")]
 script = ExtResource("1_x3wer")
 inventory = NodePath("frame/margin/container/content_area/inventory")
-logging = NodePath("frame/margin/container/content_area/logging")
 
 [node name="frame" type="PanelContainer" parent="."]
 anchors_preset = 15
@@ -175,7 +173,4 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="inventory" parent="frame/margin/container/content_area" instance=ExtResource("2_bclvm")]
-layout_mode = 1
-
-[node name="logging" parent="frame/margin/container/content_area" instance=ExtResource("3_gbo66")]
 layout_mode = 1

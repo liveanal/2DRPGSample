@@ -54,3 +54,4 @@ func start_out(t:=self.time,c:=self.color):
 		fade_out = true
 		self.time = t
 		self.color = Color(c.r,c.g,c.b,1.0)
+

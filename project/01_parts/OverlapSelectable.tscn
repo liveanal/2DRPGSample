@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://m1yosgticinh"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://co1ftt8wie12m" path="res://project/01_parts/Selectable.tscn" id="1_nte0o"]
+[ext_resource type="PackedScene" path="res://project/01_parts/Selectable.tscn" id="1_nte0o"]
 [ext_resource type="Script" path="res://project/01_parts/OverlapSelectable.gd" id="2_g3ko6"]
 
 [node name="OverlapSelectable" instance=ExtResource("1_nte0o")]

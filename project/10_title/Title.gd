@@ -17,7 +17,7 @@ func _ready():
 
 func _on_pressed_NewGame():
 	btn_newgame.release_focus()
-	emit_signal("start_newgame")
+	await System.change_world("res://project/test/Test.tscn",2.5)
 
 func _on_pressed_LoadGame():
 	pass

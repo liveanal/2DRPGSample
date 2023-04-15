@@ -155,7 +155,7 @@ static func get_radios_idx_checked(radios:Array) -> int:
 	return result
 
 # ラベル生成
-static func create_label(text,horizontal_alignment:=0,vertical_alignment:=1,size_horizontal:=0,expand_horizontal:=true,size_vertical:=0,expand_vertical:=false,label_settings=null)->Label:
+static func create_label(text,horizontal_alignment:=HORIZONTAL_ALIGNMENT_LEFT,vertical_alignment:=VERTICAL_ALIGNMENT_TOP,size_horizontal:=0,expand_horizontal:=true,size_vertical:=0,expand_vertical:=false,label_settings=null)->Label:
 	var label := Label.new()
 	label.text = text
 	label.label_settings=label_settings

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cno2pfamxwi0u"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://project/02_static/Modal.gd" id="1_ubfh5"]
 [ext_resource type="Texture2D" uid="uid://dnts7qmhsih6v" path="res://resource/ui/common_frame.png" id="2_4bf0s"]

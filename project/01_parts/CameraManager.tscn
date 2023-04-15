@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5fja4s6yu8g8"]
+[gd_scene load_steps=2 format=3 uid="uid://cc6wfykgammvt"]
 
 [ext_resource type="Script" path="res://project/01_parts/CameraManager.gd" id="1_15flf"]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://3trxhcg3ak0f"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://bk3f3qrpfwksw" path="res://project/01_parts/CursorSelectable.tscn" id="1_ycm47"]
+[ext_resource type="PackedScene" path="res://project/01_parts/CursorSelectable.tscn" id="1_ycm47"]
 [ext_resource type="Script" path="res://project/01_parts/selectable/ButtonOSel.gd" id="2_eywqk"]
 
 [node name="ButtonOSel" instance=ExtResource("1_ycm47")]

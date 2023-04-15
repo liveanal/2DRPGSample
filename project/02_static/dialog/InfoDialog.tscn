@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxmppq5hp1ntg"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="PackedScene" uid="uid://cs77oepc31ybd" path="res://project/02_static/Dialog.tscn" id="1_twyna"]
+[ext_resource type="PackedScene" path="res://project/02_static/Dialog.tscn" id="1_twyna"]
 [ext_resource type="Script" path="res://project/02_static/dialog/InfoDialog.gd" id="2_r0ecb"]
-[ext_resource type="PackedScene" uid="uid://du4527wksyd2h" path="res://project/01_parts/selectable/LabelCSel.tscn" id="3_b8icg"]
+[ext_resource type="PackedScene" path="res://project/01_parts/selectable/LabelCSel.tscn" id="3_b8icg"]
 [ext_resource type="Texture2D" uid="uid://baemvef6a720m" path="res://resource/ui/pagenation.png" id="3_rd11l"]
 [ext_resource type="Texture2D" uid="uid://dnts7qmhsih6v" path="res://resource/ui/common_frame.png" id="5_icg37"]
 [ext_resource type="Texture2D" uid="uid://ddlqquuupuka4" path="res://resource/ui/select_cursor.png" id="6_0n27u"]

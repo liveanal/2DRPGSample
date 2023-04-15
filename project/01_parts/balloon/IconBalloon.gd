@@ -9,7 +9,7 @@ class_name IconBalloon extends Balloon
 @onready var sprites := $frame/sprites
 
 func open():
-	frame.size = Vector2(sprites.frames.get_frame(anim_name,0).get_width()+frame.patch_margin_left+frame.patch_margin_right, sprites.frames.get_frame(anim_name,0).get_height()+frame.patch_margin_top+frame.patch_margin_bottom)
+	frame.size = Vector2(sprites.sprite_frames.get_frame_texture(anim_name,0).get_width()+frame.patch_margin_left+frame.patch_margin_right, sprites.frames.get_frame(anim_name,0).get_height()+frame.patch_margin_top+frame.patch_margin_bottom)
 	frame.pivot_offset = Vector2(frame.size.x/2,frame.size.y)
 	frame.position = -Vector2(frame.size.x/2, frame.size.y)
 	

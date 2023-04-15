@@ -81,29 +81,36 @@ func _switch_dialog(data:DialogData, anim_time:float, dialog)->Dialog:
 func open_dialog(caller:Node, data:DialogData, anim_time:=default_anim_time, auto_close:=true, dialog=null):
 	var d = dialog
 	
-	# ダイアログを表示
-	d = await _switch_dialog(data, anim_time, d)
-	# 入力が終わるまで待機
-	await d.finished_message
+	if data==null:
+		Logging.assert_error("E_101",[caller.name])
+		if dialog==null:
+			emit_signal("finished")
+		return
 	
-	# 選択肢がある場合
-	if d.is_selectable():
-		# 選択を取得
-		var selected:DialogSelect = d.get_select_item()
-		# 選択後のcall_funcを呼出し
-		if !Utility.is_empty(selected.call_func):
-			caller.call(selected.call_func)
-		# 選択肢のnextを呼び出し
-		if selected.next != null:
-			d = await open_dialog(caller, selected.next, anim_time, false, d)
-	# call_funcがある場合
-	if !Utility.is_empty(data.call_func):
-		# 選択後のcall_funcを呼出し
-		caller.call(data.call_func)
-	# nextがある場合
-	if data.next != null:
-		# 選択肢のnextを呼び出し
-		d = await open_dialog(caller, data.next, anim_time, false, d)
+	else:
+		# ダイアログを表示
+		d = await _switch_dialog(data, anim_time, d)
+		# 入力が終わるまで待機
+		await d.finished_message
+		
+		# 選択肢がある場合
+		if d.is_selectable():
+			# 選択を取得
+			var selected:DialogSelect = d.get_select_item()
+			# 選択後のcall_funcを呼出し
+			if !Utility.is_empty(selected.call_func):
+				caller.call(selected.call_func)
+			# 選択肢のnextを呼び出し
+			if selected.next != null:
+				d = await open_dialog(caller, selected.next, anim_time, false, d)
+		# call_funcがある場合
+		if !Utility.is_empty(data.call_func):
+			# 選択後のcall_funcを呼出し
+			caller.call(data.call_func)
+		# nextがある場合
+		if data.next != null:
+			# 選択肢のnextを呼び出し
+			d = await open_dialog(caller, data.next, anim_time, false, d)
 	
 	# ダイアログ終了
 	if auto_close:

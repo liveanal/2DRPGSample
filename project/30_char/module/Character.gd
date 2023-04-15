@@ -4,6 +4,11 @@ const balloon_icon_res  := preload("res://project/01_parts/balloon/IconBalloon.t
 const balloon_image_res := preload("res://project/01_parts/balloon/ImageBalloon.tscn")
 const balloon_text_res  := preload("res://project/01_parts/balloon/TextBalloon.tscn")
 
+# 非ダメージシグナル
+signal damaged(atk:AttackData)
+# チェックシグナル
+signal checked(char:Character)
+
 # 基本情報
 @export var data:CharData
 # メインキャラ設定
@@ -20,6 +25,7 @@ const balloon_text_res  := preload("res://project/01_parts/balloon/TextBalloon.t
 @onready var texture := $texture
 @onready var collision := $collision
 @onready var body := $body
+@onready var body_collision := $body/collision
 @onready var look := $look/_ray
 @onready var navigation := $navigation
 @onready var smenu1 := $smenu1
@@ -36,10 +42,6 @@ const balloon_text_res  := preload("res://project/01_parts/balloon/TextBalloon.t
 var move_speed := 32.0
 # 向き変更フラグ（移動反映なし）
 var move_turn := false
-# アニメ速度
-var anim_speed := 0.5
-# 攻撃時のアニメ速度（乗算値）
-var anim_speed_attack_multiple := 20.0
 # ナビターゲット
 var navi_target := Vector2.ZERO :
 	set(val):
@@ -50,13 +52,34 @@ var navi_target := Vector2.ZERO :
 
 # 初期化処理
 func _ready():
-	Menu.connect("open_menu",disable)
-	Menu.connect("finished_close",enable)
+	# data未設定確認
+	Logging.assert_error("E_001", [name], data==null, func():data = CharData.new())
+	# HPが0の場合は削除
+	if data.hp <= 0: queue_free()
+	# ショートカット復元
+	for i in range(8):
+		entry_smenu1(i,data.smenu1[i])
+		entry_smenu2(i,data.smenu2[i])
+		entry_smenu3(i,data.smenu3[i])
+	
+	# 共通シグナル処理
+	System.connect("pause",_on_receive_system_pause)
+	System.connect("play",_on_receive_system_play)
+	System.connect("disable",_on_receive_system_disable)
+	System.connect("disable_all",_on_receive_system_disable_all)
+	System.connect("enable",_on_receive_system_enable)
+	Menu.connect("open_menu",_on_receive_menu_open)
+	Menu.connect("finished_close",_on_receive_menu_finish)
+	# 攻撃シグナル処理
+	attack_area.connect("area_entered", func(area):
+		var parent = area.get_parent()
+		if parent.has_signal("damaged") and parent!=self:
+			parent.emit_signal("damaged", _get_attack_data()))
+	
 	navigation.target_position = navi_target
 	attack_effect.visible = false
 	attack_area.visible = false
 	attack_collision.disabled = true
-	start_anim()
 
 # プロセス処理
 func _process(_delta):
@@ -64,36 +87,10 @@ func _process(_delta):
 	velocity = get_velocity_direction()
 	if velocity != Vector2.ZERO and !move_turn:
 		move_and_slide()
-	update_anim()
 
 # velocity計算
 func get_velocity_direction():
 	return data.direction.normalized()*move_speed
-
-# アニメーション再生
-func start_anim():
-	anim_state.start("Idle")
-
-# アニメーション更新
-func update_anim():
-	anim_tree.set("parameters/Move/BlendSpace2D/blend_position",data.direction)
-	anim_tree.set("parameters/Idle/BlendSpace2D/blend_position",data.direction)
-	anim_tree.set("parameters/Attack/BlendSpace2D/blend_position",data.direction)
-	anim_tree.set("parameters/Move/TimeScale/scale",anim_speed)
-	anim_tree.set("parameters/Idle/TimeScale/scale",anim_speed)
-	anim_tree.set("parameters/Attack/TimeScale/scale",anim_speed*anim_speed_attack_multiple)
-
-# 立ち
-func change_anim_idle(reset:=false):
-	anim_state.travel("Idle",reset)
-
-# 移動
-func change_anim_move(reset:=false):
-	anim_state.travel("Move",reset)
-
-# 攻撃
-func change_anim_attack(reset:=false):
-	anim_state.travel("Attack",reset)
 
 # バルーン表示（アイコン）
 func balloon_icon(anim_name:String,iscale:float=1.0,_scale:float=1.0,speed_scale:float=1.0,auto_close:bool=true,anim_time:=0.65,wait_time:=1.5)->IconBalloon:
@@ -153,7 +150,7 @@ func open_menu():
 
 # lay先オブジェクト取得
 func get_raycast_object():
-	if look.is_colliding():
+	if look.is_colliding() and look.get_collider()!=null:
 		return look.get_collider().get_parent()
 
 # インベントリにアイテム追加
@@ -177,15 +174,78 @@ func has_item(item:ItemBase)->int:
 			return data.inventory.find(target)
 	return -1
 
+# ショートカット1を登録
+func entry_smenu1(i:int, entry:SMenuEntry):
+	data.smenu1[i] = entry
+	smenu1.entry_select(i,entry)
+
+# ショートカット2を登録
+func entry_smenu2(i:int, entry:SMenuEntry):
+	data.smenu2[i] = entry
+	smenu2.entry_select(i,entry)
+
+# ショートカット3を登録
+func entry_smenu3(i:int, entry:SMenuEntry):
+	data.smenu3[i] = entry
+	smenu3.entry_select(i,entry)
+
+# ショートカット1を削除
+func remove_smenu1(i:int):
+	data.smenu1[i] = null
+	smenu1.entry_select(i,null)
+
+# ショートカット2を登録
+func remove_smenu2(i:int):
+	data.smenu2[i] = null
+	smenu2.entry_select(i,null)
+
+# ショートカット3を登録
+func remove_smenu3(i:int):
+	data.smenu3[i] = null
+	smenu3.entry_select(i,null)
+
 # 有効化
 func enable():
 	set_process(true)
 	set_process_input(is_main)
-	anim_tree.set("parameters/"+str(anim_state.get_current_node())+"/TimeSeek/seek_request",anim_state.get_current_play_position())
-	anim_tree.active = true
-	
+
 # 無効化
 func disable():
 	set_process(false)
 	set_process_input(false)
+
+# System.pauseシグナル受信処理
+func _on_receive_system_pause():
+	disable()
 	anim_tree.active = false
+
+# System.playシグナル受信処理
+func _on_receive_system_play():
+	enable()
+	anim_tree.active = true
+
+# System.disableシグナル受信処理
+func _on_receive_system_disable():
+	if is_main: disable()
+
+# System.disable_allシグナル受信処理
+func _on_receive_system_disable_all():
+	disable()
+
+# System.enableシグナル受信処理
+func _on_receive_system_enable():
+	enable()
+
+# Menu.open_menuシグナル受信処理
+func _on_receive_menu_open():
+	_on_receive_system_pause()
+
+# Menu.finished_closeシグナル受信処理
+func _on_receive_menu_finish():
+	_on_receive_system_play()
+
+# 攻撃情報取得
+func _get_attack_data()->AttackData:
+	var atk := AttackData.new()
+	atk.char_name = data.name
+	return atk

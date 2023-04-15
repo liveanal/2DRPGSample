@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://btdlrhjg1w7cf"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="PackedScene" uid="uid://cs77oepc31ybd" path="res://project/02_static/Dialog.tscn" id="1_ob1ay"]
+[ext_resource type="PackedScene" path="res://project/02_static/Dialog.tscn" id="1_ob1ay"]
 [ext_resource type="Script" path="res://project/02_static/dialog/FullDialog.gd" id="2_2etkf"]
 [ext_resource type="Texture2D" uid="uid://baemvef6a720m" path="res://resource/ui/pagenation.png" id="3_ubaj7"]
-[ext_resource type="PackedScene" uid="uid://du4527wksyd2h" path="res://project/01_parts/selectable/LabelCSel.tscn" id="4_7ev4g"]
+[ext_resource type="PackedScene" path="res://project/01_parts/selectable/LabelCSel.tscn" id="4_7ev4g"]
 [ext_resource type="Texture2D" uid="uid://dnts7qmhsih6v" path="res://resource/ui/common_frame.png" id="5_0k2ga"]
 [ext_resource type="Texture2D" uid="uid://ddlqquuupuka4" path="res://resource/ui/select_cursor.png" id="6_xgi4p"]
 
@@ -102,21 +102,23 @@ expand_mode = 1
 texture_filter = 1
 texture_repeat = 1
 offset_left = 12.0
-offset_top = 393.0
+offset_top = 384.0
 offset_right = 262.0
-offset_bottom = 443.0
+offset_bottom = 442.0
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxTexture_wi4r6")
 
 [node name="margin" type="MarginContainer" parent="name" index="0"]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
 
 [node name="label" type="Label" parent="name/margin" index="0"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_yej65")
 horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
 
 [node name="selectable" parent="." index="4" instance=ExtResource("4_7ev4g")]
 texture_filter = 1

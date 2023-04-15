@@ -1,4 +1,4 @@
-class_name MoveCharacter extends Character
+class_name CharacterMove extends CharacterAnim
 
 signal finish_velocity_computed
 
@@ -22,6 +22,9 @@ enum MOVE_MODE {RANDOM,NAV,ASTAR,SELF,NONE}
 @export var anim_speed_walk := 1.0
 # 走行アニメ速度
 @export var anim_speed_run := 1.5
+# チェック対象設定
+@export_group("Check Setting")
+@export var is_check_target:bool = false
 # 入力制御
 @export_group("Input Setting")
 @export var is_input:bool = true
@@ -61,8 +64,6 @@ enum MOVE_MODE {RANDOM,NAV,ASTAR,SELF,NONE}
 		return navigate_point
 # NAV時のパス脱線許容
 @export var nav_desired_distance := 16.0
-# ASTAR時のパス脱線許容
-@export var astar_desired_distance := 5.0
 @export_group("AStar Setting")
 # 移動設定
 @export var world:TileMap
@@ -73,6 +74,8 @@ enum MOVE_MODE {RANDOM,NAV,ASTAR,SELF,NONE}
 	set(val):
 		walkable_custom_data = val
 		if walkable_custom_data != null : walkable_custom_data.sort()
+# ASTAR時のパス脱線許容
+@export var astar_desired_distance := 5.0
 
 # ランダム移動用
 var vec_arr := [Vector2.RIGHT, Vector2.LEFT, Vector2.DOWN, Vector2.UP, Vector2.UP+Vector2.RIGHT, Vector2.RIGHT+Vector2.DOWN, Vector2.DOWN+Vector2.LEFT, Vector2.LEFT+Vector2.UP]
@@ -144,11 +147,17 @@ func _process(_delta):
 func _process_self(_delta):
 	# 入力制御
 	if is_input:
-		# 移動・攻撃入力制御
 		if !is_smenus:
-			if is_attack:
+			# チェック可能制御
+			var obj = get_raycast_object()
+			if obj!=null and obj.get("is_check_target"):
+				if !is_attacked and Input.is_action_pressed(input_attack):
+					obj.emit_signal("checked",self)
+			# 攻撃入力制御
+			elif is_attack:
 				if !is_attacked and Input.is_action_pressed(input_attack):
 					await attack()
+				
 			if !is_attacked:
 				var input_vector = Vector2.ZERO
 				# 移動入力
@@ -158,7 +167,7 @@ func _process_self(_delta):
 					is_running = Input.is_action_pressed(input_run)
 				# ターン入力
 				move_turn = Input.is_action_pressed(input_turn)
-				# 移動入力反映
+				# 移動反映
 				if input_vector != Vector2.ZERO:
 					data.direction = input_vector
 					if !move_turn:
@@ -167,8 +176,7 @@ func _process_self(_delta):
 						idle()
 				elif is_moving:
 					idle()
-				
-				# SMenu入力
+				# SMenu入力切替
 				if Input.is_action_pressed(input_smenu1):
 					is_smenus = true
 					smenu1.open()
@@ -184,16 +192,14 @@ func _process_self(_delta):
 					smenu3.open()
 					await smenu3.finished_open
 					is_smenu3 = true
-		
-		# SMenu入力制御
 		else:
 			if is_moving:
 				idle()
-			
+			# SMenu入力制御
 			var input_vector = Vector2.ZERO
 			input_vector.x = Input.get_action_strength(input_right) - Input.get_action_strength(input_left)
 			input_vector.y = Input.get_action_strength(input_down) - Input.get_action_strength(input_up)
-			
+			# SMenu入力反映
 			if is_smenu1:
 				if Input.is_action_pressed(input_smenu1):
 					smenu1.change_cursor(SMenu.vector_to_index(input_vector))
@@ -271,6 +277,10 @@ func _process_astar(_delta):
 
 # 移動モード変更時の初期化処理
 func _update_move_mode():
+	if move_mode==MOVE_MODE.ASTAR:
+		Logging.assert_warn("E_002",[name],world==null)
+		Logging.assert_warn("E_003",[name],walkable_custom_data.is_empty())
+	
 	if anim_tree!=null:
 		idle()
 	if navigation!=null:
@@ -335,4 +345,3 @@ func reload_world_info():
 # AStarパス取得
 func get_astar_path(target:Vector2):
 	astar_path = AStarUtil2.recalculate_path(position,target,astar,world_info,world.tile_set.tile_size)
-

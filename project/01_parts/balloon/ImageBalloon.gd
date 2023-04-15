@@ -9,6 +9,6 @@ class_name ImageBalloon extends Balloon
 func open():
 	sprites.animation = anim_name
 	sprites.speed_scale = speed_scale
-	sprites.position = -Vector2(0,sprites.frames.get_frame(anim_name,0).get_height()/2)
+	sprites.position = -Vector2(0,sprites.sprite_frames.get_frame_texture(anim_name,0).get_height()/2)
 	position += pos_offset
 	super.open()

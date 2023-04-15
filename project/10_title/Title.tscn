@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmdal0o381jm1"]
+[gd_scene load_steps=9 format=3 uid="uid://vo88754offrv"]
 
 [ext_resource type="Script" path="res://project/10_title/Title.gd" id="1_rnp32"]
 [ext_resource type="Script" path="res://project/10_title/VideoManager.gd" id="2_r8vd7"]
@@ -58,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand = true
 script = ExtResource("2_r8vd7")
-videos = [ExtResource("3_1nsp6"), ExtResource("4_6rv8i"), ExtResource("5_xxi4q")]
+videos = Array[VideoStream]([ExtResource("3_1nsp6"), ExtResource("4_6rv8i"), ExtResource("5_xxi4q")])
 
 [node name="picture" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://co1ftt8wie12m"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://4hclwowi87gs" path="res://project/01_parts/Scrollable.tscn" id="1_en7hh"]
+[ext_resource type="PackedScene" path="res://project/01_parts/Scrollable.tscn" id="1_en7hh"]
 [ext_resource type="Script" path="res://project/01_parts/Selectable.gd" id="1_utx1r"]
 
 [node name="Selectable" instance=ExtResource("1_en7hh")]

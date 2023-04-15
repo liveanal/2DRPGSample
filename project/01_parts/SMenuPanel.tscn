@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb7u3e0aqggfq"]
+[gd_scene load_steps=3 format=3 uid="uid://cdsho7amwp3y6"]
 
 [ext_resource type="Script" path="res://project/01_parts/SMenuPanel.gd" id="1_w7tua"]
 [ext_resource type="Texture2D" uid="uid://cq27nqsu6nk88" path="res://resource/ui/empty.png" id="2_yoepl"]

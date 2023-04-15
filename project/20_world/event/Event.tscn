@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://co83b5jbt7d2v"]
+
+[ext_resource type="Script" path="res://project/20_world/event/Event.gd" id="1_34c45"]
+
+[node name="Event" type="Area2D"]
+z_index = -1
+z_as_relative = false
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_34c45")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+[node name="texture" type="AnimatedSprite2D" parent="."]
+autoplay = "default"

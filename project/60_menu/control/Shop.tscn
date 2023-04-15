@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfvxdlaxdwv2f"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://project/60_menu/control/Shop.gd" id="1_xp51g"]
-[ext_resource type="PackedScene" uid="uid://2w47bxvr5jlg" path="res://project/01_parts/itemselect/ItemCSel.tscn" id="2_3mihr"]
-[ext_resource type="PackedScene" uid="uid://x77a6f6i87u" path="res://project/60_menu/control/ShopRow.tscn" id="3_gl6ax"]
+[ext_resource type="PackedScene" path="res://project/01_parts/itemselect/ItemCSel.tscn" id="2_3mihr"]
+[ext_resource type="PackedScene" path="res://project/60_menu/control/ShopRow.tscn" id="3_gl6ax"]
 [ext_resource type="Texture2D" uid="uid://ddlqquuupuka4" path="res://resource/ui/select_cursor.png" id="4_0cwp3"]
-[ext_resource type="PackedScene" uid="uid://du4527wksyd2h" path="res://project/01_parts/selectable/LabelCSel.tscn" id="5_ceyiy"]
+[ext_resource type="PackedScene" path="res://project/01_parts/selectable/LabelCSel.tscn" id="5_ceyiy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_61qc4"]
 font_size = 12
