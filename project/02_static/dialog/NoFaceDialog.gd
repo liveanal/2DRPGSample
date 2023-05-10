@@ -1,1 +1,0 @@
-class_name NoFaceDialog extends Dialog

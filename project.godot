@@ -21,10 +21,13 @@ buses/default_bus_layout=""
 
 [autoload]
 
-ModalSystem="*res://project/system/ModalSystem.tscn"
-DialogSystem="*res://project/system/DialogSystem.tscn"
-System="*res://project/system/System.tscn"
-Menu="*res://project/60_menu/Menu.tscn"
+System="*res://project/template/system/System.tscn"
+
+[debug]
+
+gdscript/warnings/shadowed_global_identifier=0
+gdscript/warnings/int_as_enum_without_cast=0
+gdscript/warnings/int_as_enum_without_match=0
 
 [display]
 

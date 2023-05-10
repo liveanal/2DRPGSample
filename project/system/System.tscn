@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://uw8tp0hjoi6c"]
-
-[ext_resource type="Script" path="res://project/system/System.gd" id="1_xlhmr"]
-
-[node name="System" type="Node"]
-script = ExtResource("1_xlhmr")

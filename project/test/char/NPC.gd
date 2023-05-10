@@ -59,7 +59,7 @@ func _on_checked(_char):
 	# それぞれ向きを変更する
 	update_anim((_char.position - position).normalized())
 	# 会話開始
-	await DialogSystem.open_dialog(self,talk_data[0],0.4)
+	await System.open_dialog(self,talk_data[0],0.4)
 	# 処理再開
 	enable()
 	_char.enable()

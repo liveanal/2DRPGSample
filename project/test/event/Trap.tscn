@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3]
 
-[ext_resource type="PackedScene" path="res://project/20_world/event/Event.tscn" id="1_wm6kp"]
+[ext_resource type="PackedScene" path="res://project/template/node/event/Event.tscn" id="1_wm6kp"]
 [ext_resource type="Script" path="res://project/test/event/Trap.gd" id="2_wmexe"]
 [ext_resource type="Texture2D" uid="uid://c83hgv6ksxss" path="res://resource/icon.svg" id="3_a4c8q"]
 
@@ -20,6 +20,8 @@ animations = [{
 
 [node name="Trap" instance=ExtResource("1_wm6kp")]
 script = ExtResource("2_wmexe")
+damage = 2
+on_main = true
 
 [node name="collision" parent="." index="0"]
 shape = SubResource("RectangleShape2D_h73h4")

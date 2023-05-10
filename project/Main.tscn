@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv77akj3yx5ho"]
+[gd_scene load_steps=4 format=3 uid="uid://do4u1rp26wld5"]
 
 [ext_resource type="Script" path="res://project/Main.gd" id="1_asj38"]
 [ext_resource type="Texture2D" uid="uid://blojyq25vifmo" path="res://resource/splash/splash.png" id="2_4ce1f"]
-[ext_resource type="PackedScene" uid="uid://vo88754offrv" path="res://project/10_title/Title.tscn" id="2_hvaf6"]
+[ext_resource type="PackedScene" uid="uid://8afrsvo8bj2u" path="res://project/template/system/title/Title.tscn" id="2_hvaf6"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_asj38")

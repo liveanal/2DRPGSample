@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://project/template/node/smenu/parts/SMenuPanel.gd" id="1_w7tua"]
+[ext_resource type="Texture2D" uid="uid://cq27nqsu6nk88" path="res://resource/ui/empty.png" id="2_yoepl"]
+
+[node name="panel" type="PanelContainer"]
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -300.0
+offset_right = -420.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w7tua")
+empty_icon = ExtResource("2_yoepl")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="texture" type="TextureRect" parent="margin"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

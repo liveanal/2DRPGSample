@@ -1,17 +1,30 @@
-[gd_scene load_steps=51 format=3 uid="uid://dppm1cd2e372"]
+[gd_scene load_steps=54 format=3 uid="uid://de8l547knrr3y"]
 
-[ext_resource type="PackedScene" uid="uid://du82xyhoi8bd0" path="res://project/30_char/Character.tscn" id="1_87kre"]
+[ext_resource type="PackedScene" uid="uid://n1wrawj8ldkr" path="res://project/template/node/char/Character.tscn" id="1_87kre"]
 [ext_resource type="Script" path="res://project/test/char/NPC.gd" id="2_8x2l0"]
-[ext_resource type="Script" path="res://project/30_char/metadata/CharData.gd" id="2_qvk7c"]
+[ext_resource type="Texture2D" uid="uid://c83hgv6ksxss" path="res://resource/icon.svg" id="3_dhu0b"]
+[ext_resource type="Script" path="res://project/template/system/dialog/data/DialogData.gd" id="4_476lj"]
+[ext_resource type="Script" path="res://project/template/node/char/data/CharData.gd" id="5_518l3"]
 
-[sub_resource type="Resource" id="Resource_6j6yq"]
-script = ExtResource("2_qvk7c")
+[sub_resource type="Resource" id="Resource_ignnv"]
+script = ExtResource("4_476lj")
+name = "NPC"
+face = ExtResource("3_dhu0b")
+dialog = "なにか？"
+selectable = Array[Resource("res://project/template/system/dialog/data/DialogSelect.gd")]([])
+call_func = &""
+
+[sub_resource type="Resource" id="Resource_ude40"]
+script = ExtResource("5_518l3")
 name = "NPC"
 direction = Vector2(0, 1)
 money = 0
-inventory = Array[Resource("res://project/40_item/ItemBase.gd")]([])
+inventory = Array[Resource("res://project/template/node/item/data/ItemData.gd")]([])
 max_hp = 2
 hp = 2
+smenu1 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
+smenu2 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
+smenu3 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_prj8j"]
 resource_local_to_scene = true
@@ -230,9 +243,10 @@ graph_offset = Vector2(28, 200.702)
 
 [node name="NPC" instance=ExtResource("1_87kre")]
 script = ExtResource("2_8x2l0")
-talk_data = Array[Resource("res://project/02_static/DialogData.gd")]([])
+talk_data = Array[ExtResource("4_476lj")]([SubResource("Resource_ignnv")])
 move_mode = 0
-data = SubResource("Resource_6j6yq")
+is_check_target = true
+data = SubResource("Resource_ude40")
 
 [node name="texture" parent="." index="2"]
 frame = 2

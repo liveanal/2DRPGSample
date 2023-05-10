@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://project/template/node/select/Selectable.tscn" id="1_5kvdm"]
+[ext_resource type="Script" path="res://project/template/node/select/CursorSelectable.gd" id="1_lf5ef"]
+
+[node name="CursorSelectable" instance=ExtResource("1_5kvdm")]
+script = ExtResource("1_lf5ef")
+minimum_height = 0.0
+row_v_size = 0
+row_v_expand = true
+row_h_size = 0
+row_h_expand = true
+cursor = null
+cursor_scale = Vector2(0, 0)
+space_size = Vector2(0, 0)
+cursor_offset = null
+
+[node name="margin" parent="." index="0"]
+anchors_preset = 0
+
+[node name="cursor" type="Sprite2D" parent="." index="1"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(10, 23)
+scale = Vector2(1e-05, 1e-05)

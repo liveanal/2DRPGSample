@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dm7i0el3c5g86"]
+[gd_scene load_steps=16 format=3]
 
-[ext_resource type="PackedScene" uid="uid://co83b5jbt7d2v" path="res://project/20_world/event/Event.tscn" id="1_1h7wn"]
+[ext_resource type="PackedScene" path="res://project/template/node/event/Event.tscn" id="1_1h7wn"]
 [ext_resource type="Texture2D" uid="uid://bwsrs2hac1082" path="res://resource/char/exit.png" id="2_0y2q3"]
 [ext_resource type="Script" path="res://project/test/event/Teleport.gd" id="2_kpkiv"]
 

@@ -1,0 +1,222 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://project/template/system/shop/Shop.gd" id="1_3x56g"]
+[ext_resource type="PackedScene" uid="uid://de3ekxlyg7m4q" path="res://project/template/node/select/general/ItemCSel.tscn" id="2_arab5"]
+[ext_resource type="PackedScene" path="res://project/template/system/shop/parts/ShopRow.tscn" id="3_w85k1"]
+[ext_resource type="Texture2D" uid="uid://ddlqquuupuka4" path="res://resource/ui/select_cursor.png" id="4_i8nq5"]
+[ext_resource type="PackedScene" path="res://project/template/node/select/general/LabelCSel.tscn" id="5_nlf07"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_61qc4"]
+font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhpu3"]
+content_margin_left = 3.0
+content_margin_top = 5.0
+content_margin_right = 3.0
+content_margin_bottom = 5.0
+draw_center = false
+border_width_bottom = 1
+
+[node name="Shop" type="Control" node_paths=PackedStringArray("shop_table", "inventory_table", "tab", "menu", "operation", "p_name", "p_ledge", "p_sum", "s_name", "s_ledge", "s_sum", "description", "iteminfo")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_3x56g")
+shop_table = NodePath("tab/買う")
+inventory_table = NodePath("tab/売る")
+tab = NodePath("tab")
+menu = NodePath("menu")
+operation = NodePath("operation/margin/label")
+p_name = NodePath("iteminfo/transaction/margin/container/player/name")
+p_ledge = NodePath("iteminfo/transaction/margin/container/player/ledge")
+p_sum = NodePath("iteminfo/transaction/margin/container/player/sum")
+s_name = NodePath("iteminfo/transaction/margin/container/shop/name")
+s_ledge = NodePath("iteminfo/transaction/margin/container/shop/ledge")
+s_sum = NodePath("iteminfo/transaction/margin/container/shop/sum")
+description = NodePath("description/margin/label")
+iteminfo = NodePath("iteminfo/margin/label")
+count_add = "ui_right"
+count_sub = "ui_left"
+
+[node name="operation" type="PanelContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.25
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="operation"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="label" type="Label" parent="operation/margin"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_61qc4")
+
+[node name="tab" type="TabContainer" parent="."]
+layout_mode = 0
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_top = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="買う" parent="tab" instance=ExtResource("2_arab5")]
+layout_mode = 2
+row_res = ExtResource("3_w85k1")
+row_v_expand = false
+cursor = ExtResource("4_i8nq5")
+cursor_scale = Vector2(0.1, 0.1)
+space_size = Vector2(30, 30)
+input_left = ""
+input_right = ""
+scroll_speed = 0.25
+
+[node name="売る" parent="tab" instance=ExtResource("2_arab5")]
+visible = false
+layout_mode = 2
+row_res = ExtResource("3_w85k1")
+row_v_expand = false
+cursor = ExtResource("4_i8nq5")
+cursor_scale = Vector2(0.1, 0.1)
+space_size = Vector2(30, 30)
+input_left = ""
+input_right = ""
+scroll_speed = 0.25
+
+[node name="iteminfo" type="PanelContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.6
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.65
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="iteminfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="label" type="RichTextLabel" parent="iteminfo/margin"]
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="transaction" type="PanelContainer" parent="iteminfo"]
+layout_mode = 2
+
+[node name="margin" type="MarginContainer" parent="iteminfo/transaction"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="container" type="HBoxContainer" parent="iteminfo/transaction/margin"]
+layout_mode = 2
+
+[node name="player" type="VBoxContainer" parent="iteminfo/transaction/margin/container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="name" type="RichTextLabel" parent="iteminfo/transaction/margin/container/player"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
+bbcode_enabled = true
+scroll_active = false
+
+[node name="ledge" type="RichTextLabel" parent="iteminfo/transaction/margin/container/player"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
+bbcode_enabled = true
+scroll_active = false
+
+[node name="sum" type="RichTextLabel" parent="iteminfo/transaction/margin/container/player"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
+bbcode_enabled = true
+scroll_active = false
+
+[node name="shop" type="VBoxContainer" parent="iteminfo/transaction/margin/container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="name" type="RichTextLabel" parent="iteminfo/transaction/margin/container/shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
+bbcode_enabled = true
+scroll_active = false
+
+[node name="ledge" type="RichTextLabel" parent="iteminfo/transaction/margin/container/shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
+bbcode_enabled = true
+scroll_active = false
+
+[node name="sum" type="RichTextLabel" parent="iteminfo/transaction/margin/container/shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhpu3")
+bbcode_enabled = true
+scroll_active = false
+
+[node name="description" type="PanelContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.6
+anchor_top = 0.65
+anchor_right = 1.0
+anchor_bottom = 0.85
+offset_left = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="description"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="label" type="RichTextLabel" parent="description/margin"]
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="menu" parent="." instance=ExtResource("5_nlf07")]
+layout_mode = 0
+anchor_left = 0.6
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2

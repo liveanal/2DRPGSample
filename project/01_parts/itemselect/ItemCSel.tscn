@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3]
-
-[ext_resource type="PackedScene" path="res://project/01_parts/CursorSelectable.tscn" id="1_65ljg"]
-[ext_resource type="Script" path="res://project/01_parts/itemselect/ItemCSel.gd" id="2_6xo25"]
-
-[node name="ItemCSel" instance=ExtResource("1_65ljg")]
-script = ExtResource("2_6xo25")
-row_res = null
-items = null

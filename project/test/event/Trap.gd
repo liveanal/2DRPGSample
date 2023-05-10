@@ -13,7 +13,7 @@ func _on_event_process(parent):
 	# ダメージ処理
 	parent.damaged_calc(get_damage_data())
 	# メッセージ表示
-	await DialogSystem.open_dialog(self,get_message_data(parent),0.4)
+	await System.open_dialog(self,get_message_data(parent),0.4)
 	# 処理再開
 	if parent!=null:
 		parent.collision.set_deferred("disabled",false)

@@ -1,30 +1,21 @@
-[gd_scene load_steps=54 format=3 uid="uid://4k8f0vgl4c3g"]
+[gd_scene load_steps=51 format=3 uid="uid://c5hb7bmhrichl"]
 
-[ext_resource type="PackedScene" uid="uid://du82xyhoi8bd0" path="res://project/30_char/Character.tscn" id="1_7cl3v"]
+[ext_resource type="PackedScene" uid="uid://n1wrawj8ldkr" path="res://project/template/node/char/Character.tscn" id="1_7cl3v"]
 [ext_resource type="Script" path="res://project/test/char/Player.gd" id="2_mucx8"]
-[ext_resource type="Script" path="res://project/30_char/metadata/CharData.gd" id="3_8px3m"]
-[ext_resource type="Texture2D" uid="uid://c83hgv6ksxss" path="res://resource/icon.svg" id="4_a5ycm"]
-[ext_resource type="Script" path="res://project/01_parts/SMenuEntry.gd" id="5_ejx2o"]
+[ext_resource type="Script" path="res://project/template/node/char/data/CharData.gd" id="3_4lbiq"]
 
-[sub_resource type="Resource" id="Resource_0tfpu"]
-script = ExtResource("5_ejx2o")
-icon = ExtResource("4_a5ycm")
-name = "ダブルアタック"
-description = "攻撃を瞬時に2回繰り出す"
-call_func = "call_test"
-call_args = []
-
-[sub_resource type="Resource" id="Resource_ogmk4"]
-script = ExtResource("3_8px3m")
+[sub_resource type="Resource" id="Resource_yxxo6"]
+script = ExtResource("3_4lbiq")
 name = "Player"
 direction = Vector2(0, 1)
 money = 0
-inventory = Array[Resource("res://project/40_item/ItemBase.gd")]([])
-max_hp = 5
-hp = 5
-smenu1 = Array[ExtResource("5_ejx2o")]([SubResource("Resource_0tfpu"), null, null, null, null, null, null, null])
-smenu2 = Array[ExtResource("5_ejx2o")]([null, null, null, null, null, null, null, null])
-smenu3 = Array[ExtResource("5_ejx2o")]([null, null, null, null, null, null, null, null])
+inventory = Array[Resource("res://project/template/node/item/data/ItemData.gd")]([])
+spells = Array[Resource("res://project/template/node/spell/data/SpellData.gd")]([])
+max_hp = 3
+hp = 3
+smenu1 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
+smenu2 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
+smenu3 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vu3ts"]
 resource_local_to_scene = true
@@ -244,11 +235,8 @@ graph_offset = Vector2(28, 200.702)
 [node name="Player" instance=ExtResource("1_7cl3v")]
 script = ExtResource("2_mucx8")
 move_mode = 3
-data = SubResource("Resource_ogmk4")
+data = SubResource("Resource_yxxo6")
 is_main = true
-
-[node name="texture" parent="." index="2"]
-frame = 2
 
 [node name="attack_effect" parent="." index="3"]
 texture_repeat = 1

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" uid="uid://bn2agksdawbel" path="res://project/template/system/menu/parts/MenuContent.tscn" id="1_l27a7"]
+[ext_resource type="Script" path="res://project/template/system/menu/parts/general/log/Logger.gd" id="2_em4u8"]
+[ext_resource type="PackedScene" uid="uid://c6osossu62tg5" path="res://project/template/node/scroll/Scrollable.tscn" id="3_f4bvd"]
+
+[node name="Logger" instance=ExtResource("1_l27a7")]
+script = ExtResource("2_em4u8")
+
+[node name="Scrollable" parent="." index="0" instance=ExtResource("3_f4bvd")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+column_size = 2
+is_input = true
+scroll_speed = 50.0
