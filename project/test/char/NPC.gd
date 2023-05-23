@@ -10,7 +10,7 @@ func _ready():
 
 # 攻撃情報
 func _get_attack_data():
-	var atk := super._get_attack_data()
+	var atk := super.get_attack_data()
 	atk.force = 1
 	return atk
 

@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmq1uii5a76lf"]
+
+[ext_resource type="PackedScene" uid="uid://d3vkf1g00spkm" path="res://project/node/dialog/Dialog.tscn" id="1_1nf3o"]
+[ext_resource type="Texture2D" uid="uid://baemvef6a720m" path="res://resource/ui/pagenation.png" id="2_i3jij"]
+[ext_resource type="Texture2D" uid="uid://dnts7qmhsih6v" path="res://resource/ui/common_frame.png" id="2_j5b2f"]
+[ext_resource type="PackedScene" uid="uid://qpj3toafmuf3" path="res://project/node/select/general/LabelCSel.tscn" id="3_i0833"]
+[ext_resource type="Texture2D" uid="uid://ddlqquuupuka4" path="res://resource/ui/select_cursor.png" id="4_1kkfy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j4tsq"]
+texture = ExtResource("2_j5b2f")
+texture_margin_left = 8.0
+texture_margin_top = 16.0
+texture_margin_right = 8.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 240, 72)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlxe5"]
+texture = ExtResource("2_j5b2f")
+texture_margin_left = 8.0
+texture_margin_top = 16.0
+texture_margin_right = 8.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 240, 72)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm1jd"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="InfoDialog" node_paths=PackedStringArray("t_dialog", "t_pagenation", "t_selectable") instance=ExtResource("1_1nf3o")]
+t_dialog = NodePath("dialog/margin/label")
+t_pagenation = NodePath("pagenation")
+t_selectable = NodePath("selectable")
+pagenation_texture = ExtResource("2_i3jij")
+
+[node name="dialog" type="PanelContainer" parent="." index="0"]
+texture_filter = 1
+texture_repeat = 1
+offset_left = 30.0
+offset_top = 420.0
+offset_right = 930.0
+offset_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_j4tsq")
+
+[node name="margin" type="MarginContainer" parent="dialog" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="label" type="RichTextLabel" parent="dialog/margin" index="0"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+scroll_active = false
+
+[node name="pagenation" type="TextureRect" parent="." index="1"]
+offset_left = 902.0
+offset_top = 549.0
+offset_right = 942.0
+offset_bottom = 589.0
+expand_mode = 1
+
+[node name="selectable" parent="." index="2" instance=ExtResource("3_i0833")]
+texture_filter = 1
+texture_repeat = 1
+offset_left = 648.0
+offset_top = 311.0
+offset_right = 948.0
+offset_bottom = 442.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vlxe5")
+label_settings = SubResource("LabelSettings_jm1jd")
+cursor = ExtResource("4_1kkfy")
+cursor_scale = Vector2(0.1, 0.1)
+space_size = Vector2(40, 0)
+hide_scrollbar = true

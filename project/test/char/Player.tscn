@@ -1,21 +1,80 @@
-[gd_scene load_steps=51 format=3 uid="uid://c5hb7bmhrichl"]
+[gd_scene load_steps=65 format=3 uid="uid://b0fepk8mb2s4q"]
 
-[ext_resource type="PackedScene" uid="uid://n1wrawj8ldkr" path="res://project/template/node/char/Character.tscn" id="1_7cl3v"]
+[ext_resource type="PackedScene" uid="uid://nbeejrdymr0v" path="res://project/node/char/Character.tscn" id="1_7cl3v"]
 [ext_resource type="Script" path="res://project/test/char/Player.gd" id="2_mucx8"]
-[ext_resource type="Script" path="res://project/template/node/char/data/CharData.gd" id="3_4lbiq"]
+[ext_resource type="Script" path="res://project/node/char/data/CharData.gd" id="3_4lbiq"]
+[ext_resource type="Texture2D" uid="uid://d38fiix13ehgq" path="res://resource/icon/#1 - Transparent Icons.png" id="3_cx8su"]
+[ext_resource type="Script" path="res://project/test/item/Food.gd" id="4_2rpht"]
+[ext_resource type="Script" path="res://project/node/char/data/AttackData.gd" id="5_8vve7"]
+[ext_resource type="Script" path="res://project/test/item/MagicBook.gd" id="5_kilgj"]
+[ext_resource type="Texture2D" uid="uid://scw1bym2cgel" path="res://resource/icon/magic_icon.png" id="7_pgums"]
+[ext_resource type="Script" path="res://project/test/spell/Brear.gd" id="9_ohkml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kps46"]
+atlas = ExtResource("3_cx8su")
+region = Rect2(0, 448, 32, 32)
+
+[sub_resource type="Resource" id="Resource_imten"]
+script = ExtResource("4_2rpht")
+heal_point = 2
+item_id = "apple"
+icon = SubResource("AtlasTexture_kps46")
+name = "りんご"
+stackable = true
+count = 1
+description = "ふつうのりんご"
+menu = Array[int]([0, 1])
+
+[sub_resource type="Resource" id="Resource_bd0dg"]
+script = ExtResource("5_8vve7")
+char_name = ""
+force = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcr0d"]
+atlas = ExtResource("3_cx8su")
+region = Rect2(32, 416, 32, 32)
+
+[sub_resource type="Resource" id="Resource_px8ec"]
+script = ExtResource("5_kilgj")
+damage = SubResource("Resource_bd0dg")
+item_id = "magicbook"
+icon = SubResource("AtlasTexture_mcr0d")
+name = "魔法の本"
+stackable = true
+count = 5
+description = "読むと何かが起こる"
+menu = Array[int]([0, 1])
+
+[sub_resource type="Resource" id="Resource_m1iuw"]
+script = ExtResource("5_8vve7")
+char_name = "brear"
+force = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk727"]
+atlas = ExtResource("7_pgums")
+region = Rect2(254, 50, 113, 109)
+
+[sub_resource type="Resource" id="Resource_632fh"]
+script = ExtResource("9_ohkml")
+damage = SubResource("Resource_m1iuw")
+spell_id = "brear"
+icon = SubResource("AtlasTexture_gk727")
+name = "ブレア"
+cost = 3
+description = "火の玉を放つ。
+攻撃力：{dmg}"
 
 [sub_resource type="Resource" id="Resource_yxxo6"]
 script = ExtResource("3_4lbiq")
 name = "Player"
 direction = Vector2(0, 1)
 money = 0
-inventory = Array[Resource("res://project/template/node/item/data/ItemData.gd")]([])
-spells = Array[Resource("res://project/template/node/spell/data/SpellData.gd")]([])
 max_hp = 3
 hp = 3
-smenu1 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
-smenu2 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
-smenu3 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
+max_mp = 5
+mp = 5
+inventory = Array[Resource("res://project/node/item/data/ItemData.gd")]([SubResource("Resource_imten"), SubResource("Resource_px8ec")])
+spellbook = Array[Resource("res://project/node/spell/data/SpellData.gd")]([SubResource("Resource_632fh")])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vu3ts"]
 resource_local_to_scene = true
@@ -238,15 +297,18 @@ move_mode = 3
 data = SubResource("Resource_yxxo6")
 is_main = true
 
-[node name="attack_effect" parent="." index="3"]
+[node name="texture" parent="." index="1"]
+frame = 2
+
+[node name="attack_effect" parent="." index="2"]
 texture_repeat = 1
 
-[node name="collision" parent="." index="4"]
+[node name="collision" parent="." index="3"]
 shape = SubResource("CapsuleShape2D_vu3ts")
 
 [node name="collision" parent="body" index="0"]
 shape = SubResource("CapsuleShape2D_1fxlk")
 
-[node name="anim_tree" parent="." index="12"]
+[node name="anim_tree" parent="." index="8"]
 tree_root = SubResource("AnimationNodeStateMachine_63rgq")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_jc7ps")

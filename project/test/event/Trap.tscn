@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://nms65vwkabqs"]
 
-[ext_resource type="PackedScene" path="res://project/template/node/event/Event.tscn" id="1_wm6kp"]
+[ext_resource type="PackedScene" uid="uid://b4wuwsekn85cv" path="res://project/node/event/Event.tscn" id="1_wm6kp"]
 [ext_resource type="Script" path="res://project/test/event/Trap.gd" id="2_wmexe"]
 [ext_resource type="Texture2D" uid="uid://c83hgv6ksxss" path="res://resource/icon.svg" id="3_a4c8q"]
 

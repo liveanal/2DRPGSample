@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce8t85hjnnqjg"]
+
+[ext_resource type="PackedScene" path="res://project/node/select/OverlapSelectable.tscn" id="1_2rq40"]
+[ext_resource type="Script" path="res://project/node/spell/select/SpellOSel.gd" id="2_unowx"]
+[ext_resource type="PackedScene" uid="uid://bprvdss0enws3" path="res://project/node/spell/select/parts/SpellRow.tscn" id="3_jpfhw"]
+[ext_resource type="Texture2D" uid="uid://c83hgv6ksxss" path="res://resource/icon.svg" id="4_8btgr"]
+
+[node name="SpellOSel" instance=ExtResource("1_2rq40")]
+script = ExtResource("2_unowx")
+row_res = ExtResource("3_jpfhw")
+items = Array[Resource("res://project/node/spell/data/SpellData.gd")]([])
+cursor = ExtResource("4_8btgr")
+cursor_margin = Vector2(0, 0)
+color = Color(1, 1, 1, 0.313726)
+scroll_speed = 1.0
+
+[node name="margin" parent="." index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="contents" parent="margin/scroll" index="0"]
+size_flags_vertical = 1

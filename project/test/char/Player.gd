@@ -6,7 +6,7 @@ func _ready():
 
 # 攻撃情報
 func _get_attack_data():
-	var atk := super._get_attack_data()
+	var atk := super.get_attack_data()
 	atk.force = 1
 	return atk
 
@@ -43,19 +43,3 @@ func damaged_effect():
 		visible = !visible
 		await get_tree().create_timer(0.05).timeout
 	visible = true
-
-# ショートカットコールテスト
-func call_test():
-	# ポーズ
-	disable()
-	# 当たり判定無効
-	body_collision.set_deferred("disabled",true)
-	
-	# 攻撃
-	await attack()
-	await attack()
-	
-	# 再開
-	enable()
-	# 当たり判定有効
-	body_collision.set_deferred("disabled",false)

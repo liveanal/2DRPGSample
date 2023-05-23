@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0p74sjas2s2h"]
+
+[ext_resource type="Script" path="res://project/test/Main.gd" id="1_bo48s"]
+[ext_resource type="PackedScene" uid="uid://cdixg8dmt3c15" path="res://project/node/main/MainBase.tscn" id="1_g2dp1"]
+[ext_resource type="Texture2D" uid="uid://blojyq25vifmo" path="res://resource/splash/splash.png" id="2_7wh4w"]
+[ext_resource type="PackedScene" uid="uid://djuib1hxjkmbe" path="res://project/test/title/Title.tscn" id="3_tgeq0"]
+
+[node name="Main" instance=ExtResource("1_g2dp1")]
+script = ExtResource("1_bo48s")
+
+[node name="splash" type="TextureRect" parent="." index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7wh4w")
+expand_mode = 1
+
+[node name="title" parent="." index="1" instance=ExtResource("3_tgeq0")]
+visible = false

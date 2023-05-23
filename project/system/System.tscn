@@ -1,0 +1,50 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcvrt4rt5jfcd"]
+
+[ext_resource type="Script" path="res://project/system/System.gd" id="1_bb8ib"]
+[ext_resource type="PackedScene" path="res://project/node/fade/Fade.tscn" id="2_fbheo"]
+[ext_resource type="PackedScene" path="res://project/node/camera/CameraManager.tscn" id="3_dnnuf"]
+[ext_resource type="PackedScene" path="res://project/node/load/Loading.tscn" id="3_xtv3b"]
+[ext_resource type="PackedScene" uid="uid://cdilssdjckwk" path="res://project/node/menu/Menu.tscn" id="4_dckno"]
+[ext_resource type="Script" path="res://project/node/menu/data/MenuLabel.gd" id="5_vb1db"]
+
+[sub_resource type="Resource" id="Resource_fa4dn"]
+script = ExtResource("5_vb1db")
+label = "会話ログ"
+menu_type = 0
+
+[sub_resource type="Resource" id="Resource_j461v"]
+script = ExtResource("5_vb1db")
+label = "インベントリ"
+menu_type = 1
+
+[sub_resource type="Resource" id="Resource_r8yxj"]
+script = ExtResource("5_vb1db")
+label = "スキル"
+menu_type = 2
+
+[sub_resource type="Resource" id="Resource_qvgl6"]
+script = ExtResource("5_vb1db")
+label = "オプション"
+menu_type = 3
+
+[sub_resource type="Resource" id="Resource_wunky"]
+script = ExtResource("5_vb1db")
+label = "終了"
+menu_type = 4
+
+[node name="System" type="Node"]
+script = ExtResource("1_bb8ib")
+
+[node name="CameraManager" parent="." instance=ExtResource("3_dnnuf")]
+enabled = false
+
+[node name="Loading" parent="." instance=ExtResource("3_xtv3b")]
+layer = 128
+visible = false
+
+[node name="Fade" parent="." instance=ExtResource("2_fbheo")]
+visible = false
+
+[node name="Menu" parent="." instance=ExtResource("4_dckno")]
+visible = false
+labels = Array[ExtResource("5_vb1db")]([SubResource("Resource_fa4dn"), SubResource("Resource_j461v"), SubResource("Resource_r8yxj"), SubResource("Resource_qvgl6"), SubResource("Resource_wunky")])

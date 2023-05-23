@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://djlykvf3ed6q8"]
+
+[ext_resource type="PackedScene" uid="uid://cwq748ff683xt" path="res://project/node/select/CursorSelectable.tscn" id="1_d68dj"]
+[ext_resource type="Script" path="res://project/node/item/select/ItemCSel.gd" id="2_wixnj"]
+[ext_resource type="PackedScene" uid="uid://delr5rxj2h7op" path="res://project/node/item/select/parts/ItemRow.tscn" id="3_kbaj3"]
+
+[node name="ItemCSel" instance=ExtResource("1_d68dj")]
+script = ExtResource("2_wixnj")
+row_res = ExtResource("3_kbaj3")
+items = Array[Resource("res://project/node/item/data/ItemData.gd")]([])
+cursor_offset = Vector2(0, 0)
+
+[node name="margin" parent="." index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="contents" parent="margin/scroll" index="0"]
+size_flags_vertical = 1

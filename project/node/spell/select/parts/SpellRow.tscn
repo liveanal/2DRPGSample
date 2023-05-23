@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bprvdss0enws3"]
+
+[ext_resource type="Script" path="res://project/node/spell/select/parts/SpellRow.gd" id="1_7yuvq"]
+
+[node name="SpellRow" type="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+script = ExtResource("1_7yuvq")
+
+[node name="texture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+vertical_alignment = 1
+
+[node name="cost" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+vertical_alignment = 1

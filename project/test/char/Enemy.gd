@@ -18,7 +18,7 @@ func _ready():
 
 # 攻撃情報
 func _get_attack_data():
-	var atk := super._get_attack_data()
+	var atk := super.get_attack_data()
 	atk.force = 1
 	return atk
 
@@ -64,7 +64,7 @@ func _on_find_player(_area):
 		navigate_point = find_player.position
 		move_mode = MOVE_MODE.NAV
 		find_timer.start()
-		balloon_img("default")
+		# balloon_img("default")
 
 # Navigate更新処理
 func _on_update_navigate():

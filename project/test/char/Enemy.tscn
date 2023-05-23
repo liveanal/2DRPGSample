@@ -1,20 +1,18 @@
-[gd_scene load_steps=52 format=3 uid="uid://c68rn5xhbamwk"]
+[gd_scene load_steps=52 format=3 uid="uid://cunt50off3b84"]
 
-[ext_resource type="PackedScene" uid="uid://n1wrawj8ldkr" path="res://project/template/node/char/Character.tscn" id="1_sl2y3"]
+[ext_resource type="PackedScene" uid="uid://nbeejrdymr0v" path="res://project/node/char/Character.tscn" id="1_sl2y3"]
 [ext_resource type="Script" path="res://project/test/char/Enemy.gd" id="2_fdmbd"]
-[ext_resource type="Script" path="res://project/template/node/char/data/CharData.gd" id="3_u5lda"]
+[ext_resource type="Script" path="res://project/node/char/data/CharData.gd" id="3_u5lda"]
 
 [sub_resource type="Resource" id="Resource_daqto"]
 script = ExtResource("3_u5lda")
 name = "Enemy"
 direction = Vector2(0, 1)
 money = 0
-inventory = Array[Resource("res://project/template/node/item/data/ItemData.gd")]([])
 max_hp = 3
 hp = 3
-smenu1 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
-smenu2 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
-smenu3 = Array[Resource("res://project/template/node/smenu/data/SMenuData.gd")]([null, null, null, null, null, null, null, null])
+inventory = Array[Resource("res://project/node/item/data/ItemData.gd")]([])
+spells = Array[Resource("res://project/node/spell/data/SpellData.gd")]([])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vp7ff"]
 resource_local_to_scene = true
@@ -234,29 +232,26 @@ graph_offset = Vector2(28, 200.702)
 [sub_resource type="CircleShape2D" id="CircleShape2D_js2v0"]
 radius = 6.28323
 
-[node name="Enemy" instance=ExtResource("1_sl2y3")]
+[node name="Enemy" groups=["Enemy"] instance=ExtResource("1_sl2y3")]
 script = ExtResource("2_fdmbd")
 move_mode = 0
 navigate_point = Vector2i(64, 64)
 data = SubResource("Resource_daqto")
 
-[node name="texture" parent="." index="2"]
-frame = 2
-
-[node name="collision" parent="." index="4"]
+[node name="collision" parent="." index="3"]
 shape = SubResource("CapsuleShape2D_vp7ff")
 
 [node name="collision" parent="body" index="0"]
 shape = SubResource("CapsuleShape2D_rai6i")
 
-[node name="navigation" parent="." index="8"]
+[node name="navigation" parent="." index="7"]
 avoidance_enabled = false
 
-[node name="anim_tree" parent="." index="12"]
+[node name="anim_tree" parent="." index="8"]
 tree_root = SubResource("AnimationNodeStateMachine_nplfl")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_22ge0")
 
-[node name="find_area" type="Area2D" parent="." index="14"]
+[node name="find_area" type="Area2D" parent="." index="10"]
 collision_layer = 0
 collision_mask = 2
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpislcro6lnre"]
+
+[ext_resource type="PackedScene" uid="uid://cwq748ff683xt" path="res://project/node/select/CursorSelectable.tscn" id="1_2a6gx"]
+[ext_resource type="Script" path="res://project/node/spell/select/SpellCSel.gd" id="2_xvimj"]
+[ext_resource type="PackedScene" uid="uid://bprvdss0enws3" path="res://project/node/spell/select/parts/SpellRow.tscn" id="3_yjicj"]
+
+[node name="SpellCSel" instance=ExtResource("1_2a6gx")]
+script = ExtResource("2_xvimj")
+row_res = ExtResource("3_yjicj")
+items = Array[Resource("res://project/node/spell/data/SpellData.gd")]([])
+cursor_offset = Vector2(0, 0)
+scroll_speed = 1.0
+
+[node name="margin" parent="." index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="contents" parent="margin/scroll" index="0"]
+size_flags_vertical = 1

@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbl7twh2k6a0u"]
+
+[ext_resource type="Script" path="res://project/node/item/shop/parts/ShopRow.gd" id="1_nq3cf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4k440"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfpi1"]
+font_color = Color(1, 0.588235, 0, 1)
+outline_size = 2
+outline_color = Color(1, 0.583333, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n85bm"]
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_psy68"]
+font_color = Color(1, 0, 0, 1)
+
+[node name="ShopRow" type="PanelContainer"]
+custom_minimum_size = Vector2(250, 0)
+offset_right = 250.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+script = ExtResource("1_nq3cf")
+texture_size = Vector2(50, 50)
+label_default = SubResource("LabelSettings_4k440")
+label_select = SubResource("LabelSettings_cfpi1")
+cost_buy = SubResource("LabelSettings_n85bm")
+cost_sell = SubResource("LabelSettings_psy68")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="content" type="HBoxContainer" parent="margin"]
+layout_mode = 2
+
+[node name="texture" type="TextureRect" parent="margin/content"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="content" type="VBoxContainer" parent="margin/content"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="main" type="HBoxContainer" parent="margin/content/content"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label" type="Label" parent="margin/content/content/main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="count" type="Label" parent="margin/content/content/main"]
+layout_mode = 2
+size_flags_vertical = 1
+vertical_alignment = 1
+
+[node name="sub" type="HBoxContainer" parent="margin/content/content"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="cost" type="Label" parent="margin/content/content/sub"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+vertical_alignment = 1
